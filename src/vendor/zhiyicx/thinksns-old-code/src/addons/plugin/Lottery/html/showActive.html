@@ -1,0 +1,91 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>flash抽奖转盘通用模板</title>
+<style type="text/css">
+#flashContent { width:510px; height:510px; }
+#layer { background:#f5f5f5; border:#000 solid 1px; padding:20px; position:absolute; left:50%; top:50%; display:none; }
+</style>
+</head>
+<script src="__THEME__/js/jquery.js?v={$site.sys_version}"></script>
+
+<body>
+<div id="flashContent"></div>
+<div id="layer">
+  <p></p>
+  设置中奖奖品：
+  <select name="select" id="select">
+    <option value="1" selected>1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+  </select>
+  <input type="button" onclick="loadFlash($('#select').val());$(this).parents('#layer').hide()") value="重新抽奖" />
+</div>
+
+<script>
+flashHoler = "flashContent"     //加载flash的容器ID
+autoPlay = "no"                 //初始化时是否自动旋转，"yes" or "no"
+setPointer="yes" 				//初始化时是否设置鼠标指针，"yes" or "no"
+url_bg = "{:SITE_URL}/src/vendor/zhiyicx/thinksns-old-code/src/addons/plugin/Lottery/html/image/bg.png";              //转盘背景图片
+url_prize = "{:SITE_URL}/src/vendor/zhiyicx/thinksns-old-code/src/addons/plugin/Lottery/html/image/prize.png";        //奖品图片
+url_pointer = "{:SITE_URL}/src/vendor/zhiyicx/thinksns-old-code/src/addons/plugin/Lottery/html/image/pointer.png";    //指针图片
+url_btnStart = "{:SITE_URL}/src/vendor/zhiyicx/thinksns-old-code/src/addons/plugin/Lottery/html/image/btnStart.gif";  //开始按钮图片，可以是图片或flash
+url_btnOver = "{:SITE_URL}/src/vendor/zhiyicx/thinksns-old-code/src/addons/plugin/Lottery/html/image/btnOver.gif";    //鼠标经过图片
+url_btnWait = "{:SITE_URL}/src/vendor/zhiyicx/thinksns-old-code/src/addons/plugin/Lottery/html/image/btnWait.gif";    //旋转过程中按钮图片
+url_btnSuc = "{:SITE_URL}/src/vendor/zhiyicx/thinksns-old-code/src/addons/plugin/Lottery/html/image/btnSuc.gif";      //旋转结束后按钮图片
+W_bg = "510";                   //背景图片尺寸
+W_btn = "124";                  //按钮图片尺寸
+W_pointer = "150";              //指针图片宽度
+H_pointer = "255";              //指针图片高度
+totleNum = 10;                  //奖品个数
+turns = 5;                      //旋转圈数
+stopNum = "{$stopNum}";                    //中奖奖品 
+</script>
+
+
+<script>
+function flashOver(stopNum){
+	var active_id = "{$active_id}";
+	var goods_id  = "{$goods_id}";
+	var ag_id     = "{$ag_id}";
+	var user_sign = "{$user_sign}";
+	//var phone     = "15915875289";
+	//var address   = "广东省湛江市";
+	$("#layer p").html("恭喜中得：" + stopNum +"号奖品！");
+	$.post("{:Addons::createAddonUrl('Lottery','insertLottery')}", {stopNum:stopNum, active_id:active_id, goods_id:goods_id, ag_id:ag_id, user_sign:user_sign}, function(res) {
+	      if(res.status == 1) {
+	        ui.success(res.info);
+	        ids = ids.split(',');
+	        for(i = 0; i < ids.length; i++) {
+	          $('#ad_space_'+ids[i]).remove();
+	        }
+	      } else {
+	        ui.error(res.info);
+	      }
+	      return false;
+	    }, 'json');
+	$("#layer").show();
+};
+function loadFlash(stopNum){
+	flashStr = "<object classid=clsid:d27cdb6e-ae6d-11cf-96b8-444553540000 codebase=http:\/\/fpdownload.macromedia.com\/pub\/shockwave\/cabs\/flash\/swflash.cab#version=8,0,0,0 width=510 height=510 id=flashvars>"+
+			   "  <param name=movie value={:SITE_URL}/src/vendor/zhiyicx/thinksns-old-code/src/addons/plugin/Lottery/html/image/flash.swf \/>"+
+			   "  <param name=FlashVars value=\"stopNum="+ stopNum +"&autoPlay="+ autoPlay +"&setPointer="+ setPointer +"&url_bg="+ url_bg +"&url_prize="+ url_prize +"&url_pointer="+ url_pointer +"&url_btnStart="+ url_btnStart +"&url_btnOver="+ url_btnOver +"&url_btnWait="+ url_btnWait +"&url_btnSuc="+ url_btnSuc +"&W_bg="+ W_bg +"&W_btn="+ W_btn +"&W_pointer="+ W_pointer +"&H_pointer="+ H_pointer +"&totleNum="+ totleNum +"&turns="+ turns +"\" \/>"+
+			   "  <param name=quality value=high \/>"+
+			   "  <param name=wmode value=transparent \/>"+
+			   "  <embed src={:SITE_URL}/src/vendor/zhiyicx/thinksns-old-code/src/addons/plugin/Lottery/html/image/flash.swf FlashVars=\"stopNum="+ stopNum +"&autoPlay="+ autoPlay +"&setPointer="+ setPointer +"&url_bg="+ url_bg +"&url_prize="+ url_prize +"&url_pointer="+ url_pointer +"&url_btnStart="+ url_btnStart +"&url_btnOver="+ url_btnOver +"&url_btnWait="+ url_btnWait +"&url_btnSuc="+ url_btnSuc +"&W_bg="+ W_bg +"&W_btn="+ W_btn +"&W_pointer="+ W_pointer +"&H_pointer="+ H_pointer +"&totleNum="+ totleNum +"&turns="+ turns +"\" quality=high wmode=transparent width=510 height=510 name=flashvars type=application\/x-shockwave-flash pluginspage=http:\/\/www.macromedia.com\/go\/getflashplayer \/>"+
+			   "<\/object>"+
+			   "<style type=\"text\/css\">:focus {outline:0;}<\/style>"
+	document.getElementById(flashHoler).innerHTML = flashStr;
+};loadFlash(stopNum);
+</script>
+
+</body>
+</html>

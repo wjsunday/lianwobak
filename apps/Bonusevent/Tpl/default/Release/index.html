@@ -1,0 +1,144 @@
+<?php use Apps\Bonusevent\Common; ?>
+<include file="__THEME__/public_header" />
+<include file="../common/nav" />
+<!-- 内容区域 -->
+<div class="hd-worap">
+	<h2 class="hd-cjtitle">发布活动</h2>
+	<div class="box1">
+		<div class="elist">
+			<dl class="hd-add_event" id="J-input">
+				<dd>
+					<label class="hd-input">
+						<span class="hd-txt_impt">*</span>活动名称：
+					</label>
+					<div class="hd-c2">
+						<input class="hd-cjtext hd-cjtextl" type="text" id="J-title" name="title" placeholder="请输入活动标题" >
+					</div>
+				</dd>
+				<dd>
+					<label>
+						<span class="hd-txt_impt">*</span>活动时间：
+					</label>
+					<div class="hd-tomebox">
+						<p class="hd-timet"><span>开始时间：</span><span>结束时间：</span></p>
+						<!-- 开始时间 -->
+						<input class="hd-cjtext hd-cjtexts hd-cale" type="date" name="sdate" placeholder="选择开始日期" >
+						<input class="hd-cjtext hd-cjtexts hd-time" style="margin-right:0;" type="time" name="stime" placeholder="选择开始时间">
+						<!-- 结束时间 -->
+						<label class="hd-timetip">&nbsp;至&nbsp;</label>
+						<input class="hd-cjtext hd-cjtexts hd-cale" type="date" name="edate" placeholder="选择结束日期" >
+						<input class="hd-cjtext hd-cjtexts hd-time" style="margin-right:0;" type="time" name="etime" placeholder="选择结束时间">
+					</div>
+				</dd>
+				<dd>
+					<label class="hd-input">
+						<span class="hd-txt_impt">*</span>活动城市：
+					</label>
+					<div class="hd-c2 position-r" id="J-area" data-uri="{:U('Bonusevent/Release/getArea')}">
+						<!-- 地区 -->
+						<select class="hd-cjtext hd-mapbox hd-mapprovince" id="J-area-area" name="area" data-item="#J-area-city">
+							<option value="0">请选择</option>
+						</select>
+						<!-- 市区 -->
+						<select class="hd-cjtext hd-mapbox hd-mapprovince" id="J-area-city" name="city">
+							<option value="0">请选择</option>
+						</select>
+						<!-- 详细地址 -->
+						<input class="hd-cjtext hd-maparea" type="text" name="address" placeholder="输入详细地址">
+						<div class="hd-fbmapico">
+							<img src="__APP__/image/map-ico.png" width="22" height="22" alt="maps-icon">
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<label class="hd-input">
+						<span class="hd-txt_impt">*</span>活动场所：
+					</label>
+					<div class="hd-c2">
+						<input class="hd-cjtext hd-cjtextl" type="text" name="place" placeholder="请输入活动所在场所名称">
+					</div>
+				</dd>
+				<dd>
+					<label>
+						<span class="hd-txt_impt">*</span>活动封面：
+					</label>
+					<div class="hd-c2 hd-posterbox">
+						<div class="hd-posterimg" style="position: relative;">活动封面
+							<img id="J-image-preview" style="position: absolute;top: 0;left: 0;width: 100%;height: 100%; display: none;" src="" alt="预览">
+						</div>
+						<div class="hd-postertext">
+							<div class="hd-posterfile">
+								<input id="J-file-upload"
+								       type="file" 
+								       name="poster-input" 
+								       data-input="#J-image" 
+								       data-preview="#J-image-preview" 
+								       data-js="__APP__/js/ajaxfileupload.js" 
+								       data-url="{:U('Bonusevent/Release/uploadImage')}" 
+								       data-preview-url="__UPLOAD__/"
+								>
+								<input id="J-image" type="hidden" name="image">
+								<div class="hd-posterspan">上传图片</div>
+							</div>
+							<p> 温馨提示：<br/>可以点击上传选择图片<br/>一张漂亮的海报，能让你的活动锦上添花，带来更多用户报名<br/>即增加传播效果，也将影响其在活动APP被推荐的几率</p>
+						</div>
+					</div>
+				</dd>
+				<dd>
+					<label class="hd-input">
+						<span class="hd-txt_impt"> </span>活动人数：
+					</label>
+					<div class="hd-c2">
+						<input class="hd-cjtext hd-cjtextl" type="text" name="mainNumber" placeholder="请输入活动所需人数，如果输入0或者不输入，则表示不限制">
+					</div>
+				</dd>
+				<dd>
+					<label class="hd-input">
+						<span class="hd-txt_impt">*</span>活动费用：
+					</label>
+					<div class="hd-c2">
+						<input class="hd-cjtext hd-costs" type="number" min="0" sleep="1" name="price" placeholder="活动所需金额">
+						<input class="hd-cjtext hd-costl" type="text" name="tips" placeholder="请输入费用说明">
+					</div>
+				</dd>
+				<dd>
+					<label class="hd-input">
+						<span class="hd-txt_impt">*</span>活动类型：
+					</label>
+					<div class="hd-c2">
+						<select class="hd-cjtext hd-cjtype" name="cate">
+							<option value="0">请选择</option>
+							<?php foreach($cates as $cate) { ?>
+								<option value="{$cate['cid']}">{$cate['name']}</option>
+							<?php } ?>
+						</select>
+					</div>
+				</dd>
+				<dd>
+					<label>
+						<span class="hd-txt_impt">*</span>活动权限：
+					</label>
+					<div class="hd-c2">
+						<input type="checkbox" class="hd-checkbox" id="J-audit" name="audit" value="1">&nbsp;参与活动是否需要审核
+					</div>
+				</dd>
+				<dd>
+					<label>
+						<span class="hd-txt_impt">*</span>详细内容：
+					</label>
+					<div class="hd-c2">
+						{:W('UM', array('contentName' => 'content', 'width' => 860, 'type' => 'event'))}
+						<!-- EditorList.event.getContent(); -->
+					</div>
+				</dd>
+				<dd>
+					<label>&nbsp;</label>
+					<div class="hd-c2">
+						<button class="hd-fbsubmit" id="J-button" style="cursor: pointer;" type="submit" data-uri="{:U('Bonusevent/Release/submit')}">发布活动</button>
+					</div>
+				</dd>
+			</dl>
+		</div>
+	</div>
+</div>
+<include file="__THEME__/public_footer" />

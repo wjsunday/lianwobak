@@ -1,0 +1,302 @@
+<include file="__THEME__/public_header" />
+<link href="__APP__/account.css" rel="stylesheet" type="text/css" />
+<link href="__APP__/css/base.css" rel="stylesheet" type="text/css" />
+<link href="__APP__/css/help.css" rel="stylesheet" type="text/css" />
+<!-- <link rel="stylesheet" type="text/css" href="__APP__/css/help.css"/> -->
+<div id="page-wrap">
+  <div id="main-wrap">
+    <div id="col" class="st-grid content-bg st-bg-b cc">
+      <div id="col4" class="main-left">
+        <!--tab菜单-->
+        <include file="_tabs" />
+      </div>
+      <div id="col7" class="main-right">
+        <div class="extend minh person-set">
+          <div class="set-hd"><h3>VIP续费</h3></div>
+          <div class="set-item-title f9"><font color="red"> * </font>续费每个月都按30天计算</div>
+
+
+<!--js区域-->
+<script src="__APP__/js/jquery-1.8.1.min.js"></script>
+<script>
+$(document).ready(function(e) {
+
+    $('.srkk').attr('disabled',true);
+
+    $(".fwmc_xxk li").click(function(){
+    //var fw_price = $(this).children("i").text();
+    //var fw_numb = $(".srkk").val();
+    //var fw_tal = fw_price*fw_numb;
+    //$(".zwfb_zje span").text(fw_tal);
+    $(this).addClass("on").siblings().removeClass("on");
+    tola();
+    });
+  //加
+  $(".jia").click(function(){
+    var fw_numb = $(".srkk").val(); 
+    fw_numb++;
+    $(".srkk").val(fw_numb);    
+    /*$(".fwmc_xxk li").each(function() {
+            if($(this).hasClass("on")){
+        var dqzt_price = $(this).children("i").text();
+        //alert(dqzt_price);
+        var zgsj_jia = dqzt_price*fw_numb;
+        $(".zwfb_zje span").text(zgsj_jia);
+        }
+        }); */
+    tola();
+    })
+   
+
+  //减
+  $(".jian").click(function(){
+    var fw_numb = $(".srkk").val(); 
+    if(fw_numb <= 1){
+      return flase;
+      }else{
+    fw_numb--;
+    $(".srkk").val(fw_numb);    
+      }
+    /*$(".fwmc_xxk li").each(function() {
+            if($(this).hasClass("on")){
+        var dqzt_price = $(this).children("i").text();
+        //alert(dqzt_price);
+        var zgsj_jia = dqzt_price*fw_numb;
+        $(".zwfb_zje span").text(zgsj_jia);
+        }
+        }); */
+    tola();
+    }) ;
+
+     $("input[name='time']").click(function(){
+
+      tola();
+     })
+   
+  
+});
+    
+
+function tola(){
+    var $li = $(".fwmc_xxk").children("li.on");
+    var money = $li.children("i").text();
+    var count = $(".srkk").val();
+    var sel = $("input[name='time']:checked").val();
+    if(sel == 1){
+      $(".zwfb_zje span").text(money*count);
+    }else if(sel == 2){
+      $(".zwfb_zje span").text(money*count*3);
+    }else{
+      $(".zwfb_zje span").text(money*count*12);
+    }
+
+}
+
+</script>
+
+          
+          <div  class="fw_conent"> 
+          <!--内容开始------------------------------>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" class="zwfb_shop_table">
+              <tr valign="top">
+                <td align="right" width="70">VIP等级：</td>
+                <td><ul class="fwmc_xxk">
+                    
+                        <li id="abc" class="on">
+                        <input type="hidden" name="pid" value="{$pri.user_group_id}" />
+                        <p>{$pri.user_group_name}</p>
+                        <i>{$pri.vip_price}</i>元</li>
+                    
+                  </ul></td>
+              </tr>
+              <tr>
+                <td>支付方式：</td>
+                <td>
+                    <input type="radio" value="0" name="charge_type" checked=""  style="margin-right:2px;margin-left:20px">支付宝
+                    <input type="radio" value="1" name="charge_type" style="margin-right:2px;margin-left:15px">微信
+                    <input type="radio" value="2" name="charge_type" style="margin-right:2px;margin-left:15px">零用钱
+                </td>
+
+              </tr>
+              <tr>
+                <td height="20"></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td align="right">购买数量：</td>
+                <td><ul class="nmb_jj">
+                    <li class="jian">-</li>
+                    <li>
+                      <input name="num" type="text" value="1" class="srkk" />
+                    </li>
+                    <li class="jia">+</li>  
+                  </ul></td>
+              </tr>
+              <tr>
+                <td height="20"></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>购买时间：</td>
+                <td>
+                  <input style="margin-right:2px;margin-left:20px" type="radio" name="time" checked="" value="1" />月
+                  <input style="margin-right:2px;margin-left:15px" type="radio" name="time" value="2" />季
+                  <input style="margin-right:2px;margin-left:15px" type="radio" name="time" value="3" />年
+                </td>
+              </tr>
+              
+              <tr>
+                <td height="20"></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td align="right">价格：</td>
+                <td><div class="zwfb_zje"><span>{$pri.vip_price}</span> <i>元</i></div></td>
+              </tr>
+              <tr>
+                <td height="20"></td>
+                <td></td>
+              </tr>
+              <form action="{:U('public/Account/vip_pay')}" method="">
+              <tr>
+                <td></td>
+                <td><a class="ty_but ml20" id="pay" href="javascript:;">购 买</a></td>
+              </tr>
+              </form>
+            </table>
+            <div class="gmxz_tip"> 购买须知：
+              <p>1.服务购买后有效期为自购买之日起24个月，过期将会自动作废。</p>
+              <p> 2.本次服务购买后即生效，不支持退费服务。</p>
+            </div>
+            
+            <!--内容结束------------------------------> 
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ <style type="text/css">
+    .sx_login{ width:350px; height:363px; background:#FFF; border:#CCC solid 1px; float:right; /*margin-right:170px; margin-top:53px;*/ display:inline;}
+    .sx_login div{ width:244px; margin:auto;}
+    .sx_login h1{ height:30px; line-height:30px; margin-top:55px;}
+    .sx_login h1 label{ float:left; font-family:"微软雅黑"; font-size:18px;}
+    .sx_login h1 span{ float:right; font-size:12px; color:#999999; margin-top:5px;}
+    .sx_login li{ width:244px; height:30px; line-height:17px; margin-top:5px;}
+    .sx_login li .yhm{ width:230px; height:30px; line-height:30px; border:#666 solid 1px; background:url(__IMG__ioc.png) repeat-x left -1px;padding-left:30px; color:#ccc;}
+    .sx_login li .mm{ width:230px; height:30px; line-height:30px; border:#666 solid 1px; background:url(__IMG__ioc.png) repeat-x left -36px; padding-left:30px; color:#000;}
+    .sx_login li .redd{border:#900 solid 1px;}
+    .sx_login .red{ color:#990000; font-size:12px;}
+    .sx_login li .left{ float:left; height:30px; line-height:30px;}
+    .sx_login li label{ float:left; font-size:12px;}
+    .sx_login li span{ float:right;}
+    .sx_login li span a{  font-size:12px; color:#999999;}
+    .sx_login .bg{ }
+    .bg input{color:#FFF; font-family:"微软雅黑"; font-size:18px; letter-spacing:5px;background:#169ed8;width: 245px;border: none;cursor: pointer;}
+    .bottom{ height:70px; text-align:center; line-height:70px; border-top:#CCC solid 1px; font-size:12px;}
+    .hide{display: none}
+
+    h2{font-size:20px}
+    .popup{position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: 100;}
+    .popupback{position: absolute;top: 0;left: 0;background-color: #000000;opacity: 0.5;width: 100%;height: 100%;}
+    .popupbox{position: absolute;top: 350px;left: 50%;background-color: #f4f4f4;width: 352px;height: 230px;}
+    .pr{margin: 0 20% 0 -13%;overflow:auto;}
+    .po{position: relative;}
+    .popup .close{position: absolute;right: 0;top: 0;width:32px;height:32px;z-index: 1001;background: url(__ROOT__/public/x.png) no-repeat #169ed8;}
+</style>
+<div class="popup" style="display:none">
+        <div class="popupvote" style="display: block;">
+        <div class="popupback"></div>
+            <div class="popupbox pr"><span class="close"></span>
+                <h2 style="text-align:center"><small></small></h2>
+                <p></p>
+                <div class="sx_login">
+                <div>
+                    <h1><label>支付密码</label><span>vip会员支付</span></h1>
+                    <ul>
+                        <li><input name="password" type="password" class="mm" value="" placeholder="请输入6位有效密码"/></li>
+                        <li><span><a href="login.html">忘记密码？</a></span></li>
+                        <li class="bg"><input type="button" id="pay_paw" value="确认"　/></li>
+                    </ul>   
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+$(function(){
+    $('#pay').click(function(){
+
+        var u_name = $('.on').find('p').html();//权限类型
+        var total = $('.zwfb_zje').find('span').html();//总价
+        var pid = $("input[name='pid']").val();
+        var charge_type = $("input[name='charge_type']:checked").val();//支付类型
+        var time = $("input[name='time']:checked").val();//时间
+        var num = $("input[name='num']").val();//数量
+        // alert(charge_type)
+
+        if(charge_type == 2){
+
+          $('.popup').show();
+        }
+
+        $.ajax({
+
+                url:"{:U('public/Account/vip_pay_ren')}",
+                data:{u_name:u_name,total:total,pid:pid,charge_type:charge_type,time:time,num:num},
+                type:'post',
+                dateType:'json',
+                success:function(res){
+                    if(res.status == 1){
+                      $('#pay_paw').click(function(){
+                        var paw = $("input[name='password']").val();
+                        var url = "{:U('public/Account/pay_ren')}";
+                        res.data['paw'] = paw;
+                        $.ajax({
+
+                              url:res.data['url'],
+                              data:res.data,
+                              type:'post',
+                              dateType:'json',
+                              success:function(msg){
+
+                                if(msg.data == 1){
+
+                                  alert('续费成功',window.location.href = U('public/Account/vip'));
+                                }else if(msg.data == -1){
+
+                                  // window.location.href = url;
+                                  alert('密码错误，请核对后重新输入')
+                                }else if(msg.data == -2){
+
+                                  alert('账户余额不足',window.location.href = U('public/Account/vip'));
+                                }else if(msg.data == -3){
+
+                                  alert('失败');
+                                }
+
+                              },
+
+
+                        });
+                      });
+                      
+
+                    }
+                  
+                },
+
+        });
+
+    });
+
+$('.close,.popupback').click(function(){
+        $('.popup').hide();
+    });
+
+
+
+});  
+</script>
+<include file="__THEME__/public_footer" />

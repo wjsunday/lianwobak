@@ -1,0 +1,29 @@
+<include file="__THEME__/public_header" />
+<div class="contentbox">
+  <div class="zx-ldetail">
+    <h1>{$subjectData.subject}</h1>
+    <div class="title-info">{:date('Y-m-d H:i:s', $subjectData['ctime'])}&nbsp;&nbsp;浏览量 {$subjectData['hits']}&nbsp;&nbsp;评论数  {$subjectData['commentNum']}</div>
+    <div class="zx-rundown"><strong>[摘要]</strong>&nbsp;{$subjectData.abstract}</div>
+    <div class="detailbox">{$subjectData.content}</div>
+    <div class="poster-control">
+      <div class="right">{:W('ThirdpartyShare')}</div>
+    </div>
+    <div class="reply" id="reply">
+      <div  class="feed_lists">
+        <dl class="feed_list feed_comment">
+          <dd class="content">
+            <div class="clearfix pading" id="ajax_reply_list" style="border-top: #e5e6e7 1px solid; padding-top: 15px;">
+              {:W('Comment', array('tpl' => 'detail', 'row_id' => $subjectData['id'], 'order' => 'DESC', 'app_uid' => $subjectData['author'], 'cancomment' => 1, 'cancomment_old' => 1, 'showlist' => 1, 'canrepost' => 1, 'table' => 'information_list', 'app_name' => 'Information'))}
+            </div>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <!-- 右侧推荐 -->
+  <div class="zx-right">
+    <include file="subjectTop" />
+    <include file="comentTop" />
+  </div>
+</div>
+<include file="__THEME__/public_footer" />

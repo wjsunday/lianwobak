@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>企业红包管理</title>
+</head>
+<style type="text/css">
+*{margin: 0 auto;}
+a{text-decoration: none;}
+ul,li{ list-style-type:none;-webkit-padding-start:0}
+.ping{background:url(__ROOT__/apps/bonus/_static/images/ping.png) left no-repeat; }
+.clear{clear: both;}
+.header_left{height: 1000px;background: #2a2d33;width: 200px;float: left;}	
+.guanli{background: #2E4C8C;height: 80px;font-size: 24px;line-height: 80px;color: #fff;padding-left: 30px;}
+.header_left ul li{line-height: 50px;font-size: 18px;cursor: pointer;}
+.header_left ul li a{padding-left: 30px;color: #9E9E9E;height: 50px;display: block;}
+.header_left ul li a:hover{color: #fff;}
+.header_left ul li:hover{background: #656C7E;}
+.header{height: 80px;background: #fff;}	
+.header ul li{float: left; height: 50px;width: 100px;text-align: center;line-height: 50px;margin-top: 15px;margin-left:20px;}
+.header ul li a{font-size: 18px;display: block;color: #9E9E9E}
+.header ul li a:hover{color: blue}
+.header .user{float: right;margin-right: 150px;margin-top: 15px;height: 50px;line-height: 50px;}
+.header .user img{width: 50px;height: 50px;border-radius: 50%;}
+.header .user span{font-size: 20px;display: block;float: right;margin-left: 10px;}
+.content{width: 80%;background: #fff;margin:30px 230px;}
+.content .lineD{border-bottom: 1px dashed #e2e2e2;}
+.form2 { padding-top:10px; margin-bottom: 10px; -webkit-box-shadow: 1px 1px 1px #F3F3F3,; -moz-box-shadow: 1px 1px 1px #F3F3F3; box-shadow: 1px 1px 1px #F3F3F3;background:#fff; padding-left:10px;}
+.form2 h3 { line-height:30px; font-size:12px; color:#333; margin:10px 0;overflow:hidden;*zoom:1; padding-left:10px; }
+.form2 dl {overflow:hidden;zoom:1;}
+.form2 dt {color: #333333;float: left;height: 28px;line-height: 28px;margin: 0;padding: 8px 0;text-align: right;width: 170px}
+.form2 dt span { color:#F00 }
+.form2 dd { margin-left:175px; padding:8px 0 8px 5px;line-height:28px;vertical-align:middle }
+.form2 dd label{float:left;float:none\0;}
+.form2 dd select{margin:0 5px 0 0}
+.form2 dd select option{line-height:28px}
+.form2 p { color:#7d7d7d; line-height:20px; margin:0; padding:0 }
+.s-txt{font-size: 12px;height: 16px;line-height: 16px;padding: 6px 4px;margin: 0 5px 0 0;border: #dcdcdc solid 1px;border-top-color: #B5B5B5;color: #535353;}
+.btn_b{height: 30px;line-height: 30px;color: #fff;font-size: 12px;width: 70px;padding: 0;text-align: center;background-color: #3589F1;background-repeat: repeat-x;text-decoration: none;-webkit-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;cursor: pointer;}
+.qrcode{height: 200px;width: 500px;background: #fff;}
+.qrcode .qrcode_img{width: 200px;height: 200px;float: left;}
+.qrcode .bonus_info{width: 300px;float: right;}
+.qrcode .bonus_info dl{overflow:hidden;zoom:1;}
+.qrcode .bonus_info dt {color: #333333;float: left;height: 28px;line-height: 28px;margin: 0;padding: 8px 0;text-align: right;width: 130px}
+.qrcode .bonus_info dd { padding:8px 0 8px 5px;line-height:28px;vertical-align:middle }
+.qrcode .bonus_info dd span{margin-left:10px; }
+</style>
+<body style="background: #f7f7f7">
+<div class="header_left">
+	<div class="guanli">企业管理中心</div>
+	<ul>
+		<li><a href="#">发红包</a></li>
+		<li><a href="#">发红包</a></li>
+		<li><a href="#">发红包</a></li>
+		<li><a href="#">发红包</a></li>
+		<li><a href="#">发红包</a></li>
+	</ul>
+</div>
+<div class="header">
+	<ul>
+		<li><a href="#">发红包</a></li>
+		<li><a href="#">发红包</a></li>
+		<li><a href="#">发红包</a></li>
+		<li><a href="#">发红包</a></li>
+		<li><a href="#">发红包</a></li>
+	</ul>
+	<div class="user">
+		<img src="{$user['avatar']}">
+		<span>{$user['uName']}</span>
+	</div>
+</div>
+<div class="content">
+	<div class="form2">
+	<form method="post" action="{:U('public/Bonus/doSendRedpacket')}" id="doSendRedpacketForm" onsubmit="return doPost()">
+	<input type="hidden" id="mytxt" value="{$getBonus['code']}">
+	<dl class="lineD">
+		<dt>红包类型 ：</dt>
+		<dd>
+			<label><input name="money_type" type="radio" value="1" />零用钱</label>
+			<label><input name="money_type" type="radio" value="2" />财源币</label>
+		</dd>
+	</dl>
+	<dl class="lineD">
+		<dt>红包个数 ：</dt>
+		<dd><input type="text" class="s-txt" style="width:200px; padding-left:25px" name="redpacket_many" id="redpacket_many" value="" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"> 个</dd>
+	</dl>
+	<dl class="lineD">
+		<dt id='show_money_type'>单个金额 ：</dt>
+		<dd><input type="text" class="s-txt" style="width:200px; padding-left:25px;" name="redpacket_pre_money"  id="redpacket_pre_money" value="" onkeyup="value=value.replace(/[^\d.]/g,'')"> 元
+		<p id="show_money_type_msg">每人一天可领1个，金额相同且不能超过{$setting['redpacket_max_money']}元，<span id="changeRedpacketType" style="color:#09F; cursor:pointer">改为拼手气红包</span></p></dd>
+	</dl>
+
+	<dl class="lineD">
+		<dt>留言：</dt>
+		<dd><input type="text" class="s-txt" style="width:200px; padding-left:25px" name="redpacket_msg" id="redpacket_msg" value="恭喜发财，大吉大利！"></dd>
+	</dl>
+	<dl class="lineD">
+		<dt></dt>
+		<dd style="font-size:35px; font-weight:bold">￥<span id="total_amount">0.00</span><span id="total_amount_msg" style="font-size:13px; color:#f00; margin-left:30px;">0.00</span></dd>
+	</dl>
+	<div class="page_btm">
+	<input type="hidden" name="editredpacketType" id="editredpacketType" value="1">
+	<input type="hidden" name="editSubmit" value="1"> <input type="submit" class="btn_b" value="确定" id="doPost" /></div>
+	</form>
+	</div>
+</div>
+<div class="qrcode">
+	<div class="qrcode_img" id="code">
+		
+	</div>
+	<div class="bonus_info">
+		<dl class="lineD">
+			<dt>已发零用钱 ：</dt>
+			<dd><span>{$bonusCount['ubank']['total_amount']}元</span><span>{$bonusCount['ubank']['bonus_many']}个</span></dd>
+		</dl>
+		<dl class="lineD">
+			<dt>已抢零用钱 ：</dt>
+			<dd><span>{$getBonus['ubank']['bonus_money']}元</span><span>{$getBonus['ubank']['has_get']}个</span></dd>
+		</dl>
+		<dl class="lineD">
+			<dt>已发财源币 ：</dt>
+			<dd><span>{$bonusCount['cyb']['total_amount']}元</span><span>{$bonusCount['cyb']['bonus_many']}个</span></dd>
+		</dl>
+		<dl class="lineD">
+			<dt>已抢财源币 ：</dt>
+			<dd><span>{$getBonus['cyb']['bonus_money']}元</span><span>{$getBonus['cyb']['has_get']}个</span></dd>
+		</dl>
+	</div>
+</div>
+<script src="__APP__/js/jquery-1.8.1.min.js"></script>
+<script src="__APP__/js/jquery.qrcode.min.js"></script>
+<script>
+  //鼠标移动表格效果
+    $(document).ready(function(){
+							   
+		showtotal_amount();
+    });
+	
+	function showtotal_amount()
+	{
+		var redpacket_max_money = {$setting['redpacket_max_money']};
+		var editredpacketType = $.trim($('#editredpacketType').val());
+		var redpacket_many = $.trim($('#redpacket_many').val());
+		var redpacket_pre_money = $.trim($('#redpacket_pre_money').val());
+		
+		if (redpacket_many == '') redpacket_many =0;
+		if (redpacket_pre_money == '') redpacket_pre_money =0;
+		if (editredpacketType == '1')
+		{
+				total = (parseFloat(parseInt(redpacket_many) * parseFloat(redpacket_pre_money)).toFixed(2));
+		}else{
+				total = (parseFloat(redpacket_pre_money).toFixed(2));
+		}
+		
+		if (total > redpacket_max_money)
+		{ 
+			//ui.error('总金额不能超过'+redpacket_max_money);
+			$('#total_amount').html(total);
+			$('#total_amount_msg').html('总金额不能超过'+redpacket_max_money);
+			
+		}else{
+			$('#total_amount').html(total);
+			$('#total_amount_msg').html('');
+
+		}
+		setTimeout('showtotal_amount()',1000);
+			
+	}
+		
+	function changeRedpacketType()
+	{
+			if ($('#editredpacketType').val() == 1)
+			{
+				$('#editredpacketType').val('2');
+				$("#show_money_type").html('总金额：');
+				$('#show_money_type_msg').html("每人可领1个，金额随机且不能超过{$setting['redpacket_max_money']}元<span id='changeRedpacketType' style='color:#09F;cursor:pointer; margin-left:20px;'>改为普通红包</span>");
+				$('#redpacket_pre_money').addClass('ping');
+			}else{
+				$('#editredpacketType').val('1');
+				$("#show_money_type").html('单个金额：');
+				$('#show_money_type_msg').html("每人可领1个，金额相同且不能超过{$setting['redpacket_max_money']}元,<span id='changeRedpacketType' style='color:#09F; cursor:pointer; margin-left:20px;'>改为拼手气红包</span>");
+				$('#redpacket_pre_money').removeClass('ping');
+
+			}
+		
+	}
+	$("#changeRedpacketType").live('click',changeRedpacketType);
+
+		function doPost(){
+			
+		var editredpacketType = $.trim($('#editredpacketType').val());
+		var redpacket_many = $.trim($('#redpacket_many').val());
+		var redpacket_pre_money = $.trim($('#redpacket_pre_money').val());
+		//alert(editredpacketType +' '+redpacket_many+' '+redpacket_pre_money);
+		if (redpacket_many === '') {
+			ui.error('请填写红包个数');
+			return false;
+		}
+		if (editredpacketType == '1') {
+			if (redpacket_many == ''){ui.error('请填写单个金额');return false;}
+			
+		}
+		if (editredpacketType == '2' && redpacket_pre_money == '') {
+			ui.error('请填写总金额');
+			return false;
+		}
+		return true;
+	}
+
+$(function(){
+
+	var str = toUtf8($("#mytxt").val());
+
+
+	$("#code").qrcode({
+
+			render: "canvas",
+
+			width: 200,
+
+			height:200,
+
+			text: str,
+
+			src:'{$user['avatar']}'
+
+		});
+
+})
+
+function toUtf8(str) {   
+
+    var out, i, len, c;   
+
+    out = "";   
+
+    len = str.length;   
+
+    for(i = 0; i < len; i++) {   
+
+    	c = str.charCodeAt(i);   
+
+    	if ((c >= 0x0001) && (c <= 0x007F)) {   
+
+        	out += str.charAt(i);   
+
+    	} else if (c > 0x07FF) {   
+
+        	out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));   
+
+        	out += String.fromCharCode(0x80 | ((c >>  6) & 0x3F));   
+
+        	out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));   
+
+    	} else {   
+
+        	out += String.fromCharCode(0xC0 | ((c >>  6) & 0x1F));   
+
+        	out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));   
+
+    	}   
+
+    }   
+
+    return out;   
+
+} 	
+
+</script>
+</body>
+</html>

@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>链我新增ＡＰＩ文档</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dist/dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="dist/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">链我新增ＡＰＩ文档</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar" style="">
+          <ul class="nav nav-sidebar">
+			 <li class="active"><a href="#BONUS">首页红包接口</a></li>
+             <li class=""><a href="#getBonusData">红包数据加载和更新</a></li>
+            <li class=""><a href="#sendCashBonus">发现金/财源币红包</a></li>
+            <li class=""><a href="#getCashBonus">抢现金红包</a></li>
+            <li class=""><a href="#getBonusDetail">已抢的红包详情列表</a></li>
+            <li class=""><a href="#setViewInc">红包浏览量增1[暂停使用]</a></li>
+            <li  class="active"><a href="#createBonusEvent">发送活动红包</a></li>
+            <li class=""><a href="#getBonusEventList">活动红包列表</a></li>
+            <li class=""><a href="#getBonusEventData">活动红包上下拉加载</a></li>
+            <li class=""><a href="#getDiscovery">发现</a></li>
+            <li class=""><a href="#getMoreDiscoveryData">发现上下拉加载</a></li>
+            <li><a href="#getAppIndexAds">首页广告轮播</a></li>
+            
+          </ul>
+          <ul class="nav nav-sidebar">
+	     <li class="" style="display:none"><a href="#get_top_message_list">聊天置顶列表</a></li>     
+    <li class="" style="display:none"><a href="#top_message">聊天置顶</a></li>      
+	<li class="" style="display:none"><a href="#remove_top_message">取消聊天置顶</a></li>
+      <li class="active" style="display:none"><a href="#userinfo">侧栏会员信息　</a></li>
+      <li class=""><a href="#verifyCode">ＭＯＢ短信验证</a></li>
+      <li class=""><a href="#verifyPhone">手机号验证</a></li>
+      <li class=""><a href="#verifyForgotPayPassword">忘记支付密码验证</a></li>
+       <li class=""><a href="#verifyppwd">支付密码验证</a></li>
+        <li class=""><a href="#configMyppwd">设置支付密码</a></li>
+        <li><a href="#globalData">全局通用数据</a></li>
+        <li><a href="#getLianwoUsersByLastSendBonus">链友</a></li>
+      </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-offset-2 main">
+          <a name="top_message" id="top_message"></a>
+          <h1 class="page-header">&nbsp;</h1>
+          <h2 class="sub-header"><p>&nbsp;</p><a name="getAppIndexAds" id="getAppIndexAds">API</a>
+          <h2 class="sub-header">getAppIndexAds App首页广告</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Public&amp;act=getAppIndexAds</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>&nbsp;</p></td>
+              <td width="496" valign="top">&nbsp;</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <p>&nbsp;</p>
+          <pre>&nbsp;
+          {
+    "msg": "操作成功",
+    "status": 1,
+    "data_list": [
+        {
+            "title": "广告图1",
+            "imageUrl": "http://112.74.46.91/data/upload/2017/0208/18/banner01.jpg",
+            "type": "1",
+            "data": "http://112.74.46.91/website"
+        },
+        {
+            "title": "广告图2",
+            "imageUrl": "http://112.74.46.91/data/upload/2017/0208/18/banner03.jpg",
+            "type": "1",
+            "data": "http://112.74.46.91/website"
+        },
+        {
+            "title": "广告图3",
+            "imageUrl": "http://112.74.46.91/data/upload/2017/0208/18/banner04.png",
+            "type": "1",
+            "data": "http://112.74.46.91/website"
+        }
+    ]
+}
+          </pre>
+          <h2 class="sub-header">&nbsp;</h2>
+          <p><a name="setViewInc" id="setViewInc">API</a></p>
+          <p>&nbsp; </p>
+          <h2 class="sub-header">setViewInc 浏览量增１　暂停使用－后端自动增，无需再请求</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=setViewInc</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>bonus_id</p></td>
+              <td width="496" valign="top"><p>红包的id</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top"><p>状态</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>msg</p></td>
+              <td width="496" valign="top"><p>消息</p></td>
+            </tr>
+          </table>
+          <p>&nbsp;</p><a name="remove_top_message" id=""></a>
+          <h2 class="sub-header">&nbsp;</h2>
+          <h2 class="sub-header">remove_top_message 取消聊天置顶</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p><a name="OLE_LINK26" id="OLE_LINK2">API</a></p></td>
+              <td width="496" valign="top"><p>mod=Message&amp;act=remove_top_message</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>list_id</p></td>
+              <td width="496" valign="top"><p>聊天的list_id</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top"><p>状态</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>msg</p></td>
+              <td width="496" valign="top"><p>消息</p></td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p><a name="get_top_message_list" id="OLE_LINK">
+          <p>&nbsp;</p> 
+          <h2 class="sub-header">get_top_message_list 置顶聊天列表</h2>
+          <p>测试样例：http://112.74.46.91/api.php?oauth_token=9f906d7100102b7e6d43d8e385741ff8&amp;oauth_token_secret=f986cb1370ed34bafa17a3ceba7d5b30&amp;mod=Message&amp;act=get_top_message_list</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p><a name="OLE_LINK27" id="OLE_LINK"></a><a name="OLE_LINK26" id="OLE_LINK2">API</a></p></td>
+              <td width="496" valign="top"><p>mod=Message&amp;act=get_top_message_list</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top">参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top">参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>&nbsp;</p></td>
+              <td width="496" valign="top"><ul id="tree">
+                <li>
+                  <div><strong>[</strong>
+                    <ul>
+                      <li> 0 :
+                        <div><strong>{</strong>
+                          <ul>
+                            <li>id : 2,</li>
+                            <li>list_id : 1,</li>
+                            <li>member_uid : 1,</li>
+                            <li>new : 2,</li>
+                            <li>message_num : 2,</li>
+                            <li>ctime : "2017-01-10 13:45",</li>
+                            <li>list_ctime : 1484027088,</li>
+                            <li>is_del : 0,</li>
+                            <li>from_uid : 3,</li>
+                            <li>type : 1,</li>
+                            <li>title : null,</li>
+                            <li>logo : 0,</li>
+                            <li>member_num : 2,</li>
+                            <li>min_max : "1_3",</li>
+                            <li>mtime : 1484027106,</li>
+                            <li>uid : 1,</li>
+                            <li>content : "[peifu]",</li>
+                            <li>from_uname : "222222",</li>
+                            <li>remark : "",</li>
+                            <li>from_face : "<a href="http://local.lianwo/resources/theme/stv1/_static/image/noavatar/middle.jpg" target="_blank">http://local.lianwo/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>",</li>
+                            <li>timestmap : 1484027106,</li>
+                            <li>with_uid : "3",</li>
+                            <li> with_uid_userinfo :
+                              <div><strong>{</strong>
+                                <ul>
+                                  <li>uid : 3,</li>
+                                  <li>phone : "13800138001",</li>
+                                  <li>login_salt : "40970",</li>
+                                  <li>uname : "222222",</li>
+                                  <li>email : "222222@qq.com",</li>
+                                  <li>sex : 1,</li>
+                                  <li>location : null,</li>
+                                  <li>is_audit : 1,</li>
+                                  <li>is_active : 1,</li>
+                                  <li>is_init : 1,</li>
+                                  <li>ctime : 1484026917,</li>
+                                  <li>identity : 1,</li>
+                                  <li>api_key : null,</li>
+                                  <li>domain : "",</li>
+                                  <li>province : 0,</li>
+                                  <li>city : 0,</li>
+                                  <li>area : 0,</li>
+                                  <li>reg_ip : "127.0.0.1",</li>
+                                  <li>lang : "zh-cn",</li>
+                                  <li>timezone : "PRC",</li>
+                                  <li>is_del : 0,</li>
+                                  <li>first_letter : "#",</li>
+                                  <li>intro : "",</li>
+                                  <li>last_login_time : 1484027051,</li>
+                                  <li>last_feed_id : 0,</li>
+                                  <li>last_post_time : 0,</li>
+                                  <li>search_key : "222222",</li>
+                                  <li>invite_code : null,</li>
+                                  <li>feed_email_time : null,</li>
+                                  <li>send_email_time : null,</li>
+                                  <li>openid : null,</li>
+                                  <li>input_city : null,</li>
+                                  <li>is_fixed : 1,</li>
+                                  <li>avatar_original : "<a href="http://local.lianwo/resources/theme/stv1/_static/image/noavatar/big.jpg" target="_blank">http://local.lianwo/resources/theme/stv1/_static/image/noavatar/big.jpg</a>",</li>
+                                  <li>avatar_big : "<a href="http://local.lianwo/resources/theme/stv1/_static/image/noavatar/big.jpg" target="_blank">http://local.lianwo/resources/theme/stv1/_static/image/noavatar/big.jpg</a>",</li>
+                                  <li>avatar_middle : "<a href="http://local.lianwo/resources/theme/stv1/_static/image/noavatar/middle.jpg" target="_blank">http://local.lianwo/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>",</li>
+                                  <li>avatar_small : "<a href="http://local.lianwo/resources/theme/stv1/_static/image/noavatar/small.jpg" target="_blank">http://local.lianwo/resources/theme/stv1/_static/image/noavatar/small.jpg</a>",</li>
+                                  <li>avatar_tiny : "<a href="http://local.lianwo/resources/theme/stv1/_static/image/noavatar/tiny.jpg" target="_blank">http://local.lianwo/resources/theme/stv1/_static/image/noavatar/tiny.jpg</a>",</li>
+                                  <li>avatar_url : "<a href="http://local.lianwo/index.php?app=public&mod=Attach&act=avatar&uid=3" target="_blank">http://local.lianwo/index.php?app=public&amp;mod=Attach&amp;act=avatar&amp;uid=3</a>",</li>
+                                  <li>space_url : "<a href="http://local.lianwo/index.php?app=public&mod=Profile&act=index&uid=3" target="_blank">http://local.lianwo/index.php?app=public&amp;mod=Profile&amp;act=index&amp;uid=3</a>",</li>
+                                  <li>space_link : "&lt;a href='<a href="http://local.lianwo/index.php?app=public&mod=Profile&act=index&uid=3%27" target="_blank">http://local.lianwo/index.php?app=public&amp;mod=Profile&amp;act=index&amp;uid=3'</a> target='_blank' uid='3' event-node='face_card'&gt;222222&lt;/a&gt;",</li>
+                                  <li>space_link_no : "&lt;a href='<a href="http://local.lianwo/index.php?app=public&mod=Profile&act=index&uid=3%27" target="_blank">http://local.lianwo/index.php?app=public&amp;mod=Profile&amp;act=index&amp;uid=3'</a> title='222222' target='_blank'&gt;222222&lt;/a&gt;",</li>
+                                  <li>medals :
+                                    <div><strong>[</strong><strong>]</strong>,</div>
+                                  </li>
+                                  <li>api_user_group :
+                                    <div><strong>[</strong><strong>]</strong>,</div>
+                                  </li>
+                                  <li>user_group :
+                                    <div><strong>[</strong><strong>]</strong>,</div>
+                                  </li>
+                                  <li>group_icon_only :
+                                    <div><strong>[</strong><strong>]</strong>,</div>
+                                  </li>
+                                  <li>group_icon : "",</li>
+                                  <li> credit_info :
+                                    <div><strong>{</strong>
+                                      <ul>
+                                        <li> credit :
+                                          <div><strong>{</strong>
+                                            <ul>
+                                              <li> experience :
+                                                <div><strong>{</strong>
+                                                  <ul>
+                                                    <li>value : 1,</li>
+                                                    <li>alias : "经验"</li>
+                                                  </ul>
+                                                  <strong>}</strong>,</div>
+                                              </li>
+                                              <li> score :
+                                                <div><strong>{</strong>
+                                                  <ul>
+                                                    <li>value : 2,</li>
+                                                    <li>alias : "积分"</li>
+                                                  </ul>
+                                                  <strong>}</strong>,</div>
+                                              </li>
+                                              <li> caiyuanbi :
+                                                <div><strong>{</strong>
+                                                  <ul>
+                                                    <li>value : 0,</li>
+                                                    <li>alias : "财源币"</li>
+                                                  </ul>
+                                                  <strong>}</strong>,</div>
+                                              </li>
+                                              <li> uBank :
+                                                <div><strong>{</strong><strong>}</strong></div>
+                                              </li>
+                                            </ul>
+                                            <strong>}</strong>,</div>
+                                        </li>
+                                        <li> creditType :
+                                          <div><strong>{</strong><strong>}</strong>,</div>
+                                        </li>
+                                        <li> level :
+                                          <div><strong>{</strong><strong>}</strong></div>
+                                        </li>
+                                      </ul>
+                                      <strong>}</strong>,</div>
+                                  </li>
+                                  <li>remark : ""</li>
+                                </ul>
+                                <strong>}</strong></div>
+                            </li>
+                          </ul>
+                          <strong>}</strong></div>
+                      </li>
+                    </ul>
+                    <strong>]</strong></div>
+                </li>
+              </ul></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>&nbsp;</p></td>
+              <td width="496" valign="top"><p>&nbsp;</p></td>
+            </tr>
+          </table><a name="BONUS" id="BONUS"></a>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">&nbsp;</h2>
+          <h2 class="sub-header">getIndexBonusList 大厅红包</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p><a name="OLE_LINK26" id="OLE_LINK4">API</a></p></td>
+              <td width="496" valign="top"><p>api.php?mod=Bonus&act=getIndexBonusList</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="152" valign="top">                参数名称 </td>
+              <td width="158" valign="top">是否必需</td>
+              <td width="325" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td valign="top">radar</td>
+              <td valign="top">否</td>
+              <td valign="top">请求雷达数据，没有经纬度限制 直接传radar=1</td>
+            </tr>
+            <tr>
+              <td width="152" valign="top"><p>page</p></td>
+              <td width="158" valign="top">否</td>
+              <td width="325" valign="top"><p>请求的页数　　</p></td>
+            </tr>
+            <tr>
+              <td valign="top">latitude</td>
+              <td valign="top">否</td>
+              <td valign="top">经度</td>
+            </tr>
+            <tr>
+              <td valign="top">longitude</td>
+              <td valign="top">否</td>
+              <td valign="top">纬度</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <pre>&nbsp;{<br>    "range_type":<span data-type="array" data-size="5">[<br>        <span data-type="object">{<br>            "tid":"1",<br>            "name":"即抢50"<br>        }</span>,<br>        <span data-type="object">{<br>            "tid":"2",<br>            "name":"即抢100"<br>        }</span>,<br>        <span data-type="object">{<br>            "tid":"3",<br>            "name":"即抢200"<br>        }</span>,<br>        <span data-type="object">{<br>            "tid":"4",<br>            "name":"即抢300"<br>        }</span>,<br>        <span data-type="object">{<br>            "tid":"5",<br>            "name":"即抢400"<br>        }</span><br>    ]</span>,<br>    "status":1,<br>    "message":"操作成功"<br>}</pre>
+          <p><a name="sendCashBonus" id="sendCashBonus"></a></p>
+          <p>&nbsp;</p>
+
+          <h2 class="sub-header">sendCashBonus　发现金红包</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p><a name="OLE_LINK26" id="OLE_LINK5">API</a></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=<span class="sub-header">sendCashBonus</span></p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="220" valign="top"><br />
+                参数名称 </td>
+              <td width="152" valign="top">是否必需</td>
+              <td width="263" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td valign="top">bonus_type</td>
+              <td valign="top">是</td>
+              <td valign="top">１普通，２拼人气</td>
+            </tr>
+            <tr>
+              <td valign="top">bonusmany</td>
+              <td valign="top">是</td>
+              <td valign="top">红包个数</td>
+            </tr>
+            <tr>
+              <td valign="top">bonusmoney</td>
+              <td valign="top">是</td>
+              <td valign="top">每个金额 .或额，看红包类型</td>
+            </tr>
+            <tr>
+              <td valign="top">money_type</td>
+              <td valign="top">是</td>
+              <td valign="top">默认１，１现金，２财源币</td>
+            </tr>
+             <tr>
+              <td valign="top">expire_time</td>
+              <td valign="top">现金非必需，财源币必须</td>
+              <td valign="top">现金过期时间由后台设置，财源币是发包者设置</td>
+            </tr>
+            <tr>
+               <td valign="top" class="btn-primary">user_group</td>
+               <td valign="top">否</td>
+               <td valign="top">会员级别</td>
+            </tr>
+            <tr>
+               <td valign="top" class="btn-primary">user_group_verify</td>
+               <td valign="top">否</td>
+               <td valign="top">会员认证子分类</td>
+            </tr>
+            <tr>
+              <td valign="top">bonusmsg</td>
+              <td valign="top">否</td>
+              <td valign="top">留言</td>
+            </tr>
+            <tr>
+              <td valign="top">latitude</td>
+              <td valign="top">否</td>
+              <td valign="top">经度</td>
+            </tr>
+            <tr>
+              <td width="220" valign="top"><p>longitude</p></td>
+              <td width="152" valign="top">否</td>
+              <td width="263" valign="top"><p>纬度</p></td>
+            </tr>
+            <tr>
+              <td width="220" valign="top"><p>address_title</p></td>
+              <td width="152" valign="top">是</td>
+              <td width="263" valign="top"><p>地址标题</p></td>
+            </tr>
+            <tr>
+              <td width="220" valign="top"><p>address</p></td>
+              <td width="152" valign="top">是</td>
+              <td width="263" valign="top"><p>地址</p></td>
+            </tr>
+            <tr>
+              <td valign="top">user_type</td>
+              <td valign="top">否</td>
+              <td valign="top">发红包的会员类型</td>
+            </tr>
+            <tr>
+              <td valign="top">is_follow</td>
+              <td valign="top">否</td>
+              <td valign="top">默认不需关注，值为０</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="496" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td colspan="2" valign="top"><p>{<br>
+&quot;msg&quot;: &quot;操作成功&quot;,<br>
+&quot;status&quot;: 1,<br>
+&quot;message&quot;: &quot;红包发送成功！&quot;,<br>
+&quot;bonusdata&quot;: {<br>
+&quot;bonus_code&quot;: &quot;3167a57bfddd92a1d8937727c7ba991e&quot;,<br>
+&quot;bonus_type&quot;: 1,<br>
+&quot;bonus_many&quot;: 2,<br>
+&quot;bonus_fromuid&quot;: 15,<br>
+&quot;total_amount&quot;: 10,<br>
+&quot;send_time&quot;: 1484706061,<br>
+&quot;expire_time&quot;: null,<br>
+&quot;bonus_msg&quot;: &quot;&quot;,<br>
+&quot;status&quot;: 1,<br>
+&quot;region&quot;: 0,<br>
+&quot;latitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;longitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;views&quot;: 1,<br>
+&quot;range_type&quot;: 1,<br>
+&quot;bonus_id&quot;: 126,<br>
+&quot;avatar&quot;: &quot;http://112.74.46.91/data/upload/avatar/9b/f3/1c/original_50_50.jpg?v1484216257&quot;,<br>
+&quot;bonus_username&quot;: &quot;链我红包&quot;<br>
+}<br>
+}</p></td>
+            </tr>
+            <tr>
+              <td colspan="2" valign="top">&nbsp;</td>
+            </tr>
+          </table><a name="getCashBonus" id="getCashBonus"></a> <p>&nbsp;</p>
+
+          <h2 class="sub-header">getCashBonus　抢现金红包</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><a name="OLE_LINK26" id="OLE_LINK11">API</a></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=<span class="sub-header">getCashBonus</span></p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="220" valign="top"><br />
+                参数名称 </td>
+              <td width="152" valign="top">是否必需</td>
+              <td width="263" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td valign="top">bonus_code</td>
+              <td valign="top">是</td>
+              <td valign="top">红包唯一识别码</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>&nbsp;</p></td>
+              <td width="496" valign="top"><p>{"msg":"\u64cd\u4f5c\u6210\u529f","status":1,"message":"\u5df2\u62a2\u5230\u7ea2\u5305\u4e86"}</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top">bonus_state</td>
+              <td width="496" valign="top">红包状态：0-已抢完 1-未抢完 2-已过期
+</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top">status</td>
+              <td width="496" valign="top">5-个人认证 6-机构 7-个人普通会员 8-个人高级会员 11-商家普通会员 12-商家高级会员
+</td>
+            </tr>
+          </table><a name="getBonusDetail" id="getBonusDetail"></a>
+          <p>&nbsp;</p>
+
+          <h2 class="sub-header">getBonusDetail　　已抢的红包列表　　 </h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p><a name="OLE_LINK26" id="OLE_LINK7">API</a></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=<span class="sub-header"></span>getBonusDetail</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="220" valign="top"><br />
+                参数名称 </td>
+              <td width="152" valign="top">是否必需</td>
+              <td width="263" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td valign="top">bonus_id</td>
+              <td valign="top">是</td>
+              <td valign="top">红包ID</td>
+            </tr>
+          </table>
+          <p>返回参数<span class="label-info"> status =1时有数据，＝０时无数据</span></p>
+         
+              <pre>{<br>    "msg":"操作成功",<br>    "status":0,<br>    "message":"操作成功",<br>    "bonus_state":0,<br>    "bonus_username":"AdrianaLima",<br>    "avatar":"<a href="http://112.74.46.91/data/upload/avatar/65/12/bd/original_100_100.jpg?v1494563978" target="_blank">http://112.74.46.91/data/upload/avatar/65/12/bd/original_100_100.jpg?v1494563978</a>",<br>    "is_followed":0,<br>    "bonus_cn_type":"个人",<br>    "amount_range":null,<br>    "user_get":1,<br>    "user_money":"10.00",<br>    "expire_time":"2017-06-13 23:59:59",<br>    "data_list":<span data-type="array" data-size="1">[<br>        <span data-type="object">{<br>            "to_uid":41,<br>            "get_time":"11:11:26",<br>            "bonus_money":"10.00",<br>            "username":"eeee",<br>            "bonus_avatar":"<a href="http://112.74.46.91/data/upload/avatar/34/16/a7/original_100_100.jpg?v1496909272" target="_blank">http://112.74.46.91/data/upload/avatar/34/16/a7/original_100_100.jpg?v1496909272</a>"<br>        }</span><br>    ]</span>,<br>    "has_get":1,<br>    "not_get":0,<br>    "bonus_code":"6f257b18c05a38c1e2a10697e954dceb",<br>    "totalPages":1,<br>    "totalRows":1,<br>    "nowPage":1<br>}</pre>
+              <a name="userinfo" id="OLE_LINK8"></a>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">&nbsp;</h2>
+          <h2 class="sub-header">get_user_infomation 会员信息，侧栏　 </h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p><a name="OLE_LINK26" id="OLE_LINK9">API</a></p></td>
+              <td width="496" valign="top"><p>mod=User&amp;act=<span class="sub-header">get_user_infomation</span></p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>&nbsp;</p></td>
+              <td width="496" valign="top">&nbsp;</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>&nbsp;</p></td>
+              <td width="496" valign="top"><ul id="tree3">
+                <li>
+                  <div><strong>{</strong>
+                    <ul>
+                      <li>uid : 1,</li>
+                      <li>uname : "singsin",</li>
+                      <li>sex : 1,</li>
+                      <li>location : "北京 北京市 海淀区",</li>
+                      <li>province : 1,</li>
+                      <li>city : 2,</li>
+                      <li>area : 10,</li>
+                      <li>intro : "",</li>
+                      <li> avatar :
+                        <div><strong>{</strong>
+                          <ul>
+                            <li>avatar_original : "<a href="http://local.lianwo/resources/theme/stv1/_static/image/noavatar/big.jpg" target="_blank">http://local.lianwo/resources/theme/stv1/_static/image/noavatar/big.jpg</a>",</li>
+                            <li>avatar_big : "<a href="http://local.lianwo/resources/theme/stv1/_static/image/noavatar/big.jpg" target="_blank">http://local.lianwo/resources/theme/stv1/_static/image/noavatar/big.jpg</a>",</li>
+                            <li>avatar_middle : "<a href="http://local.lianwo/resources/theme/stv1/_static/image/noavatar/middle.jpg" target="_blank">http://local.lianwo/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>",</li>
+                            <li>avatar_small : "<a href="http://local.lianwo/resources/theme/stv1/_static/image/noavatar/small.jpg" target="_blank">http://local.lianwo/resources/theme/stv1/_static/image/noavatar/small.jpg</a>",</li>
+                            <li>avatar_tiny : "<a href="http://local.lianwo/resources/theme/stv1/_static/image/noavatar/tiny.jpg" target="_blank">http://local.lianwo/resources/theme/stv1/_static/image/noavatar/tiny.jpg</a>"</li>
+                          </ul>
+                          <strong>}</strong>,</div>
+                      </li>
+                      <li> user_group :
+                        <div><strong>[</strong>
+                          <ul>
+                            <li>0 : "<a href="http://local.lianwo/resources/theme/stv1/_static/image/usergroup/v_05.png" target="_blank">http://local.lianwo/resources/theme/stv1/_static/image/usergroup/v_05.png</a>"</li>
+                          </ul>
+                          <strong>]</strong>,</div>
+                      </li>
+                      <li> user_credit :
+                        <div><strong>{</strong>
+                          <ul>
+                            <li> credit :
+                              <div><strong>{</strong>
+                                <ul>
+                                  <li> experience :
+                                    <div><strong>{</strong><strong>}</strong>,</div>
+                                  </li>
+                                  <li> score :
+                                    <div><strong>{</strong><strong>}</strong>,</div>
+                                  </li>
+                                  <li> caiyuanbi :
+                                    <div><strong>{</strong><strong>}</strong>,</div>
+                                  </li>
+                                  <li> uBank :
+                                    <div><strong>{</strong>
+                                      <ul>
+                                        <li>value : 4,</li>
+                                        <li>alias : "零用钱",</li>
+                                        <li>todayIncome : 0　　今日收益</li>
+                                      </ul>
+                                      <strong>}</strong></div>
+                                  </li>
+                                </ul>
+                                <strong>}</strong>,</div>
+                            </li>
+                            <li> creditType :
+                              <div><strong>{</strong>
+                                <ul>
+                                  <li>experience : "经验",</li>
+                                  <li>score : "积分",</li>
+                                  <li>caiyuanbi : "财源币",</li>
+                                  <li>uBank : "零用钱"</li>
+                                </ul>
+                                <strong>}</strong>,</div>
+                            </li>
+                            <li> level :
+                              <div><strong>{</strong>
+                                <ul>
+                                  <li>level : 1,</li>
+                                  <li>name : "LV1",</li>
+                                  <li>image : "72",</li>
+                                  <li>start : "0",</li>
+                                  <li>end : "10",</li>
+                                  <li>level_type : "experience",</li>
+                                  <li>nextNeed : 1,</li>
+                                  <li>nextName : "LV2",</li>
+                                  <li>src : "<a href="http://local.lianwo/data/upload/2015/0715/18/55a6380e408a3.png" target="_blank">http://local.lianwo/data/upload/2015/0715/18/55a6380e408a3.png</a>"</li>
+                                </ul>
+                                <strong>}</strong></div>
+                            </li>
+                          </ul>
+                          <strong>}</strong>,</div>
+                      </li>
+                      <li> user_data :
+                        <div><strong>{</strong>
+                          <ul>
+                            <li>follower_count : 1,</li>
+                            <li>login_error_time : 0,</li>
+                            <li>new_folower_count : 1,</li>
+                            <li>unread_atme : 0,</li>
+                            <li>unread_comment : 0,</li>
+                            <li>unread_digg : 0</li>
+                          </ul>
+                          <strong>}</strong>,</div>
+                      </li>
+                      <li>remark : ""</li>
+                    </ul>
+                    <strong>}</strong></div>
+                </li>
+              </ul>                <p>&nbsp;</p></td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+           <a name="top_message" id="top_message"></a><h1 class="page-header">&nbsp;</h1>
+          <h2 class="sub-header">verifyCode 短信验证　ＭＯＢ网</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p><a name="verifyCode" id="verifyCode">API</a></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=verifyCode</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+         <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>phone</p></td>
+              <td width="496" valign="top"><p>手机号</p></td>
+            </tr>
+                        <tr>
+              <td width="147" valign="top"><p>code</p></td>
+              <td width="496" valign="top"><p>验证码</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>type</p></td>
+              <td width="496" valign="top"><p>'register'-注册,'forgot_password'-忘记密码,'forgot_pay_password'-支付密码</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top"><p>状态</p></td>
+            </tr>
+          </table>
+          
+          <p>&nbsp;</p>
+          
+          <h2 class="sub-header">手机号验证</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p><a name="verifyPhone" id="verifyPhone">API</a></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=verifyPhone</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>phone</p></td>
+              <td width="496" valign="top"><p>手机号</p></td>
+            </tr>
+              <td width="147" valign="top"><p>type</p></td>
+              <td width="496" valign="top"><p>'register'-注册,'forgot_password'-忘记密码</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top"><p>状态</p></td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          
+          <h2 class="sub-header"><a name="verifyForgotPayPassword"></a>忘记支付密码手机验证</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p>&nbsp;</p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=verifyFgtPPwdPhone</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>phone</p></td>
+              <td width="496" valign="top"><p>手机号</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top"><p>状态</p></td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <a name="verifyppwd" id="verifyppwd"></a>
+          <h1 class="page-header">&nbsp;</h1>
+          <h2 class="sub-header">verifyppwd  支付密码校验</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=verifyppwd</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>ppwd</p></td>
+              <td width="496" valign="top"><p>支付密码，必需　　 3次MD5后传入 </p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top"><p>状态０　为失败　　１为成功</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>msg</p></td>
+              <td width="496" valign="top"><p>消息</p></td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          
+           <p>&nbsp;</p><p>&nbsp;</p><a name="configMyppwd" id="setppwd"></a>
+          <h1 class="page-header">&nbsp;</h1>
+          <h2 class="sub-header">configMyppwd  设置支付密码</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=configMyppwd</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="219" valign="top"><br />
+                参数名称 </td>
+              <td width="156" valign="top">&nbsp;</td>
+              <td width="260" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="219" valign="top"><p>type</p></td>
+              <td width="156" valign="top">否</td>
+              <td width="260" valign="top"><p>忘记支付密码-'forgot_ppwd'</p></td>
+            </tr>
+            <tr>
+              <td width="219" valign="top"><p>used_password</p></td>
+              <td width="156" valign="top">修改密码时传</td>
+              <td width="260" valign="top"><p>验证旧支付密码 3次MD5后传入 </p></td>
+            </tr>
+            <tr>
+              <td width="219" valign="top"><p>password</p></td>
+              <td width="156" valign="top">是</td>
+              <td width="260" valign="top"><p>支付密码 3次MD5后传入 </p></td>
+            </tr>
+                        <tr>
+              <td width="219" valign="top"><p>confirm_password</p></td>
+              <td width="156" valign="top">是</td>
+              <td width="260" valign="top"><p>确认支付密码　 3次MD5后传入 </p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top"><p>状态０　为失败　　１为成功</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>msg</p></td>
+              <td width="496" valign="top"><p>消息</p></td>
+            </tr>
+          </table><a name="getBonusData" id="getBonusData">API</a>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">getBonusData 红包数据加载和更新</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=getBonusData</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td valign="top">range_type</td>
+              <td valign="top">红包范围类型</td>
+            </tr>
+            <tr>
+              <td valign="top">bonus_type</td>
+              <td valign="top">红包类型</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>page</p></td>
+              <td width="496" valign="top"><p>页数</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>latitude</p></td>
+              <td width="496" valign="top"><p>用户当前经度</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>longitude</p></td>
+              <td width="496" valign="top"><p>用户当前纬度</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td valign="top">&nbsp;</td>
+              <td valign="top">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td valign="top">&nbsp;</td>
+              <td valign="top" bgcolor="#990000"><p style="color:#fff;">is_follow 　这个红包是否需要关注才能抢 0:不需要　１：需要</p>
+              <p style="color:#fff;">&quot;is_followed&quot;: 0　　是否关注了发红包的人　0:没关注　１： 已关注</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>&nbsp;</p></td>
+              <td width="496" valign="top"><pre><p>{<br>
+&quot;count&quot;: 11,<br>
+&quot;totalPages&quot;: 2,<br>
+&quot;totalRows&quot;: 11,<br>
+&quot;nowPage&quot;: 1,<br>
+&quot;data&quot;: [<br>
+{<br>
+&quot;bonus_code&quot;: &quot;8b3f56f4a4b031fdd61abb66ac9ab133&quot;,<br>
+&quot;bonus_type&quot;: 1,<br>
+&quot;bonus_many&quot;: 2,<br>
+&quot;bonus_fromuid&quot;: 1,<br>
+&quot;total_amount&quot;: 10,<br>
+&quot;send_time&quot;: &quot;01-18 10:16&quot;,<br>
+&quot;expire_time&quot;: 0,<br>
+&quot;bonus_msg&quot;: &quot;&quot;,<br>
+&quot;status&quot;: 1,<br>
+&quot;views&quot;: 102,<br>
+&quot;region&quot;: 0,<br>
+&quot;latitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;longitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;range_type&quot;: 1,<br>
+&quot;is_follow&quot;: 0,<br>
+&quot;user_type&quot;: 1,<br>
+&quot;money_type&quot;: 1,<br>
+&quot;bonus_id&quot;: 130,<br>
+&quot;bonus_avatar&quot;: &quot;http://local.lianwo/resources/theme/stv1/_static/image/noavatar/small.jpg&quot;,<br>
+&quot;bonus_username&quot;: &quot;singsin&quot;,<br>
+&quot;status_msg&quot;: &quot;末抢完&quot;,<br>
+&quot;bonus_cn_type&quot;: &quot;个人&quot;,<br>
+&quot;is_followed&quot;: 0<br>
+},<br>
+{<br>
+&quot;bonus_code&quot;: &quot;3c4c7be93b35e3d1d2bfa0699a8e9ea2&quot;,<br>
+&quot;bonus_type&quot;: 1,<br>
+&quot;bonus_many&quot;: 2,<br>
+&quot;bonus_fromuid&quot;: 1,<br>
+&quot;total_amount&quot;: 10,<br>
+&quot;send_time&quot;: &quot;01-18 10:15&quot;,<br>
+&quot;expire_time&quot;: 0,<br>
+&quot;bonus_msg&quot;: &quot;&quot;,<br>
+&quot;status&quot;: 1,<br>
+&quot;views&quot;: 102,<br>
+&quot;region&quot;: 0,<br>
+&quot;latitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;longitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;range_type&quot;: 1,<br>
+&quot;is_follow&quot;: 0,<br>
+&quot;user_type&quot;: 1,<br>
+&quot;money_type&quot;: 1,<br>
+&quot;bonus_id&quot;: 129,<br>
+&quot;bonus_avatar&quot;: &quot;http://local.lianwo/resources/theme/stv1/_static/image/noavatar/small.jpg&quot;,<br>
+&quot;bonus_username&quot;: &quot;singsin&quot;,<br>
+&quot;status_msg&quot;: &quot;末抢完&quot;,<br>
+&quot;bonus_cn_type&quot;: &quot;个人&quot;,<br>
+&quot;is_followed&quot;: 0<br>
+},<br>
+{<br>
+&quot;bonus_code&quot;: &quot;319ea32130d86aaea76178dada5d4aab&quot;,<br>
+&quot;bonus_type&quot;: 1,<br>
+&quot;bonus_many&quot;: 2,<br>
+&quot;bonus_fromuid&quot;: 1,<br>
+&quot;total_amount&quot;: 10,<br>
+&quot;send_time&quot;: &quot;01-18 10:07&quot;,<br>
+&quot;expire_time&quot;: 0,<br>
+&quot;bonus_msg&quot;: &quot;&quot;,<br>
+&quot;status&quot;: 1,<br>
+&quot;views&quot;: 102,<br>
+&quot;region&quot;: 0,<br>
+&quot;latitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;longitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;range_type&quot;: 1,<br>
+&quot;is_follow&quot;: 0,<br>
+&quot;user_type&quot;: 1,<br>
+&quot;money_type&quot;: 1,<br>
+&quot;bonus_id&quot;: 128,<br>
+&quot;bonus_avatar&quot;: &quot;http://local.lianwo/resources/theme/stv1/_static/image/noavatar/small.jpg&quot;,<br>
+&quot;bonus_username&quot;: &quot;singsin&quot;,<br>
+&quot;status_msg&quot;: &quot;末抢完&quot;,<br>
+&quot;bonus_cn_type&quot;: &quot;个人&quot;,<br>
+&quot;is_followed&quot;: 0<br>
+},<br>
+{<br>
+&quot;bonus_code&quot;: &quot;f17e4fc2af17164dc0748207dd54e7eb&quot;,<br>
+&quot;bonus_type&quot;: 1,<br>
+&quot;bonus_many&quot;: 2,<br>
+&quot;bonus_fromuid&quot;: 1,<br>
+&quot;total_amount&quot;: 10,<br>
+&quot;send_time&quot;: &quot;01-18 09:57&quot;,<br>
+&quot;expire_time&quot;: 0,<br>
+&quot;bonus_msg&quot;: &quot;&quot;,<br>
+&quot;status&quot;: 1,<br>
+&quot;views&quot;: 102,<br>
+&quot;region&quot;: 0,<br>
+&quot;latitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;longitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;range_type&quot;: 1,<br>
+&quot;is_follow&quot;: 0,<br>
+&quot;user_type&quot;: 1,<br>
+&quot;money_type&quot;: 1,<br>
+&quot;bonus_id&quot;: 127,<br>
+&quot;bonus_avatar&quot;: &quot;http://local.lianwo/resources/theme/stv1/_static/image/noavatar/small.jpg&quot;,<br>
+&quot;bonus_username&quot;: &quot;singsin&quot;,<br>
+&quot;status_msg&quot;: &quot;末抢完&quot;,<br>
+&quot;bonus_cn_type&quot;: &quot;个人&quot;,<br>
+&quot;is_followed&quot;: 0<br>
+},<br>
+{<br>
+&quot;bonus_code&quot;: &quot;86eda4b0b07abc3c8cab377801701ba6&quot;,<br>
+&quot;bonus_type&quot;: 1,<br>
+&quot;bonus_many&quot;: 2,<br>
+&quot;bonus_fromuid&quot;: 1,<br>
+&quot;total_amount&quot;: 10,<br>
+&quot;send_time&quot;: &quot;01-18 09:57&quot;,<br>
+&quot;expire_time&quot;: 0,<br>
+&quot;bonus_msg&quot;: &quot;&quot;,<br>
+&quot;status&quot;: 1,<br>
+&quot;views&quot;: 102,<br>
+&quot;region&quot;: 0,<br>
+&quot;latitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;longitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;range_type&quot;: 1,<br>
+&quot;is_follow&quot;: 0,<br>
+&quot;user_type&quot;: 1,<br>
+&quot;money_type&quot;: 1,<br>
+&quot;bonus_id&quot;: 126,<br>
+&quot;bonus_avatar&quot;: &quot;http://local.lianwo/resources/theme/stv1/_static/image/noavatar/small.jpg&quot;,<br>
+&quot;bonus_username&quot;: &quot;singsin&quot;,<br>
+&quot;status_msg&quot;: &quot;末抢完&quot;,<br>
+&quot;bonus_cn_type&quot;: &quot;个人&quot;,<br>
+&quot;is_followed&quot;: 0<br>
+},<br>
+{<br>
+&quot;bonus_code&quot;: &quot;e1199278d896941372e07599611c9824&quot;,<br>
+&quot;bonus_type&quot;: 1,<br>
+&quot;bonus_many&quot;: 2,<br>
+&quot;bonus_fromuid&quot;: 1,<br>
+&quot;total_amount&quot;: 2,<br>
+&quot;send_time&quot;: &quot;01-17 16:53&quot;,<br>
+&quot;expire_time&quot;: 0,<br>
+&quot;bonus_msg&quot;: &quot;&quot;,<br>
+&quot;status&quot;: 1,<br>
+&quot;views&quot;: 102,<br>
+&quot;region&quot;: 0,<br>
+&quot;latitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;longitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;range_type&quot;: 1,<br>
+&quot;is_follow&quot;: 0,<br>
+&quot;user_type&quot;: 1,<br>
+&quot;money_type&quot;: 1,<br>
+&quot;bonus_id&quot;: 122,<br>
+&quot;bonus_avatar&quot;: &quot;http://local.lianwo/resources/theme/stv1/_static/image/noavatar/small.jpg&quot;,<br>
+&quot;bonus_username&quot;: &quot;singsin&quot;,<br>
+&quot;status_msg&quot;: &quot;末抢完&quot;,<br>
+&quot;bonus_cn_type&quot;: &quot;个人&quot;,<br>
+&quot;is_followed&quot;: 0<br>
+},<br>
+{<br>
+&quot;bonus_code&quot;: &quot;9b512e34d96980e6be500feb016ac35a&quot;,<br>
+&quot;bonus_type&quot;: 1,<br>
+&quot;bonus_many&quot;: 2,<br>
+&quot;bonus_fromuid&quot;: 1,<br>
+&quot;total_amount&quot;: 10,<br>
+&quot;send_time&quot;: &quot;01-17 16:49&quot;,<br>
+&quot;expire_time&quot;: 0,<br>
+&quot;bonus_msg&quot;: &quot;&quot;,<br>
+&quot;status&quot;: 1,<br>
+&quot;views&quot;: 102,<br>
+&quot;region&quot;: 0,<br>
+&quot;latitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;longitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;range_type&quot;: 1,<br>
+&quot;is_follow&quot;: 0,<br>
+&quot;user_type&quot;: 1,<br>
+&quot;money_type&quot;: 1,<br>
+&quot;bonus_id&quot;: 121,<br>
+&quot;bonus_avatar&quot;: &quot;http://local.lianwo/resources/theme/stv1/_static/image/noavatar/small.jpg&quot;,<br>
+&quot;bonus_username&quot;: &quot;singsin&quot;,<br>
+&quot;status_msg&quot;: &quot;末抢完&quot;,<br>
+&quot;bonus_cn_type&quot;: &quot;个人&quot;,<br>
+&quot;is_followed&quot;: 0<br>
+},<br>
+{<br>
+&quot;bonus_code&quot;: &quot;2015365eb8c4d47bdc5d7d6b0bba157f&quot;,<br>
+&quot;bonus_type&quot;: 1,<br>
+&quot;bonus_many&quot;: 2,<br>
+&quot;bonus_fromuid&quot;: 1,<br>
+&quot;total_amount&quot;: 10,<br>
+&quot;send_time&quot;: &quot;01-17 16:49&quot;,<br>
+&quot;expire_time&quot;: 0,<br>
+&quot;bonus_msg&quot;: &quot;&quot;,<br>
+&quot;status&quot;: 1,<br>
+&quot;views&quot;: 102,<br>
+&quot;region&quot;: 0,<br>
+&quot;latitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;longitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;range_type&quot;: 1,<br>
+&quot;is_follow&quot;: 0,<br>
+&quot;user_type&quot;: 1,<br>
+&quot;money_type&quot;: 1,<br>
+&quot;bonus_id&quot;: 120,<br>
+&quot;bonus_avatar&quot;: &quot;http://local.lianwo/resources/theme/stv1/_static/image/noavatar/small.jpg&quot;,<br>
+&quot;bonus_username&quot;: &quot;singsin&quot;,<br>
+&quot;status_msg&quot;: &quot;末抢完&quot;,<br>
+&quot;bonus_cn_type&quot;: &quot;个人&quot;,<br>
+&quot;is_followed&quot;: 0<br>
+},<br>
+{<br>
+&quot;bonus_code&quot;: &quot;32c752fe801ff444c3a19e02375a55c6&quot;,<br>
+&quot;bonus_type&quot;: 1,<br>
+&quot;bonus_many&quot;: 2,<br>
+&quot;bonus_fromuid&quot;: 1,<br>
+&quot;total_amount&quot;: 4,<br>
+&quot;send_time&quot;: &quot;01-16 16:00&quot;,<br>
+&quot;expire_time&quot;: 0,<br>
+&quot;bonus_msg&quot;: &quot;&quot;,<br>
+&quot;status&quot;: 1,<br>
+&quot;views&quot;: 102,<br>
+&quot;region&quot;: 0,<br>
+&quot;latitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;longitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;range_type&quot;: 1,<br>
+&quot;is_follow&quot;: 0,<br>
+&quot;user_type&quot;: 1,<br>
+&quot;money_type&quot;: 1,<br>
+&quot;bonus_id&quot;: 119,<br>
+&quot;bonus_avatar&quot;: &quot;http://local.lianwo/resources/theme/stv1/_static/image/noavatar/small.jpg&quot;,<br>
+&quot;bonus_username&quot;: &quot;singsin&quot;,<br>
+&quot;status_msg&quot;: &quot;末抢完&quot;,<br>
+&quot;bonus_cn_type&quot;: &quot;个人&quot;,<br>
+&quot;is_followed&quot;: 0<br>
+},<br>
+{<br>
+&quot;bonus_code&quot;: &quot;9055dfff2f691c2fde19ed243a08583e&quot;,<br>
+&quot;bonus_type&quot;: 1,<br>
+&quot;bonus_many&quot;: 2,<br>
+&quot;bonus_fromuid&quot;: 1,<br>
+&quot;total_amount&quot;: 4,<br>
+&quot;send_time&quot;: &quot;01-16 15:57&quot;,<br>
+&quot;expire_time&quot;: 0,<br>
+&quot;bonus_msg&quot;: &quot;&quot;,<br>
+&quot;status&quot;: 1,<br>
+&quot;views&quot;: 102,<br>
+&quot;region&quot;: 0,<br>
+&quot;latitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;longitude&quot;: &quot;0.0000000000&quot;,<br>
+&quot;range_type&quot;: 1,<br>
+&quot;is_follow&quot;: 0,　　<br>
+&quot;user_type&quot;: 1,<br>
+&quot;money_type&quot;: 1,<br>
+&quot;bonus_id&quot;: 118,<br>
+&quot;bonus_avatar&quot;: &quot;http://local.lianwo/resources/theme/stv1/_static/image/noavatar/small.jpg&quot;,<br>
+&quot;bonus_username&quot;: &quot;singsin&quot;,<br>
+&quot;status_msg&quot;: &quot;末抢完&quot;,<br>
+&quot;bonus_cn_type&quot;: &quot;个人&quot;,<br>
+&quot;is_followed&quot;: 0　　是否关注了发红包的人<br>
+}<br>
+],<br>
+}</p>
+</pre></td>
+            </tr>
+          </table>
+          <p>&nbsp;<a name="createBonusEvent" id="createBonusEvent">API</a></p>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">createBonusEvent 发布活动</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=createBonusEvent</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="220" valign="top"><br />
+                参数名称 </td>
+              <td width="152" valign="top">是否必需</td>
+              <td width="263" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td valign="top">title</td>
+              <td valign="top">是</td>
+              <td valign="top">活动标题</td>
+            </tr>
+            <tr>
+              <td valign="top">content</td>
+              <td valign="top">是</td>
+              <td valign="top">活动内容</td>
+            </tr>
+             <tr class="btn-danger">
+              <td valign="top">cid</td>
+              <td valign="top">是</td>
+              <td valign="top">活动类型</td>
+            </tr>
+            <tr>
+              <td valign="top">bonus_type</td>
+              <td valign="top">否</td>
+              <td valign="top">default:１</td>
+            </tr>
+            <tr>
+              <td valign="top">bonusmany</td>
+              <td valign="top">是</td>
+              <td valign="top">红包个数</td>
+            </tr>
+            <tr>
+              <td valign="top">bonusmoney</td>
+              <td valign="top">是</td>
+              <td valign="top">每个金额 .或额，看红包类型</td>
+            </tr>
+            <tr>
+              <td valign="top">money_type</td>
+              <td valign="top">是/这里设置为２</td>
+              <td valign="top">默认1，１现金，２财源币</td>
+            </tr>
+            <tr>
+              <td valign="top">expire_time</td>
+              <td valign="top">现金非必需，财源币必须</td>
+              <td valign="top">现金过期时间由后台设置，财源币是发包者设置</td>
+            </tr>
+            <tr>
+              <td valign="top">user_group</td>
+              <td valign="top">否</td>
+              <td valign="top">会员级别</td>
+            </tr>
+            <tr>
+              <td valign="top">user_group_verify</td>
+              <td valign="top">否</td>
+              <td valign="top">会员认证子分类</td>
+            </tr>
+            <tr>
+              <td valign="top">bonusmsg</td>
+              <td valign="top">否</td>
+              <td valign="top">留言</td>
+            </tr>
+            <tr>
+              <td valign="top">latitude</td>
+              <td valign="top">否</td>
+              <td valign="top">经度</td>
+            </tr>
+            <tr>
+              <td width="220" valign="top"><p>longitude</p></td>
+              <td width="152" valign="top">否</td>
+              <td width="263" valign="top"><p>纬度</p></td>
+            </tr>
+            <tr>
+              <td width="220" valign="top"><p>address_title</p></td>
+              <td width="152" valign="top">是</td>
+              <td width="263" valign="top"><p>地址标题</p></td>
+            </tr>
+            <tr>
+              <td width="220" valign="top"><p>address</p></td>
+              <td width="152" valign="top">是</td>
+              <td width="263" valign="top"><p>地址</p></td>
+            </tr>
+            <tr>
+              <td valign="top">is_follow</td>
+              <td valign="top">否</td>
+              <td valign="top">默认不需关注，值为０</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top"><p>状态</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>msg</p></td>
+              <td width="496" valign="top"><p>消息</p></td>
+            </tr>
+          </table><a name="getBonusEventList" id="getBonusEventList"></a>
+          <p>&nbsp;</p>
+          <h2 class="sub-header"> getBonusEventList活动红包列表</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=getBonusEventList</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>page</p></td>
+              <td width="496" valign="top"><p>第几页 / 非必需</p></td>
+            </tr>
+
+          </table>
+		<pre>
+{
+    "range_type": [
+        {
+            "tid": "1",
+            "name": "即抢50"
+        },
+        {
+            "tid": "2",
+            "name": "即抢100"
+        },
+        {
+            "tid": "3",
+            "name": "即抢200"
+        },
+        {
+            "tid": "4",
+            "name": "即抢300"
+        },
+        {
+            "tid": "5",
+            "name": "即抢400"
+        },
+        {
+            "tid": "6",
+            "name": "即抢500"
+        }
+    ]
+}</pre><a name="globalData" id="globalData"></a>
+          <h2 class="sub-header">globalData　全局通用数据</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=globalData</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <pre>{<br>    "bonus_global_data":<span data-type="object">{<br>        "event_type":<span data-type="array" data-size="5">[<br>            <span data-type="object">{<br>                "cid":1,<br>                "name":"酒店"<br>            }</span>,<br>            <span data-type="object">{<br>                "cid":2,<br>                "name":"购物"<br>            }</span>,<br>            <span data-type="object">{<br>                "cid":3,<br>                "name":"电影"<br>            }</span>,<br>            <span data-type="object">{<br>                "cid":4,<br>                "name":"娱乐"<br>            }</span>,<br>            <span data-type="object">{<br>                "cid":5,<br>                "name":"活动"<br>            }</span><br>        ]</span>,<br>        "user_groups":<span data-type="array" data-size="7">[<br>            <span data-type="object">{<br>                "groupId":0,<br>                "groupName":"所有",<br>                "subCategory":<span data-type="array" data-size="0">[<br><br>                ]</span><br>            }</span>,<br>            <span data-type="object">{<br>                "groupId":5,<br>                "groupName":"个人认证",<br>                "subCategory":<span data-type="array" data-size="7">[<br>                    <span data-type="object">{<br>                        "id":0,<br>                        "name":"所有"<br>                    }</span>,<br>                    <span data-type="object">{<br>                        "id":7,<br>                        "name":"MVP"<br>                    }</span>,<br>                    <span data-type="object">{<br>                        "id":8,<br>                        "name":"NVP"<br>                    }</span>,<br>                    <span data-type="object">{<br>                        "id":9,<br>                        "name":"VVP"<br>                    }</span>,<br>                    <span data-type="object">{<br>                        "id":10,<br>                        "name":"SVP"<br>                    }</span>,<br>                    <span data-type="object">{<br>                        "id":11,<br>                        "name":"VIP"<br>                    }</span>,<br>                    <span data-type="object">{<br>                        "id":15,<br>                        "name":"UIP"<br>                    }</span><br>                ]</span><br>            }</span>,<br>            <span data-type="object">{<br>                "groupId":6,<br>                "groupName":"机构认证",<br>                "subCategory":<span data-type="array" data-size="6">[<br>                    <span data-type="object">{<br>                        "id":0,<br>                        "name":"所有"<br>                    }</span>,<br>                    <span data-type="object">{<br>                        "id":5,<br>                        "name":"商家"<br>                    }</span>,<br>                    <span data-type="object">{<br>                        "id":6,<br>                        "name":"企业"<br>                    }</span>,<br>                    <span data-type="object">{<br>                        "id":12,<br>                        "name":"政府"<br>                    }</span>,<br>                    <span data-type="object">{<br>                        "id":13,<br>                        "name":"媒体"<br>                    }</span>,<br>                    <span data-type="object">{<br>                        "id":14,<br>                        "name":"机构"<br>                    }</span><br>                ]</span><br>            }</span>,<br>            <span data-type="object">{<br>                "groupId":7,<br>                "groupName":"会员",<br>                "subCategory":null<br>            }</span>,<br>            <span data-type="object">{<br>                "groupId":8,<br>                "groupName":"金会员",<br>                "subCategory":null<br>            }</span>,<br>            <span data-type="object">{<br>                "groupId":11,<br>                "groupName":"金会员",<br>                "subCategory":null<br>            }</span>,<br>            <span data-type="object">{<br>                "groupId":12,<br>                "groupName":"钻会员",<br>                "subCategory":null<br>            }</span><br>        ]</span><br>    }</span>,<br>    "boot_ad":<span data-type="object">{<br>        "img":"<a href="http://112.74.46.91/data/upload/2017/0607/14/59379ba06e04f6df48b7.png" target="_blank">http://112.74.46.91/data/upload/2017/0607/14/59379ba06e04f6df48b7.png</a>",<br>        "imgUrl":"<a href="http://www.baidu.com/" target="_blank">http://www.baidu.com</a>"<br>    }</span>,<br>    "appBonus":<span data-type="object">{<br>        "status":0<br>    }</span>,<br>    "status":1,<br>    "message":"操作成功"<br>}</pre>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p><a name="getDiscovery" id="getDiscovery"></a> </p>
+          <p>&nbsp;</p>
+          <h2 class="sub-header"> getDiscoverList　发现数据列表</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=getDiscoverList</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>&nbsp;</p></td>
+              <td width="496" valign="top"><p>&nbsp;</p></td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <pre>{<br>    "range_type":<span data-type="array" data-size="5">[<br>        <span data-type="object">{<br>            "cid":1,<br>            "name":"酒店"<br>        }</span>,<br>        <span data-type="object">{<br>            "cid":2,<br>            "name":"购物"<br>        }</span>,<br>        <span data-type="object">{<br>            "cid":3,<br>            "name":"电影"<br>        }</span>,<br>        <span data-type="object">{<br>            "cid":4,<br>            "name":"娱乐"<br>        }</span>,<br>        <span data-type="object">{<br>            "cid":5,<br>            "name":"活动"<br>        }</span><br>    ]</span>,<br>    "status":1,<br>    "message":"操作成功"<br>}</pre>
+          <p>&nbsp;</p>
+          <p>&nbsp;<a name="getMoreDiscoveryData" id="getMoreDiscoveryData"></a></p>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">getDiscoverData发现更多数据</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=<span class="sub-header">getDiscoverData</span></p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>cid</p></td>
+              <td width="496" valign="top">活动类型　ＩＤ</td>
+            </tr>
+            <tr>
+              <td valign="top">page</td>
+              <td valign="top">第几页，默认第１页</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>&nbsp;<a name="getBonusEventData" id="getBonusEventData"></a></p>
+          <h2 class="sub-header">getBonusEventData活动上下拉更多数据</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=getBonusEventData</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>tid</p></td>
+              <td width="496" valign="top">即抢类型　tid　　必需</td>
+            </tr>
+            <tr>
+              <td valign="top">page</td>
+              <td valign="top">第几页，默认第１页</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p> <p>&nbsp;</p>   <p>&nbsp;<a name="getLianwoUsersByLastSendBonus" id="getLianwoUsersByLastSendBonus"></a></p>
+          <h2 class="sub-header">getLianwoUsersByLastSendBonus链友</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=getLianwoUsersByLastSendBonus</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td valign="top">page</td>
+              <td valign="top">第几页，默认第１页</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="dist/jquery.min.js"></script>
+    <script src="dist/bootstrap.min.js"></script>
+    <script src="dist/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="dist/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

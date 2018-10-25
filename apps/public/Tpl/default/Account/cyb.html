@@ -1,0 +1,237 @@
+<include file="__THEME__/public_header" />
+<link href="__APP__/level.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="__APP__/css/main.css" />
+<script type="text/javascript" src="__APP__/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="__APP__/js/jquery.qrcode.min.js"></script>
+<div id="page-wrap">
+	   <div id="main-wrap">
+	   	   	<div id="col" class="st-grid content-bg st-bg-b cc">
+                <div id="col4" class="main-left">
+                   <!--tab菜单-->
+                   <include file="_tabs" />
+                </div>
+                <div id="col7" class="main-right">
+                  <div class="extend minh person-set">
+                      <div class="tab-menu line-b-animate mb20">
+                        <ul>
+                            <li class="current"><span><a href="{:U('public/Account/cyb')}">我的余额</a></span></li>
+                            <li><span><a href="{:U('public/Account/scorecharge_cyb')}">财源币充值</a></span></li>
+                            <li><span><a href="{:U('public/Account/scoretransfer_cyb')}">财源币转帐</a></span></li>
+                        </ul>
+                      </div>
+                      <dl class="person-info-t clearfix">
+                         <dt><a href="{$user_info.space_url}"><img src="{$user_info.avatar_big}" width="100" height="100" /></a></dt>
+                         <dd>
+                            <div class="name">
+                               <strong><a href="{$user_info.space_url}">{$user_info.uname}</a></strong>
+                               <span class="person-icon">
+                                  <a href="{:U('public/Account/scorelevel')}"><img style="width:48px;height:10px;display:inline;cursor:pointer;vertical-align:0;" src="{$userCredit.level.src}" /></a></span>
+                            </div>            
+                           <div class="user-grade">
+                               <div class="grade mt10">
+                                    
+                                        <span>{$userCredit.credit.caiyuanbi.alias}：{$userCredit.credit.caiyuanbi.value}元</span>
+                                        <span>收到的财源币总额：<font color="red"><eq name="ccb.income" value="0">未收到财源币或已使用完<else/>{$ccb.income}</font>元</eq></span>
+                                        <br/>
+                                      
+                                    <!-- <span>经验：100点</span><span>积分：100点<span></span>魅力：100点</span> -->
+                                </div>
+                               <div class="grade mt10"><span>用户当前等级：{$userCredit.level.name}</span></div>
+                               <div class="btn mt10"><a href="{:U('public/Account/scorecharge_cyb')}" class="btn-green-small"><span>充值</span></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{:U('public/Account/scoretransfer_cyb')}" class="btn-green-small"><span>转帐</span></a></div>
+                           </div>
+                          </dd>
+                      </dl>
+                      <div class="level-content">
+                     
+                      <div class="list">
+                        <table>
+                         <tbody>
+                             <tr>
+                                <th width="150">订单号</th>
+                                <th width="150">转账人</th>
+                                <th width="150">转账金额</th>
+                                <th width="300">备注</th>
+                                <th width="150">转账时间</th>
+                             </tr>
+                             <volist name="cyb.data" id="vo">
+                                 <tr>
+                                    <td width="150">{$vo.order_num}</td>
+                                    <td width="150">{$vo.oid|getUserName}</td>
+                                    <td width="150">{$vo.cyb_change}</td>
+                                    <td width="300">{$vo.des}</td>
+                                    <td width="150">{$vo.ctime|friendlyDate}</td>
+                                 </tr>
+                            </volist>
+                            </tbody>
+                         </table>
+                         </div>
+                         <div id="page" class="page" >{$cyb.html}</div>
+                        </div>
+                  </div>
+                </div>
+           	 </div>
+	   </div>
+</div>
+<style type="text/css">
+
+.demo{width:400px; margin:40px auto 0 auto; min-height:250px;}
+
+.demo p{line-height:30px}
+
+#code{margin-top:10px}
+
+</style>
+<div id="goodcover"></div>
+
+<div class="code">
+  <div class="close1"><a href="javascript:void(0)" id="closebt"><img src="__APP__/images/close.gif"></a></div>
+  <div class="goodtxt">
+    <p>微信扫一扫</p>
+    <p>订单号：<span id="cyb_order_num"></span></p>
+    <p>密码：<span id="cyb_order_code"></span></p>
+  </div>
+  <div class="code-img">
+    <div id="code"></div>
+  </div>
+  
+</div>
+
+<include file="__THEME__/public_footer" />
+<script type="text/javascript">
+$(function() {
+
+    $('.lst ul li').click(function(){
+        $(this).addClass("current").siblings().removeClass("current");
+        var index=$(this).index();
+        // alert(index)
+        $(".list > table").eq(index).show().siblings().hide();
+    });
+
+    //alert($(window).height());
+
+    $('.ClickMe').click(function() {
+        var idd = $(this).attr('idd');
+        var code = $(this).attr('cyb_code');
+        var order = $(this).attr('cyb_order');
+        var url = $(this).attr('url');
+        $('.code').center();
+        $("#cyb_order_num").html(order);
+        $("#cyb_order_code").html(code);
+        $('#goodcover').show();
+        $('.code').fadeIn();
+
+        $("#code").empty();
+
+        var str = toUtf8(url);
+        // alert(str)
+        $("#code").qrcode({
+
+          render: "table",
+
+          width: 250,
+
+          height:250,
+
+          text: str
+
+        });
+    });
+    $('#closebt').click(function() {
+        $('.code').hide();
+        $('#goodcover').hide();
+    });
+    $('#goodcover').click(function() {
+        $('.code').hide();
+        $('#goodcover').hide();
+    });
+    /*var val=$(window).height();
+  var '.code'+iddheight=$(".'.code'+idd").height();
+    var topheight=(val-'.code'+iddheight)/2;
+  $('.code'+idd).css('top',topheight);*/
+    jQuery.fn.center = function(loaded) {
+        var obj = this;
+        body_width = parseInt($(window).width());
+        body_height = parseInt($(window).height());
+        block_width = parseInt(obj.width());
+        block_height = parseInt(obj.height());
+
+        left_position = parseInt((body_width / 2) - (block_width / 2) + $(window).scrollLeft());
+        if (body_width < block_width) {
+            left_position = 0 + $(window).scrollLeft();
+        };
+
+        top_position = parseInt((body_height / 2) - (block_height / 2) + $(window).scrollTop());
+        if (body_height < block_height) {
+            top_position = 0 + $(window).scrollTop();
+        };
+
+        if (!loaded) {
+
+            obj.css({
+                'position': 'absolute'
+            });
+            obj.css({
+                'top': ($(window).height() - $('.code').height()) * 0.5,
+                'left': left_position
+            });
+            $(window).bind('resize', function() {
+                obj.center(!loaded);
+            });
+            $(window).bind('scroll', function() {
+                obj.center(!loaded);
+            });
+
+        } else {
+            obj.stop();
+            obj.css({
+                'position': 'absolute'
+            });
+            obj.animate({
+                'top': top_position
+            }, 200, 'linear');
+        }
+    }
+
+});
+//二维码生成
+
+function toUtf8(str) {   
+
+    var out, i, len, c;   
+
+    out = "";   
+
+    len = str.length;   
+
+    for(i = 0; i < len; i++) {   
+
+      c = str.charCodeAt(i);   
+
+      if ((c >= 0x0001) && (c <= 0x007F)) {   
+
+          out += str.charAt(i);   
+
+      } else if (c > 0x07FF) {   
+
+          out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));   
+
+          out += String.fromCharCode(0x80 | ((c >>  6) & 0x3F));   
+
+          out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));   
+
+      } else {   
+
+          out += String.fromCharCode(0xC0 | ((c >>  6) & 0x1F));   
+
+          out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));   
+
+      }   
+
+    }   
+
+    return out;   
+
+}  
+
+  
+</script>

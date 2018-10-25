@@ -1,0 +1,71 @@
+<include file="__THEME__/admin_header" />
+<div id="container" class="so_main">
+  <div class="page_tit">会员设置</div>
+  
+<div class="tit_tab">
+    <ul>
+    <volist name="list" id="v">
+    <li><a href="{$v.url}" <eq name="key" value="1">class="on"</eq>>{$v.vip}</a>
+    </li>
+    </volist>
+    </ul>
+</div>
+<div class="form2">
+  <form method="post" action="{:U('admin/Vip/set_price')}">
+    
+      <dl class="lineD">
+        <dt>Vip权限：</dt>
+          <dd>
+          <volist name="personal_pri" id="vo">
+          <input type="radio" name="pid" value="{$vo.user_group_id}" />{$vo.user_group_name}
+          </volist>
+          </dd>
+      </dl>
+      
+      <dl class="lineD">
+        <dt>修改金额：</dt>
+        <dd>
+          <input style="width:30px;text-align: center;" name="num" type="text" value="" />
+        </dd>
+      </dl>
+      <dl class="lineD">
+        <dt>修改内容：</dt>
+        <dd>
+          <input name="content" type="text" value="" /><font color="red">*内容以英文逗号隔开</font>
+        </dd>
+      </dl>
+      <div class="page_btm">
+          <input type="submit" class="btn_b" value="确定" />
+      </div>
+  </form>
+</div>
+
+</div>
+</div>
+<include file="__THEME__/admin_footer" />
+<script type="text/javascript">
+
+$(function(){
+
+
+    $("input[name = 'pid']").click(function(){
+        var pid = $("input[name='pid']:checked").val();
+        $.ajax({
+
+          url:"{:U('admin/Vip/personalSet')}",
+          data:{pid:pid},
+          type:'post',
+          dateType:'text',
+          success:function(msg){
+
+            $("input[name='num']").val(msg.data['vip_price']);
+            $("input[name='content']").val(msg.data['content']);
+
+          }
+        });
+
+    });
+
+});  
+
+</script>

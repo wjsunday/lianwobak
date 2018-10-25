@@ -1,0 +1,121 @@
+<include file="__THEME__/public_header" />
+<link href="__APP__/level.css" rel="stylesheet" type="text/css" />
+<link href="__APP__/css/foundation-datepicker.css" rel="stylesheet" type="text/css">
+<div id="page-wrap">
+	   <div id="main-wrap">
+	   	   	<div id="col" class="st-grid content-bg st-bg-b cc">
+                <div id="col4" class="main-left">
+                   <!--tab菜单-->
+                   <include file="_tabs" />
+                </div>
+                <div id="col7" class="main-right">
+                  <div class="extend minh person-set">
+                      <div class="tab-menu line-b-animate mb20">
+                        <ul>
+                            <li><span><a href="{:U('public/Account/cyb')}">我的余额</a></span></li>
+                            <!-- <li><span><a href="{:U('public/Account/scorerule')}">积分规则</a></span></li>
+                            <li><span><a href="{:U('public/Account/scorelevel')}">积分等级</a></span></li> -->
+                            <li><span><a href="{:U('public/Account/scorecharge_cyb')}">财源币充值</a></span></li>
+                            <li class="current"><span><a href="{:U('public/Account/scoretransfer_cyb')}">财源币转帐</a></span></li>
+                        </ul>
+                      </div>
+                      <form id="transfer" method="post">
+                              <dl class="form-set mb20">
+                                 <dd>
+                                    <div class="form-tt">收款人：</div>
+                                    <div class="form-row">{:W('SearchUser',array('name'=>'toUid','max'=>1))}</div>
+                                 </dd>
+                                 <dd>
+                                    <div class="form-tt">汇款金额：</div>
+                                    <div class="form-row"><input class="s-txt" type="text" value="" name="num" onkeyup="value=value.replace(/[^\d]/g,'') " onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,'')"></div>
+                                 </dd>
+                                <!--  <dd>
+                                    <div class="form-tt">有限期至：</div>
+                                    <div class="form-row" style="line-height: 27px;"><input class="s-txt" type="text" name="dtime" value="" id="demo-2"><font color="red">*如收款人未在有效期内使用完将归还链我所有</font></div>
+                                 </dd> -->
+                                 <dd>
+                                    <div class="form-tt">附加信息：</div>
+                                    <div class="form-row"><textarea class="s-textarea" name="desc"></textarea></div>
+                                 </dd>
+                                 <dd>
+                                    <div class="form-tt"></div>
+                                    <div class="form-row"><a href="javascript:;" onclick="$('#transfer').submit()" class="btn-green-small"><span>提交</span></a></div>
+                                 </dd>
+                              </dl>
+                        </form>
+                      <div class="level-content">
+                        <h3>汇款记录</h3>
+                        
+                        <div class="list">
+                        <table>
+                         <tbody>
+                             <tr>
+                                <th width="150">订单号</th>
+                                <th width="150">收款人</th>
+                                <th width="150">汇款金额</th>
+                                <th width="150">汇款时间</th>
+                                <th width="150">附加信息</th>
+                             </tr>
+                              <volist name="cyb.data" id="vo">
+                             <tr>
+                                <td width="150">{$vo.order_num}</td>
+                                <td width="150">{$vo.uid|getUserName}</td>
+                                <td width="150">{$vo.cyb_change}</php></td>
+                                <td width="150">{$vo.ctime|friendlyDate}</td>
+                                <td width="150">{$vo.des}</td>
+                             </tr>
+                               </volist>
+                            </tbody>
+                         </table>
+                         </div>
+                         <div id="" class="page">
+                            {$cyb.html}
+                         </div>
+                        </div>
+                  </div>
+                </div>
+           	 </div>
+	   </div>
+</div>
+<include file="__THEME__/public_footer" />
+<script src="__APP__/js/foundation-datepicker.js"></script>
+<script type="text/javascript">
+
+$(function(){
+
+    $('.lst ul li').click(function(){
+        $(this).addClass("current").siblings().removeClass("current");
+        var index=$(this).index();
+        // alert(index)
+        $(".list > table").eq(index).show().siblings().hide();
+    });
+
+    $('#demo-2').fdatepicker({
+      format: 'yyyy-mm-dd hh:ii',
+      pickTime: true
+    });
+    var nowTemp = new Date();
+    var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+    var checkin = $('#dpd1').fdatepicker({
+      onRender: function (date) {
+        return date.valueOf() < now.valueOf() ? 'disabled' : '';
+      }
+    }).on('changeDate', function (ev) {
+      if (ev.date.valueOf() > checkout.date.valueOf()) {
+        var newDate = new Date(ev.date)
+        newDate.setDate(newDate.getDate() + 1);
+        checkout.update(newDate);
+      }
+      checkin.hide();
+      $('#dpd2')[0].focus();
+    }).data('datepicker');
+    var checkout = $('#dpd2').fdatepicker({
+      onRender: function (date) {
+        return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+      }
+    }).on('changeDate', function (ev) {
+      checkout.hide();
+    }).data('datepicker');
+
+})
+</script>

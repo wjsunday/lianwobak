@@ -1,0 +1,64 @@
+<?php use Apps\Event\Common; ?>
+<include file="__THEME__/public_header" />
+<include file="../common/nav" />
+<div class="hd-shworap">
+	<h2 class="hd-fbtitle">我的活动</h2>
+	<ul class="hd-user">
+		<li><a href="{:U('Event/Manage/index', array('type' => 0))}">我参与的活动</a></li>
+		<li><a href="{:U('Event/Manage/index', array('type' => 1))}">我发起的活动</a></li>
+		<li><a href="{:U('Event/Manage/index', array('type' => 2))}">我关注的活动</a></li>
+	</ul>
+	<div class="hd-worap">
+		<!-- 左侧 -->
+		<div class="listbox">
+			<?php foreach ($list['data'] as $event) { ?>
+				<div class="list01">
+					<a id="borderadius" href="{:U('Event/Info/index', array('id' => $event['eid']))}">
+						<img src="{:getImageUrlByAttachId($event['image'], 120, 170)}" alt="{$event['name']}">
+					</a>
+					<div class="information">
+						<a href="{:U('Event/Info/index', array('id' => $event['eid']))}">
+							<h3>{$event['name']}</h3>
+						</a>
+						<ul>
+							<li>时间：{:date('Y年m月d日 H:i', $event['stime'])}&nbsp;～&nbsp;{:date('Y年m月d日 H:i', $event['etime'])}</li>
+							<?php 
+								$event['area'] = model('Area')->getAreaById($event['area']);
+								$event['area'] = $event['area']['title'];
+								$event['city'] = model('Area')->getAreaById($event['city']);
+								$event['city'] = $event['city']['title'];
+							?>
+							<li>地点：{$event['area']}&nbsp;{$event['city']}&nbsp;{$event['location']}</li>
+							<li>场所：{$event['place']}</li>
+							<li>费用：{$event['price']}RMB</li>
+							<?php 
+								$event['user'] = model('User')->getUserInfo($event['uid']);
+							?>
+							<li>发起人：<a id="blue" href="{$event['user']['space_url']}" target="_blank" uid="{$event['user']['uid']}" event-node="face_card" show="no">{$event['user']['uname']}</a></li>
+						</ul>
+						<?php
+							$button = '立即查看';
+							if ($event['etime'] <= time()) {
+								$button = '已经结束';
+							} elseif (in_array($type, array(0, 1))) {
+								$button = '立即查看';
+							} elseif ($event['stime'] <= time()) {
+								$button = '立即报名';
+							}
+						?>
+						<a id="{:Common::hasEcho($button == '立即报名', 'baoming', 'baomingjieshu')}" href="{:U('Event/Info/index', array('id' => $event['eid']))}">{$button}</a>
+						<?php if ($event['notAduit'] > 0 and $type == 1) { ?>
+							<div class="hd-sh">{$event['notAduit']}人待审核>></div>
+						<?php } ?>
+					</div>
+				</div>
+			<?php } ?>
+			<div class="page" id="page">{$list['html']}</div>
+		</div>
+		<!-- 右侧 -->
+		<div class="rightbox">
+			<include file="../common/right" />
+		</div>
+	</div>
+</div>
+<include file="__THEME__/public_footer" />

@@ -1,0 +1,91 @@
+<?php use Apps\Information\Common; ?>
+<include file="__THEME__/public_header" />
+<div class="contentbox">
+  <!-- 左侧 -->
+  <div class="zx-lbox">
+    <?php if ($slide && is_array($slide) && count($slide) >= 1) { ?>
+    <!-- 幻灯 -->
+    <div class="focus">
+      <div id="pic">
+        <ul>
+          <li>
+            <a href="http://51eduline.com">
+              <img src="__APP__/eduline.png">
+              <p>历经两年的产品迭代和升级，打造全新的在线教育系统。</p>
+            </a>
+          </li>          
+          <?php foreach ($slide as $value) { ?>
+          <li>
+            <a href="{:U('Information/Index/read', array('id' => $value['sid']))}" title="{$value.title}" target="_blank">
+              <img src="{:getImageUrlByAttachId($value['image'], 700, 330, true)}" alt="{$value.title}">
+              <p>{$value.title}</p>
+            </a>
+          </li>
+          <?php } ?>
+        </ul>
+      </div>
+      <div class="tip-bg"></div>
+      <div id="tip">
+        <ul>
+          <li></li>
+          <?php foreach ($slide as $value) {
+            echo '<li></li>';
+          } ?>
+        </ul>
+      </div>
+    </div>
+    <!-- 幻灯end -->
+    <?php unset($slide, $value); } ?>
+
+    <!-- 正文列表 -->
+    <div class="notice" style="margin:0 auto">
+      <!-- 分类 -->
+      <div class="tab-hd">
+        <ul class="new-nav">
+          <li class="{:Common::hasEcho(!$cid, 'on')}"><a href="{:U('Information/Index/index')}" title="全部分类">全部</a></li>
+          <?php if ($cates && is_array($cates)) { ?>
+          <?php foreach ($cates as $cate) { ?>
+          <li class="{:Common::hasEcho($cid == $cate['id'], 'on')}"><a href="{:U('Information/Index/index', array('cid' => $cate['id']))}" title="{$cate.name}">{$cate.name}</a></li>
+          <?php } ?>
+          <?php unset($cates, $cate); } ?>
+        </ul>
+      </div>
+      <!-- 分类 end -->
+      <!-- 内容列表 -->
+      <div class="tab-bd">
+        <div class="zx-linst">
+          <?php if ($subjects && is_array($subjects)) { ?>
+          <?php foreach ($subjects as $subject) { ?>
+          <dl>
+            <dt>
+              <?php if ($subject['image']) { ?>
+              <img src="{$subject.image}" alt="{$subject.subject}">
+              <?php } ?>
+            </dt>
+            <dd>
+              <h2><a href="{:U('Information/Index/read', array('id' => $subject['id']))}">{$subject.subject}</a></h2>
+              <p><a href="{:U('Information/Index/read', array('id' => $subject['id']))}">{$subject.abstract}</a></p>
+              <div class="linst-info">{:date('Y年m月d日 H时i分s秒', $subject['ctime'])}<span><i class="i-post-scan"></i>({$subject['hits']})<i class="i-post-comment"></i>({$subject['commentNum']})</span></div>
+            </dd>
+          </dl>
+          <?php } ?>
+          <?php } ?>
+          <div id="page" class="page">{$pageHtml}</div>
+          <?php unset($subject, $subjects, $pageHtml); ?>
+        </div>
+      </div>
+      <!-- 内容列表 end -->
+    </div>
+    <!-- 正文列表 end -->
+  </div>
+  <!-- 投稿 -->
+  <a id="quick_post" href="{:U('Information/Index/release')}" class="newquick_post"><i class="ico-post weiba-post"></i><span>投稿</span></a>
+
+  <!-- 右侧推荐 -->
+  <div class="zx-right">
+    <include file="subjectTop" />
+    <include file="comentTop" />
+  </div>
+
+</div>
+<include file="__THEME__/public_footer" />

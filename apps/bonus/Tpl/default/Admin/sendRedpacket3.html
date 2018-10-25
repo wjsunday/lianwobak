@@ -1,0 +1,234 @@
+<include file="__THEME__/admin_header" />
+<style>
+.ping{background:url(__ROOT__/apps/bonus/_static/images/ping.png) left no-repeat; }
+.ui-input {
+    vertical-align: top;
+    height: 18px;
+    font-size: 16px;
+    line-height: 20px;
+    border: 1px solid #aaa;
+    padding: 6px 8px;
+    border-radius: 3px;
+}
+select.ui-choose{display: none;}
+ul.ui-choose { box-sizing: border-box; display: inline-block; border: 1px solid transparent; font: 100 16px/30px 'microsoft yahei'; border-right: none; border-bottom: none; font-size: 16px; margin: 0; padding: 0; list-style: none; vertical-align: middle; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+ul.ui-choose:after { content: ""; display: table; clear: both; }
+ul.ui-choose>li { box-sizing: border-box; border: 1px solid #ccc; float: left; height: 34px; line-height: 32px; margin: -1px 0 0 -1px; padding: 0 16px; cursor: pointer; position: relative; z-index: 1; min-width: 20px; text-align: center; }
+ul.ui-choose>li:first-child { border-radius: 3px 0 0 3px; }
+ul.ui-choose>li:last-child { border-radius: 0 3px 3px 0; }
+ul.ui-choose>li:hover { z-index: 4; border-color: #0080ff; color: #0080ff; }
+ul.ui-choose>li.selected { z-index: 3; border-color: #0080ff; background-color: #0080ff; color: #fff; }
+ul.ui-choose>li.disabled { z-index: 2; background-color: #f2f2f2; color: #aaa; cursor: not-allowed; }
+ul.ui-choose>li.disabled:hover { border-color: #aaa; }
+ul.ui-choose>li.selected.disabled { z-index: 2; background-color: #8FC7FF; color: #fff; cursor: not-allowed; border-color: #8FC7FF; }
+ul.choose-type-right>li.selected { color: #0080ff; background: transparent url("__APP__/image/icon-selected.png") no-repeat right bottom; }
+ul.ui-choose.choose-flex { display: flex; }
+ul.ui-choose.choose-flex>li { flex: 1; padding: 0 8px; }
+</style>
+<div class="so_main">
+    <php>if(!empty($pageTab)):</php>
+    <div class="tit_tab">
+        <ul>
+        <php> !$_REQUEST['tabHash'] && $_REQUEST['tabHash'] =  $pageTab[0]['tabHash'];</php>
+        <volist name='pageTab' id='t'>
+            <li><a href="{$t.url}&tabHash={$t.tabHash}" <php> if($t['tabHash'] == $_REQUEST['tabHash']){ echo 'class="on"';}</php>>{$t.title}</a></li>
+        </volist>
+        </ul>
+    </div>
+    <php>endif;</php>
+
+  <php>if(!empty($pageButton) || !empty($listData['html'])):</php>
+   <!-- START TOOLBAR -->
+  <div class="Toolbar_inbox">
+    <div class="page right">
+   
+    </div>  
+    <volist name='pageButton' id='b'>
+      <?php
+        $dataArgs = '';
+        if (is_array($b['data'])) {
+          foreach ($b['data'] as $dk => $dv) {
+            $dataArgs .= 'data-' . $dk . '="' . $dv . '"';
+          }
+        }
+      ?>
+      <a onclick="{$b.onclick}" class="btn_a {$b.class}" id="{$b.id}" {$dataArgs}><span>{$b.title}</span></a>
+      <?php unset($dataArgs); ?>
+    </volist>
+  </div>
+  <!-- END TOOLBAR -->
+  <php>endif;</php>
+
+
+<div class="form2">
+<form method="post" action="{:U('bonus/Admin/doSendRedpacket')}" id="doSendRedpacketForm" onsubmit="return doPost()">
+  	<input type="hidden" name='systemdata_list' value="{$systemdata_list}"  class="s-txt"/>
+  	<input type="hidden" name='systemdata_key' value="{$systemdata_key}"  class="s-txt"/>  
+  	<input type="hidden" name='pageTitle' value="{$pageTitle}" class="s-txt" />
+<dl class="lineD">
+	红包类型：指定用户红包,此类红包能不抢，业务代码另行开发
+</dl>
+<dl class="lineD">
+	<dt>用户ID ：</dt>
+	<dd><input type="text" class="s-txt" style="width:200px; padding-left:25px" name="uid"></dd>
+</dl>
+<dl class="lineD">
+	<dt>用户组 ：</dt>
+	
+	<dd style="float:left;margin-left:0">
+		<select class="ui-choose" name="sysGroups"> 
+		<option value="0">所有人</option> 
+		<volist name="sysGroups" id="v">
+            <option value="{$key}">{$v}</option> 
+        </volist>      
+        </select>
+        <!-- <font color="red">*如果为空则表示所有人</font>  -->
+    </dd>
+	
+</dl>
+<dl class="lineD">
+	<dt>红包个数 ：</dt>
+	<dd><input type="text" class="s-txt" style="width:200px; padding-left:25px" name="redpacket_many" id="redpacket_many" value="" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"> 个</dd>
+</dl>
+<dl class="lineD">
+	<dt id='show_money_type'>单个金额 ：</dt>
+	<dd><input type="text" class="s-txt" style="width:200px; padding-left:25px;" name="redpacket_pre_money"  id="redpacket_pre_money" value="" onkeyup="value=value.replace(/[^\d.]/g,'')"> 元
+	<p id="show_money_type_msg">每人可领1个，金额相同且不能超过{$setting['redpacket_max_money']}元
+</dl>
+
+<dl class="lineD">
+	<dt>留言：</dt>
+	<dd><input type="text" class="s-txt" style="width:200px; padding-left:25px" name="redpacket_msg" id="redpacket_msg" value="恭喜发财，大吉大利！"></dd>
+</dl>
+<dl class="lineD">
+	<dt></dt>
+	<dd style="font-size:35px; font-weight:bold">￥<span id="total_amount">0.00</span><span id="total_amount_msg" style="font-size:13px; color:#f00; margin-left:30px;">0.00</span></dd>
+</dl>
+
+
+
+<div class="page_btm">
+<input type="hidden" name="editredpacketType" id="editredpacketType" value="3">
+<input type="hidden" name="editSubmit" value="1"> <input type="submit" class="btn_b" value="确定" id="doPost" /></div>
+</form>
+</div>
+</div>
+<script src="__APP__/ui-choose.js"></script>
+<script>
+  //鼠标移动表格效果
+    $(document).ready(function(){
+							   
+		showtotal_amount();
+    });
+	
+	function showtotal_amount()
+	{
+		var redpacket_max_money = {$setting['redpacket_max_money']};
+		var editredpacketType = $.trim($('#editredpacketType').val());
+		var redpacket_many = $.trim($('#redpacket_many').val());
+		var redpacket_pre_money = $.trim($('#redpacket_pre_money').val());
+		
+		if (redpacket_many == '') redpacket_many =0;
+		if (redpacket_pre_money == '') redpacket_pre_money =0;
+		if (editredpacketType == '3')
+		{
+				total = (parseFloat(parseInt(redpacket_many) * parseFloat(redpacket_pre_money)).toFixed(2));
+		}else{
+				total = (parseFloat(redpacket_pre_money).toFixed(2));
+		}
+		
+		if (total > redpacket_max_money)
+		{ 
+			//ui.error('总金额不能超过'+redpacket_max_money);
+			$('#total_amount').html(total);
+			$('#total_amount_msg').html('总金额不能超过'+redpacket_max_money);
+			
+		}else{
+			$('#total_amount').html(total);
+			$('#total_amount_msg').html('');
+
+		}
+		setTimeout('showtotal_amount()',1000);
+			
+	}
+		
+	function changeRedpacketType()
+	{
+			if ($('#editredpacketType').val() == 1)
+			{
+				$('#editredpacketType').val('2');
+				$("#show_money_type").html('总金额：');
+				$('#show_money_type_msg').html("每人可领1个，金额随机且不能超过{$setting['redpacket_max_money']}元<span id='changeRedpacketType' style='color:#09F;cursor:pointer; margin-left:20px;'>改为普通红包</span>");
+				$('#redpacket_pre_money').addClass('ping');
+			}else{
+				$('#editredpacketType').val('1');
+				$("#show_money_type").html('单个金额：');
+				$('#show_money_type_msg').html("每人可领1个，金额相同且不能超过{$setting['redpacket_max_money']}元,<span id='changeRedpacketType' style='color:#09F; cursor:pointer; margin-left:20px;'>改为拼手气红包</span>");
+				$('#redpacket_pre_money').removeClass('ping');
+
+			}
+		
+	}
+	$("#changeRedpacketType").live('click',changeRedpacketType);
+
+		function doPost(){
+			
+		var editredpacketType = $.trim($('#editredpacketType').val());
+		var redpacket_many = $.trim($('#redpacket_many').val());
+		var redpacket_pre_money = $.trim($('#redpacket_pre_money').val());
+		//alert(editredpacketType +' '+redpacket_many+' '+redpacket_pre_money);
+		if (redpacket_many === '') {
+			ui.error('请填写红包个数');
+			return false;
+		}
+		if (editredpacketType == '1') {
+			if (redpacket_many == ''){ui.error('请填写单个金额');return false;}
+			
+		}
+		if (editredpacketType == '2' && redpacket_pre_money == '') {
+			ui.error('请填写总金额');
+			return false;
+		}
+		return true;
+	}
+// 将所有.ui-choose实例化
+  $('.ui-choose').ui_choose();
+
+  // uc_01 ul 单选
+  var uc_01 = $('#uc_01').data('ui-choose'); // 取回已实例化的对象
+  uc_01.click = function(index, item) {
+      console.log('click', index, item.text())
+  }
+  uc_01.change = function(index, item) {
+      console.log('change', index, item.text())
+  }
+
+  // uc_02 select 单选
+  var uc_02 = $('#uc_02').data('ui-choose');
+  uc_02.click = function(value, item) {
+      console.log('click', value);
+  };
+  uc_02.change = function(value, item) {
+      console.log('change', value);
+  };
+
+  // uc_03 ul 多选
+  var uc_03 = $('#uc_03').data('ui-choose');
+  uc_03.click = function(index, item) {
+      console.log('click', index);
+  };
+  uc_03.change = function(index, item) {
+      console.log('change', index);
+  };
+
+  // uc_04 select 多选
+  var uc_04 = $('#uc_04').ui_choose();
+  uc_04.click = function(value, item) {
+      console.log('click', value);
+  };
+  uc_04.change = function(value, item) {
+      console.log('change', value);
+  };
+</script>
+
+<include file="_footer" />

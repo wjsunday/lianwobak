@@ -1,0 +1,112 @@
+<include file="__THEME__/admin_header" />
+<div id="container" class="so_main">
+  <div class="page_tit">会员列表</div>
+   <!-- START TAB框 -->
+  <!-- <php>if(!empty($pageTab)):</php>
+  <div class="tit_tab">
+    <ul>
+    <php> !$_REQUEST['tabHash'] && $_REQUEST['tabHash'] =  $pageTab[0]['tabHash'];</php>
+    <volist name='pageTab' id='t'>
+    <li><a href="{$t.url}&tabHash={$t.tabHash}" <php> if($t['tabHash'] == $_REQUEST['tabHash']){ echo 'class="on"';}</php>>{$t.title}</a></li>
+    </volist>
+    </ul>
+  </div>
+  <php>endif;</php> -->
+
+  
+  <!-- END TAB框 -->
+<div class="Toolbar_inbox">
+    <a href="{:U('admin/Vip/addVip')}" class="btn_a"><span>添加</span></a>
+    <a class="btn_a" id="search"><span>搜索</span></a>
+</div>
+
+
+<!------------------搜索功能------------------------>
+<div class="form2" id="block" style="display:none;">
+<form action="{:U('admin/Vip/search')}" method="post">
+  <dl class="lineD">
+    <dt>用户的邮箱：</dt>
+    <dd><input name="email" type="text" value="" class="s-txt"><input type="submit" class="btn_b" value="确定" /></dd>
+  </dl>
+</form>
+</div>
+
+
+<div class="tit_tab">
+    <ul>
+    <volist name="list" id="v">
+    <li><a href="{$v.url}" <eq name="key" value="0">class="on"</eq>>{$v.vip}</a>
+    </li>
+    </volist>
+    <li style="float: right;margin-right: 100px;"><a style="color: red">共{$count}条记录</a></li>
+    </ul>
+</div>
+<div class="form">
+<div class="urse_purview list">
+  <form action="{:U('admin/Vip/index')}" method="post">
+  <table class="tab_popedom" width="100%" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+      <th>vid</th>
+      <th>用户名</th>
+      <th>邮箱</th>
+      <th>支付方式</th>
+      <th>充值时间</th>
+      <th>充值金额</th>
+      <th>截止时间</th>
+      <th>备注</th>
+      <th>状态</th>
+      <th>设置</th>
+      </tr>
+      <volist name='vip' id='vo'>
+      <tr>
+        <td>{$vo.vid}</td>
+        <td>{$vo.uname}</td>        
+        <td>{$vo.email}</td>
+        <td>
+          <php>if($vo['charge_type'] == 0){</php>支付宝<php>}else if($vo['charge_type'] == 1){</php>微信<php>}else{</php>零用钱<php>}</php>
+        </td>
+        <td>{:date('Y-m-d H:i:s',$vo['Registration_time'])}</td>
+        <td>
+        <eq name="vo.vip_Price" value="0">
+        赠送<else/>
+        {$vo.vip_Price}</eq></td>
+        <td>{:date('Y-m-d H:i:s',$vo['due_time'])}</td>
+        <td>{$vo.remarks}</td>
+        <td><eq name= "vo.status" value="1">正在使用<else/>已过期</eq></td>
+        <td><eq name= "vo.status" value="2"><a href="{:U('admin/Vip/del',array('id'=>$vo['vid']))}">删除</a></eq></td>
+
+        <!-- <td>
+          <php>if(is_numeric($vo['image'])):</php>
+          <img width="33" height="9" src="{$vo.image|getImageUrlByAttachId}">
+          <php>else:</php>
+          <img src="__THEME__/image/level/{$vo.image}">
+          <php>endif;</php>
+        </td>
+        <td>{$vo.start} <neq name='vo.end' value=''> - {$vo.end}</neq></td>
+        <td><a href="{:U('admin/Global/setCreditLevel',array('level'=>$vo['level']))}">{:L('PUBLIC_EDIT')}</a></td> -->
+      </tr>
+      </volist>
+  </table>
+  </form>
+  
+    </div>
+
+    </div>
+    </div>
+</div>
+<include file="__THEME__/admin_footer" />
+<script type="text/javascript">
+
+$(function(){
+
+    $("#search").click(function(){
+        if($("#block").css("display")=="none"){
+          $("#block").show();
+        }else{
+          $("#block").hide();
+        }
+    });
+
+});  
+
+</script>

@@ -1,0 +1,54 @@
+<include file="__THEME__/admin_header" />
+
+<div class="so_main">
+    <php>if(!empty($pageTab)):</php>
+    <div class="tit_tab">
+        <ul>
+        <php> !$_REQUEST['tabHash'] && $_REQUEST['tabHash'] =  $pageTab[0]['tabHash'];</php>
+        <volist name='pageTab' id='t'>
+            <li><a href="{$t.url}&tabHash={$t.tabHash}" <php> if($t['tabHash'] == $_REQUEST['tabHash']){ echo 'class="on"';}</php>>{$t.title}</a></li>
+        </volist>
+        </ul>
+    </div>
+    <php>endif;</php>
+
+<div class="form2">
+<form method="post" action="{:U('bonus/Admin/doRedpacketConfig')}">
+  	<input type="hidden" name='systemdata_list' value="{$systemdata_list}"  class="s-txt"/>
+  	<input type="hidden" name='systemdata_key' value="{$systemdata_key}"  class="s-txt"/>  
+  	<input type="hidden" name='pageTitle' value="{$pageTitle}" class="s-txt" />
+
+<dl class="lineD">
+	<dt>每次红包最大额度 ：</dt>
+	<dd><input type="text" class="s-txt" style="width:60px;" name="redpacket_max_money" value="{$setting['redpacket_max_money']}"> 元</dd>
+</dl>
+<dl class="lineD">
+	<dt>每日发送最多红包额度 ：</dt>
+	<dd><input type="text" class="s-txt" style="width:60px;" name="redpacket_limit_money" value="{$setting['redpacket_limit_money']}"> 元</dd>
+</dl>
+
+<dl class="lineD">
+	<dt>未领取红包返回：</dt>
+	<dd><input type="text" class="s-txt" style="width:60px;" name="redpacket_return_hours" value="{$setting['redpacket_return_hours']}">小时</dl>
+<dl class="lineD">
+	<dt>ＡＰＰ首页红包ＩＤ：</dt>
+	<dd><input type="text" class="s-txt" style="width:60px;" name="app_index_bonus" value="{$setting['app_index_bonus']}"></dl>
+
+<volist name="vipList" id='v' key="k">
+<input type="hidden" name="number[]" />
+<dl class="lineD">
+  <input type="hidden" name="user_group_{$v.user_group_id}" value="{$v.user_group_id}" />
+  <dt style="width:250px">{$v.user_group_name}用户领取红包个数/领取红包最大额度：</dt>
+  <php>$aa = get_bonus_number.($k-1);</php>
+  <dd><input type="text" class="s-txt" id="list" style="width:60px;" name="get_bonus_number_{$v.user_group_id}" value="<php>echo $setting["get_bonus_number_".$v['user_group_id']];</php>"><font color="red">*格式：红包次数 英文逗号隔开 额度</font></dd>
+</dl>
+</volist>
+<div class="page_btm"><input type="hidden" name="editSubmit"
+	value="1"> <input type="submit" class="btn_b" value="确定" /></div>
+</form>
+</div>
+</div>
+<script>
+
+</script>
+<include file="_footer" />

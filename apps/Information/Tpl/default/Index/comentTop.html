@@ -1,0 +1,17 @@
+<?php if ($commentHots && is_array($commentHots) && count($commentHots) > 0) { ?>
+<div class="title"><span>热评资讯</span></div>
+<ul class="newtimg-linst">
+  <?php foreach ($commentHots as $commentHotSubjectData) { ?>
+  <li>
+    <a href="{:U('Information/Index/read', array('id' => $commentHotSubjectData['id']))}">
+      <?php  ?>
+      <?php if (!$commentHotSubjectData['image']) { ?>
+      <?php $commentHotSubjectData['image'] = APP_PUBLIC_URL . '/images/m.jpg'; ?>
+      <?php } ?>
+      <img src="{$commentHotSubjectData['image']}" alt="{$commentHotSubjectData['subject']}">
+      <h3>{$commentHotSubjectData['subject']}</h3>
+    </a>
+  </li>
+  <?php } ?>
+</ul>
+<?php } ?>

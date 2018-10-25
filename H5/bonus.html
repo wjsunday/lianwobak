@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>链 我</title>
+<link type="text/css" rel="stylesheet" href="css/jq_m.css"/>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=秘钥"></script>  
+<script type="text/javascript" src="http://developer.baidu.com/map/jsdemo/demo/convertor.js"></script> 
+<script src="js/rotate.js"></script>
+<script src="js/index.js"></script>
+<link href="css/index.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<div class="all">
+	<!--进入首页就出现的红包-->
+	<?php 
+		if($index_bonus['status'] == 1){
+	?>
+	<div class="indexHbBg">
+		<div class="indexHb">
+			<img width="800" height="785" src="<?php echo $index_bonus['bonus_ad']; ?>" class="index_hb1">
+			<img src="images/index_hb0.png" class="index_hb0">
+			<img src="images/indexhb_yuang.png" class="indexhb_yuang">
+			<img src="images/indexhb_yuang.png" class="indexhb_yuang2">
+			<img src="images/indexhb_close.png" class="indexhb_close">
+			<div class="indexhb_wz">恭喜发财，心想事成！</div>
+		</div>
+	</div>
+	<?php
+		}
+	?>
+	<!--点击列表弹出的红包-->
+	<div class="redbg">
+		<dl class="red">
+			<img src="images/red_close.png" class="close">
+			<dt><img src="images/redFace.png"></dt>
+			<dd>John_Snow</dd>
+			<dd>给你发了个红包</dd>
+			<dd>恭喜发财，心想事成</dd>
+			<dd>链我红包</dd>
+			<img src="images/red_yuang.png" class="yuang">
+			<img src="images/red_yuang.png" class="yuang2">
+		</dl>
+	</div>
+	
+	<!--点击弹出下载对话框-->
+	<div class="dhk">
+		<img src="images/dhk.png" class="dhk_01">
+		<img src="images/close_dhk.png" class="dhk_close">
+	</div>
+	
+	<!--顶部的导航-->
+	<div class="topMenuBg"></div>
+	<div class="topMenuBgDw"></div>
+	<img src="images/leftmenu.png" class="leftmenu">
+	<img src="images/topmenu_left.png" class="top_left">
+	<img src="images/topmenu_right.png" class="top_right">
+	
+	<!--焦点图-->
+	<div class="focus">
+		<ul class="bigpic">
+			<li><a href="#"><img src="images/01.jpg"></a></li>
+			<li><a href="#"><img src="images/02.jpg"></a></li>
+			<li><a href="#"><img src="images/03.jpg"></a></li>
+		</ul>
+		<ul class="btn">
+			<li class="on"></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	
+	<!--列 表-->
+	<div class="main">
+		<ul>
+			<!--列表循环开始-->
+			<?php 
+				foreach ($bonusList['data'] as $key => $value) {
+					
+			?>
+			<li>
+				<dl class="left">
+					<dt><img width="180" height="180" style="border-radius:50%" src="<?php echo $value['bonus_avatar'];?>" /></dt>
+					<dd><?php echo $value['bonus_username'];?></dd>	
+					<dd><?php echo $value['bonus_msg'];?></dd>
+				</dl>	
+				<dl class="right">
+					<dt><img src="images/hit.jpg" /></dt>
+					<dd><?php echo $value['views'];?></dd>
+					<dd><?php echo $value['send_time'];?></dd>	
+					<dd><input type="submit" data-role="none"/></dd>
+				</dl>
+			</li>
+			<?php 
+				}
+			?>
+			<!--列表循环结束-->
+		</ul>
+	</div>
+	<!--五个即抢-->
+	<div class="nav_mn">
+	<?php 
+		foreach ($range_type['range_type'] as $key => $value) {
+			
+	?>
+	<a href="#" class="ajax"><input type="hidden" name="tid" value="<?php echo $value['tid'];?>"><?php echo $value['name'];?></a>
+	<?php 
+		}
+	?>
+	</div>
+	<!--底部四个按钮导航-->
+	<div class="nav">
+		<dl class="m1">
+			<dt><img src="images/nav_1.png"></dt>
+			<dd>个人</dd>
+		</dl>
+		<dl class="m2">
+			<dt><img src="images/nav_2.png"></dt>
+			<dd>活动</dd>
+		</dl>
+		<dl class="m3">
+			<dt><img src="images/nav_3.png"></dt>
+			<dd>发现</dd>
+		</dl>
+		<dl class="m4">
+			<dt><img src="images/nav_4.png"></dt>
+			<dd>链友</dd>
+		</dl>
+	</div>
+</div>
+<script type="text/javascript">
+	// var map = new BMap.Map("allmap");  
+	// var longitude, latitude;  
+	// navigator.geolocation.getCurrentPosition(function (position) {  
+	//     longitude = position.coords.longitude;  
+	//     latitude = position.coords.latitude;  
+	// });  
+	// setTimeout(function () {  
+	//     var gpsPoint = new BMap.Point(longitude, latitude);  
+	//     BMap.Convertor.translate(gpsPoint, 0, function (point) {  
+	//         var geoc = new BMap.Geocoder();  
+	//         geoc.getLocation(point, function (rs) {  
+	//             var addComp = rs.addressComponents;  
+	//             alert(addComp.province + ", " + addComp.city + ", " + addComp.district + ", " + addComp.street + ", " + addComp.streetNumber);  
+	//         });  
+	//     });  
+	// }, 3000);
+	setTimeout(function(){
+		if (navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showPosition);
+        }else{
+            // x.innerHTML="Geolocation is not supported by this browser.";
+            alert("Geolocation is not supported by this browser.");
+        }
+
+	},3000); 
+    function showPosition(position){
+        // x.innerHTML="Latitude: " + position.coords.latitude + "<br />Longitude: " + position.coords.longitude;
+        alert("Latitude: " + position.coords.latitude + "<br />Longitude: " + position.coords.longitude);
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,251 @@
+<include file="__THEME__/public_header" />
+<div class="contentbox">
+    <div id="jf-top">
+        <div class="app-title clearfix">
+            <div class="app-tab-menu clearfix">
+                <ul>
+                    <li>
+                        <a href="{:U('Gift/Index/index')}">积分商城</a>
+                    </li>
+                    <li>
+                        <a href="{:U('Gift/Index/read', array('id' => $gift['id']))}">{$gift['name']}</a>
+                    </li>
+                    <li>
+                        <a class="current" href="{:U('Gift/Index/buy', array('id' => $gift['id']))}">兑换</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 主要内容 -->
+    <div class="leftbox">
+        <h2 class="height70">兑换</h2>
+        <div class="jf-detailinfo">
+            <img class="jf-detailinfo-img" src="{:getImageUrlByAttachId($gift['image'], 300, 310)}" alt="{$gift['name']}">
+            <div class="jf-info">
+                <h2>{$gift['name']}</h2>
+                <ul>
+                    <li class="cc">
+                        {:W('SearchUser', array('name' => 'uid','follow'=>0,'max'=>1, 'defaultValue' => '选择用户', 'noself' => 0))}
+                    </li>
+                    <li>
+                        <input id="gift-say" class="s-txt inputcheckbox" type="text" placeholder="祝福语" name="say">
+                    </li>
+                    <?php if($gift['cate'] == 2) { ?>
+                    <li>
+                        <input id="gift-user-name" type="text" placeholder="真实姓名" class="s-txt inputcheckbox">
+                    </li>
+                    <li>
+                        <input id="gift-user-phone" type="text" placeholder="手机号码" class="s-txt inputcheckbox">
+                    </li>
+                    <li>
+                        <input id="gift-addres" type="text" placeholder="详细地址" class="s-txt inputcheckbox">
+                    </li>
+                    <?php } ?>
+                    <li>
+                        <div class="gift-num s-txt inputcheckbox">
+                            <span style="
+                                height: 25px;
+                                line-height: 25px;
+                                width: 45px;
+                                display: inline-block;
+                            ">数量：</span>
+                          
+                            <input 
+                                type="number" 
+                                style="
+                                    height: 25px;
+                                    width: 80px;
+                                    border: 0 none;
+                                    text-align: center;
+                                " 
+                                value="1" 
+                                step="1" 
+                                min="1" 
+                                <?php if ($gift['max']) { ?>
+                                max="{$gift['max']}" 
+                                <?php } else { ?>
+                                max="{$gift['stock']}" 
+                                <?php } ?>
+                                id="gift-num"
+                                >
+                          
+                            <i style="
+                                color: #C3C3C3;
+                            ">|</i>
+
+                            <span style="
+                                width: 125px;
+                                display: inline-block;
+                                height: 25px;
+                                line-height: 25px;
+                                text-align: center;
+                            ">{$gift['stock']}</span>
+                        </div>
+                    </li>
+                    <li id="gift-box">
+                        <input type="hidden" name="type" id="gift-type" value="2">
+                        <label id="gift-type-select" data-type="1"><i></i>匿名赠送</label>
+                        <label id="gift-type-select" data-type="2"><i class="cur"></i>公开赠送</label>
+                        <label id="gift-type-select" data-type="3"><i></i>私下赠送</label>
+                    </li>
+                    <li id="gift-tip"></li>
+                    <li>
+                        <input class="inputcheckbox input gift-button" type="button" value="确定">
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 右侧 -->
+    <div id="col3" class="st-index-right">
+        <!-- 排行榜 -->
+        <include file="common_tops" />
+    </div>
+</div>
+<!-- 提示框 -->
+<div class="gift-tips">
+    <div class="tips-header"><h2></h2><span>x</span></div>
+    <div class="tips-con cc"></div>
+    <div class="tips-footer"></div>
+</div>
+<script type="text/javascript">
+$(function () {
+    /* # 提示框封装 */
+    var tips = {
+        confirm: function(title, content, buttomText, callFunc) {
+            if (!title || !content) {
+                tips.show('提示', '提示框参数出错', false);
+                return false;
+            };
+
+            buttonHtml = $('<a class="tips-button" href="#">' + buttomText + '</a>');
+            $('.gift-tips').find('.tips-footer').html(buttonHtml).show();
+
+            $('.gift-tips').find('.tips-header').find('h2').text(title);
+            $('.gift-tips').find('.tips-con').html(content);
+            $('.gift-tips').show();
+
+            /* # 添加关闭事件 */
+            $('.gift-tips').find('.tips-header').find('span').on('click', function(event) {
+                event.preventDefault();
+                tips.cloes();
+            });
+
+            /* # 计算悬浮的高度 */
+            var iw = $('.gift-tips').height() / 2;
+            $('.gift-tips').css('margin-top', '-' + iw + 'px');
+
+            /* # 绑定触发的事件 */
+            buttonHtml.on('click', function(event) {
+                event.preventDefault();
+                tips.cloes();
+                typeof callFunc === 'function' && callFunc($('.gift-tips').find('.tips-con'));
+            });
+        },
+        show: function(title, content, button) {
+            if (!title || !content) {
+                tips.show('提示', '提示框参数出错', false);
+                return false;
+            };
+            $('.gift-tips').find('.tips-header').find('h2').text(title);
+            $('.gift-tips').find('.tips-con').html(content);
+            $('.gift-tips').show();
+
+            buttonHtml = '\
+                <a class="tips-button" href="{:U('public/Task/index')}">做任务</a>\
+                <a class="tips-button" href="#">充值</a>';
+
+            button && $('.gift-tips').find('.tips-footer').html(buttonHtml).show();
+
+            /* # 添加关闭事件 */
+            $('.gift-tips').find('.tips-header').find('span').on('click', function(event) {
+                event.preventDefault();
+                tips.cloes();
+            });
+
+            /* # 计算悬浮的高度 */
+            var iw = $('.gift-tips').height() / 2;
+            $('.gift-tips').css('margin-top', '-' + iw + 'px');
+        },
+        cloes: function() {
+            $('.gift-tips').hide().find('.tips-footer').hide();
+        }
+    };
+
+    /* # type选择 */
+    var typeInput  = $('#gift-type');
+    var typeBox    = $('#gift-box');
+    typeBox.on('click', '#gift-type-select', function (event) {
+        event.preventDefault();
+        var $this = $(this);
+        typeBox.find('#gift-type-select>i').removeClass('cur');
+        $this.find('i').addClass('cur');
+        typeInput.val($this.data('type'));
+    });
+
+    /* # 选择的人，赠送设置 */
+    var userInput = $('#search_uids');
+    var userBox   = $('.choose-user');
+    var userTip   = $('#gift-tip');
+    setInterval(function() {
+        if (!userInput.val()) {
+            userTip.html('');
+            return false;
+        };
+        var hmtl = userBox.find('.user-list').find('.content').find('a').text();
+        html = html = '您将向' + hmtl + '赠送此礼物，并消耗积分<span class="clored">{$gift['score']}</span>积分';
+        userTip.html(html);
+    }, 1000);
+
+    /* # 提交兑换事件 */
+    $('.gift-button').on('click', function(event) {
+        event.preventDefault();
+        var url  = '{:U('Gift/Index/doBuy')}';
+        var args = {
+            'id': '{$gift['id']}'
+        };
+
+        /* # 参数填充用户UID */
+        args.uid = userInput.val();
+
+        /* # 填充数量 */
+        args.num = $('#gift-num').val();
+
+        <?php if ($gift['cate'] == 2) { ?>
+        /* # 填充地址 */
+        args.addres = $('#gift-addres').val();
+
+        /* # 真实姓名 */
+        args.name = $('#gift-user-name').val();
+
+        /* # 联系方式 */
+        args.phone = $('#gift-user-phone').val();
+        <?php } ?>
+
+        /* # 祝福语 */
+        args.say = $('#gift-say').val();
+
+        /* # 赠送类型 */
+        args.type = typeInput.val();
+        
+        tips.confirm('提示', '请确认兑换信息无误，是否要兑换？', '确定', function() {
+            $.post(url, args, function (data) {
+                if (data.status == 1) {
+                    ui.success(data.content);
+                    setTimeout(function () {
+                        window.location.href = '{:U('Gift/Index/my', array('type' => 1))}';
+                    }, 2500);
+                    return true;
+                } else if (data.button) {
+                    tips.show(data.title, data.content, data.button);
+                    return true;
+                };
+                // tips.show(data.title, data.content, data.button);
+                ui.error(data.content);
+            }, 'json');
+        });
+    });
+});
+</script>
+<include file="__THEME__/public_footer" />

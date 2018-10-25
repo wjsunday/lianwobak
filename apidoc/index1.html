@@ -1,0 +1,2887 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>链我新增ＡＰＩ文档</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="dist/dashboard.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="dist/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="http://cdn.bootcss.com/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">链我新增ＡＰＩ文档</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar" style="">
+          <ul class="nav nav-sidebar">
+			 <li><a href="#vip">vip会员列表</a></li>
+			 <li><a href="#vip_pay">会员充值</a></li>
+             <li><a href="#ubank">零用钱充值</a></li>
+             <li><a href="#cyb">财源币充值</a></li>
+             <li><a href="#message">聊天</a></li>
+             <li><a href="#added">原接口新增内容</a></li>
+             <li><a href="#Authentication">认证</a></li>
+             <li style="background-color:#00F"><a href="#qianbao">钱包</a></li>
+             <li><a href="#a">今日收益</a></li>
+             <li><a href="#b">财源使用</a></li>
+             <li><a href="#cybinset">财源设置</a></li>
+             <li><a href="#c">我的财源</a></li>
+             <li><a href="#ar">AR</a></li>
+              <li><a href="#tx">提现</a></li>
+             <li><a href="#xinremen">新热门语言设置</a></li>
+             <li><a href="#jgts">极光推送参数说明</a></li>
+        </div>
+        <pre></pre>
+        <div class="col-sm-9 col-sm-offset-3 col-md-offset-2 main">
+          <a name="vip" id="top_message"></a>
+          <h1 class="page-header">&nbsp;</h1>
+          <h2 class="sub-header"><p>&nbsp;</p><a name="getAppIndexAds" id="getAppIndexAds">API</a>
+          <h2 class="sub-header" >开通个人Vip 会员</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="" name="vip">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Vip&amp;act=GetPersonalVipDetail</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>renew</p></td>
+              <td width="496" valign="top">0-开通 1-续费;</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <p>&nbsp;</p>
+          <pre>&nbsp;开通
+   {<br>    "pid":<span data-type="array" data-size="2">[<br>        <span data-type="object">{<br>            "user_group_name":"VIP服务",<br>            "content":<span data-type="array" data-size="3">[<br>                "1.测试111",<br>                "2.测试",<br>                "3.测试"<br>            ]</span>,<br>            "user_group_id":7,<br>            "vip_price":50<br>        }</span>,<br>        <span data-type="object">{<br>            "user_group_name":"钻石VIP服务",<br>            "content":<span data-type="array" data-size="3">[<br>                "1.测试",<br>                "2.测试",<br>                "3.测试"<br>            ]</span>,<br>            "user_group_id":8,<br>            "vip_price":150<br>        }</span><br>    ]</span>,<br>    "stages":<span data-type="object">{<br>        "data_list":<span data-type="array" data-size="3">[<br>            <span data-type="object">{<br>                "id":5,<br>                "content":"测试",<br>                "number":"12",<br>                "discount":"0.80"<br>            }</span>,<br>            <span data-type="object">{<br>                "id":6,<br>                "content":"测试",<br>                "number":"6",<br>                "discount":"0.85"<br>            }</span>,<br>            <span data-type="object">{<br>                "id":7,<br>                "content":"测试",<br>                "number":"3",<br>                "discount":"1.00"<br>            }</span><br>        ]</span>,<br>        "title":"勾选更久会员"<br>    }</span>,<br>    "status":1,<br>    "message":"成功",<br>    "renew":0<br>}
+
+续费
+{<br>    "pid":<span data-type="array" data-size="1">[<br>        <span data-type="object">{<br>            "user_group_id":7,<br>            "vip_price":50,<br>            "content":<span data-type="array" data-size="3">[<br>                "1.测试111",<br>                "2.测试",<br>                "3.测试"<br>            ]</span>,<br>            "is_open":1,<br>            "vid":6,<br>            "user_group_name":"VIP服务"<br>        }</span><br>    ]</span>,<br>    "stages":<span data-type="object">{<br>        "data_list":<span data-type="array" data-size="3">[<br>            <span data-type="object">{<br>                "id":5,<br>                "content":"测试",<br>                "number":"12",<br>                "discount":"0.80"<br>            }</span>,<br>            <span data-type="object">{<br>                "id":6,<br>                "content":"测试",<br>                "number":"6",<br>                "discount":"0.85"<br>            }</span>,<br>            <span data-type="object">{<br>                "id":7,<br>                "content":"测试",<br>                "number":"3",<br>                "discount":"1.00"<br>            }</span><br>        ]</span>,<br>        "title":"选择续费类型"<br>    }</span>,<br>    "status":1,<br>    "message":"成功",<br>    "renew":1<br>}
+          </pre>
+          <p>&nbsp;</p>
+          <h2 class="sub-header" >开通商家Vip 会员</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="" name="vip">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Vip&amp;act=GetBusinessVipDetail</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>renew</p></td>
+              <td width="496" valign="top">0-开通 1-续费;</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <h2 class="sub-header">红包封面上传</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Vip&amp;act=upload</p></td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">红包封面添加</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Vip&amp;act=addBonusAd</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="731">
+            <tr>
+              <td width="145" valign="top"><br />
+                参数名称 </td>
+              <td width="580" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="145" valign="top"><p>attach_id</p></td>
+              <td width="580" valign="top">图片id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;必传</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">财源红包使用广告添加(只有商家高级会员有)</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Vip&amp;act=addCybUseAd</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="731">
+            <tr>
+              <td width="145" valign="top"><br />
+                参数名称 </td>
+              <td width="580" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="145" valign="top"><p>attach_id</p></td>
+              <td width="580" valign="top">图片id(传数组)</td>
+            </tr>
+            <tr>
+              <td width="145" valign="top"><p>img_url</p></td>
+              <td width="580" valign="top">链接</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p><a name="vip_pay"></a></p>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">Vip 会员统一订单</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Vip&amp;act=createOrder</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="731">
+            <tr>
+              <td width="145" valign="top"><br />
+                参数名称 </td>
+              <td width="580" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="145" valign="top"><p>priceId</p></td>
+              <td width="580" valign="top">会员类型价格id &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;必传</td>
+            </tr>
+            <tr>
+              <td width="145" valign="top"><p>stagesId</p></td>
+              <td width="580" valign="top">会员充值月数id：如果为空传-1(必传)</td>
+            </tr>
+            <tr>
+              <td width="145" valign="top"><p>userType</p></td>
+              <td width="580" valign="top">0为个人会员1为商家(如果stagesId为空才传) </font></td>
+            </tr>
+            <tr>
+              <td width="145" valign="top"><p>renew</p></td>
+              <td width="580" valign="top">0-开通 1-续费<font color="#FF0000">如果续费传会员订单vid 参数（vid）</font></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <p>&nbsp;</p>
+          <pre>&nbsp;{<br>    &quot;status&quot;: 1,<br>    &quot;data&quot;: {<br>        &quot;serial_number&quot;: &quot;14882802793966939&quot;,<br>        &quot;vip_Price&quot;: 45,<br>        &quot;vip_name&quot;: &quot;VIP&quot;,<br>        &quot;p_id&quot;: 7,<br>        &quot;number&quot;: &quot;12&quot;,<br>        &quot;u_id&quot;: 1,<br>        &quot;u_time&quot;: 1488280279,<br>        &quot;status&quot;: 0,<br>        &quot;result&quot;: &quot;39&quot;<br>    }<br>}
+          </pre>
+<p>&nbsp; </p>
+          <h2 class="sub-header">Vip 会员充值(安卓)</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Vip&amp;act=createCharge</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td height="40" valign="top"><p>charge_type</p></td>
+              <td valign="top"><p>充值类型 alipay，weixin </p></td>
+            </tr>
+          </table>
+          <table width="643" border="1" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="147" height="40" valign="top"><p>serial_number_id</p></td>
+              <td width="490" valign="top"><p>订单号id</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <p>&nbsp;</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态，0：失败，1;成功</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>mesage</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>data</p></td>
+              <td width="496" valign="top">安卓sdk付款链接（微信） 付款参数集合（支付宝）</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">Vip 会员充值(IOS)</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Vip&amp;act=createChargeIOS</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" height="40" valign="top"><p>charge_type</p></td>
+              <td width="496" valign="top"><p>充值类型 alipay，weixin </p></td>
+            </tr>
+          </table>
+          <table width="643" border="1" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="147" height="40" valign="top"><p>serial_number_id</p></td>
+              <td width="490" valign="top"><p>订单号id</p></td>
+            </tr>
+          </table>
+<p>返回参数</p>
+          <p>&nbsp;</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态，0：失败，1;成功</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>mesage</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>data</p></td>
+              <td width="496" valign="top">安卓sdk付款链接（微信） 付款参数集合（支付宝）</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">Vip 零用钱会员充值</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Vip&amp;act=UbankPay</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>paw</p></td>
+              <td width="496" valign="top">支付密码</td>
+            </tr>
+          </table>
+          <table width="643" border="1" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="147" height="40" valign="top"><p>serial_number_id</p></td>
+              <td width="490" valign="top"><p>订单号id</p></td>
+            </tr>
+          </table>
+<p>返回参数</p>
+          <p>&nbsp;</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态， 3余额不足，4密码错误，0：失败，1;成功</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>mesage</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <a name="ubank"></a>
+          <h2 class="sub-header">零用钱充值(安卓)</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Ubank&amp;act=createCharge</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="731">
+            <tr>
+              <td width="145" valign="top"><br />
+                参数名称 </td>
+              <td width="580" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="145" valign="top"><p>money</p></td>
+              <td width="580" valign="top">充值数量</td>
+            </tr>
+          </table>
+          <table width="731" border="1" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="145" valign="top"><p>charge_type</p></td>
+              <td width="580" valign="top">充值类型 0-alipay，1-weixin</td>
+            </tr>
+            
+          </table>
+          <p>返回参数</p>
+          <p>&nbsp;</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态，0：失败，1;成功</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>mesage</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>data</p></td>
+              <td width="496" valign="top">安卓sdk付款链接（微信） 付款参数集合（支付宝）</td>
+            </tr>
+          </table>
+          <h2 class="sub-header">零用钱充值(IOS)</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Ubank&amp;act=createChargeIOS</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" height="40" valign="top"><p>charge_type</p></td>
+              <td width="496" valign="top"><p>充值类型 0-alipay，1-weixin</p></td>
+            </tr>
+          </table>
+          <table width="643" border="1" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="147" height="40" valign="top"><p>money</p></td>
+              <td width="490" valign="top"><p>充值数量</p></td>
+            </tr>
+            
+          </table>
+          <p>返回参数</p>
+          <p>&nbsp;</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态，0：失败，1;成功</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>mesage</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>data</p></td>
+              <td width="496" valign="top">安卓sdk付款链接（微信） 付款参数集合（支付宝）</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">购买零用钱充值</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Ubank&amp;act=get_chargeUbank</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>&nbsp;</p></td>
+              <td width="496" valign="top">&nbsp;</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>value</p></td>
+              <td width="496" valign="top">充值金额</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>cyb</p></td>
+              <td width="496" valign="top">显示数量</td>
+            </tr>
+          </table>
+          <p>{<br>
+                "data":<span data-type="array" data-size="5">[<br>
+                    <span data-type="object">{<br>
+                        "value":10,<br>
+                        "ubank":10<br>
+                    }</span>,<br>
+                    <span data-type="object">{<br>
+                        "value":30,<br>
+                        "ubank":30<br>
+                    }</span>,<br>
+                    <span data-type="object">{<br>
+                        "value":50,<br>
+                        "ubank":50<br>
+                    }</span>,<br>
+                    <span data-type="object">{<br>
+                        "value":100,<br>
+                        "ubank":100<br>
+                    }</span>,<br>
+                    <span data-type="object">{<br>
+                        "value":200,<br>
+                        "ubank":200<br>
+                    }</span><br>
+                ]</span>,<br>
+                "status":1,<br>
+              "measge":""</p>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">零用钱转账</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Ubank&amp;act=transfer</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" height="40" valign="top"><p>to_uid</p></td>
+              <td width="496" valign="top"><p>对方UID</p></td>
+            </tr>
+            <tr>
+              <td width="147" height="40" valign="top"><p>to_uname</p></td>
+              <td width="496" valign="top"><p>对方真实姓名</p></td>
+            </tr>
+          
+            <tr>
+              <td width="147" height="40" valign="top"><p>money</p></td>
+              <td width="490" valign="top"><p>转账金额</p></td>
+            </tr>
+            <tr>
+              <td width="147" height="40" valign="top"><p>desc</p></td>
+              <td width="490" valign="top"><p>转账备注</p></td>
+            </tr>
+            <tr>
+              <td width="147" height="40" valign="top"><p>mobile</p></td>
+              <td width="490" valign="top"><p>手机号</p></td>
+            </tr>
+            <tr>
+              <td width="147" height="40" valign="top"><p>paw</p></td>
+              <td width="490" valign="top"><p>支付密码</p></td>
+            </tr>
+         </table> 
+<p>返回参数</p>
+          <p>&nbsp;</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态，0：失败，1;成功 4：密码不正确 5：未设置支付密码</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>mesage</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p></p>
+          <p>&nbsp;</p>
+          <a name="cyb"></a>
+          <h2 class="sub-header">财源币充值统一订单</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Cyb&amp;act=setOrder</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="731">
+            <tr>
+              <td width="145" valign="top"><br />
+                参数名称 </td>
+              <td width="580" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="145" valign="top"><p>money</p></td>
+              <td width="580" valign="top">充值数量</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <p>&nbsp;</p>
+          <pre><span data-type="object"></span>{<br>    "status":1,<br>    "mesage":"创建订单成功",<br>    "data":<span data-type="object">{<br>        "serial_number":"CZ2017030114301685",<br>        "charge_value":100,<br>        "uid":1,<br>        "ctime":1488349816,<br>        "status":0,<br>        "sta":3,<br>        "charge_cyb":1000,<br>        "charge_order":"",<br>        "result":"143"<br>    }</span><br>}</pre>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">财源币充值(安卓)</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Cyb&amp;act=createCharge</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td height="40" valign="top"><p>charge_type</p></td>
+              <td valign="top"><p>充值类型 0-alipay，1-weixin</p></td>
+            </tr>
+          </table>
+          <table width="643" border="1" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="147" height="40" valign="top"><p>serial_number_id</p></td>
+              <td width="490" valign="top"><p>订单号id</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <p>&nbsp;</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态，0：失败，1;成功</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>mesage</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>data</p></td>
+              <td width="496" valign="top">安卓sdk付款链接（微信） 付款参数集合（支付宝）</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">财源币充值(IOS)</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Cyb&amp;act=createChargeIOS</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" height="40" valign="top"><p>charge_type</p></td>
+              <td width="496" valign="top"><p>充值类型 0-alipay，1-weixin</p></td>
+            </tr>
+          </table>
+          <table width="643" border="1" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="147" height="40" valign="top"><p>serial_number_id</p></td>
+              <td width="490" valign="top"><p>订单号id</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <p>&nbsp;</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态，0：失败，1;成功</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>mesage</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>data</p></td>
+              <td width="496" valign="top">安卓sdk付款链接（微信） 付款参数集合（支付宝）</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">财源币用 零用钱充值</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Cyb&amp;act=UbankPay</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>paw</p></td>
+              <td width="496" valign="top">支付密码</td>
+            </tr>
+          </table>
+          <table width="643" border="1" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="147" height="40" valign="top"><p>serial_number_id</p></td>
+              <td width="490" valign="top"><p>订单号id</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <p>&nbsp;</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态， 3余额不足，4密码错误，0：失败，1;成功</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>mesage</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">购买财源币充值</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Cyb&amp;act=get_chargeCyb</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>&nbsp;</p></td>
+              <td width="496" valign="top">&nbsp;</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>value</p></td>
+              <td width="496" valign="top">充值金额</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>cyb</p></td>
+              <td width="496" valign="top">显示数量</td>
+            </tr>
+          </table>
+          <table width="643" border="1" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="147" valign="top"><p>charge_cyb</p></td>
+              <td width="496" valign="top">实际充值数量</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>title</p></td>
+              <td width="496" valign="top">赠送说明</td>
+            </tr>
+          </table>
+          <table width="643" border="1" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="147" valign="top"><p>sta</p></td>
+              <td width="496" valign="top">0表示没有文字，1表示文字为灰色，2为红色</td>
+            </tr>
+          </table>
+          <pre>{<br>    &quot;data&quot;: [<br>        {<br>            &quot;value&quot;: 10,<br>            &quot;cyb&quot;: 1000,<br>            &quot;charge_cyb&quot;: 1000,<br>            &quot;title&quot;: &quot;&quot;,<br>            &quot;sta&quot;: 0<br>        },<br>        {<br>            &quot;value&quot;: 30,<br>            &quot;cyb&quot;: 3000,<br>            &quot;title&quot;: &quot;&quot;,<br>            &quot;sta&quot;: 0<br>        },<br>        {<br>            &quot;value&quot;: 50,<br>            &quot;cyb&quot;: 5000,<br>            &quot;charge_cyb&quot;: 5500,<br>            &quot;title&quot;: &quot;再送500财源币，价值5元&quot;,<br>            &quot;sta&quot;: 1<br>        },<br>        {<br>            &quot;value&quot;: 100,<br>            &quot;cyb&quot;: 10000,<br>            &quot;charge_cyb&quot;: 11000,<br>            &quot;title&quot;: &quot;再送1000财源币，价值10元&quot;,<br>            &quot;sta&quot;: 1<br>        },<br>        {<br>            &quot;value&quot;: 200,<br>            &quot;cyb&quot;: 20000,<br>            &quot;charge_cyb&quot;: 23000,<br>            &quot;title&quot;: &quot;再送3000财源币，价值30元&quot;,<br>            &quot;sta&quot;: 2<br>        }<br>    ],<br>    &quot;status&quot;: 1,<br>    &quot;measge&quot;: &quot;&quot;<br>}</pre>
+          <p></p>
+          <p>&nbsp;</p>
+          <a name="message"></a>
+          <h2 class="sub-header">聊天          </h2>
+          <h2 class="sub-header">个人信息编辑          </h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Follow&amp;act=PersonalInformation</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="105" valign="top"><p>fid</p></td>
+              <td width="222" valign="top">对方用户UID</td>
+              <td width="131" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="105" valign="top"><p>remark</p></td>
+              <td width="222" valign="top">备注名</td>
+              <td width="131" valign="top">否</td>
+            </tr>
+            <tr>
+              <td width="105" valign="top"><p>phone</p></td>
+              <td width="222" valign="top">手机号<font color="red">用数组传</font></td>
+              <td width="131" valign="top">否</td>
+            </tr>
+            <tr>
+              <td width="105" valign="top"><p>email</p></td>
+              <td width="222" valign="top">邮箱<font color="red">用数组传</font></td>
+              <td width="131" valign="top">否</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">0和1 1成功</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">设置置顶聊天状态 </h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Follow&amp;act=MessageTop</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="105" valign="top"><p>state</p></td>
+              <td width="222" valign="top">状态 1为置顶</td>
+              <td width="131" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="105" valign="top"><p>roomid</p></td>
+              <td width="222" valign="top">房间ID</td>
+              <td width="131" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">0取消置顶成功，1设置置顶成功</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">置顶聊天列表 </h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Follow&amp;act=MessageTopList</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+          </table>
+          
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">0取消置顶成功，1设置置顶成功</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <pre>{<br>    "top":<span data-type="array" data-size="2">[<br>        <span data-type="object" data-inner="<i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>            <span class='json_key'>'list_id'</span>:<span class='json_number'>77</span>,<br>            <span class='json_key'>'from_uid'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'type'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'title'</span>:<span class='json_null'>null</span>,<br>            <span class='json_key'>'logo'</span>:<span class='json_number'>0</span>,<br>            <span class='json_key'>'member_num'</span>:<span class='json_number'>2</span>,<br>            <span class='json_key'>'min_max'</span>:<span class='json_string'>'1_3'</span>,<br>            <span class='json_key'>'mtime'</span>:<span class='json_number'>1488021751</span>,<br>            <span class='json_key'>'last_message'</span>:<span class='json_string'>'a:6:{s:8:'from_uid';i:1;s:4:'type';s:4:'text';s:7:'list_id';i:77;s:5:'mtime';i:1488021751;s:7:'content';s:12:'单方事故';s:10:'message_id';s:3:'301';}'</span><br>        }">{<br>            "list_id":77,<br>            "from_uid":1,<br>            "type":1,<br>            "title":null,<br>            "logo":0,<br>            "member_num":2,<br>            "min_max":"1_3",<br>            "mtime":1488021751,<br>            "last_message":"a:6:{s:8:"from_uid";i:1;s:4:"type";s:4:"text";s:7:"list_id";i:77;s:5:"mtime";i:1488021751;s:7:"content";s:12:"单方事故";s:10:"message_id";s:3:"301";}"<br>        }</span>,<br>        <span data-type="object" data-inner="<i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>            <span class='json_key'>'list_id'</span>:<span class='json_number'>46</span>,<br>            <span class='json_key'>'from_uid'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'type'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'title'</span>:<span class='json_null'>null</span>,<br>            <span class='json_key'>'logo'</span>:<span class='json_number'>0</span>,<br>            <span class='json_key'>'member_num'</span>:<span class='json_number'>2</span>,<br>            <span class='json_key'>'min_max'</span>:<span class='json_string'>'1_2'</span>,<br>            <span class='json_key'>'mtime'</span>:<span class='json_number'>1487849266</span>,<br>            <span class='json_key'>'last_message'</span>:<span class='json_string'>'a:6:{s:8:'from_uid';i:28;s:4:'type';s:4:'text';s:7:'list_id';i:62;s:5:'mtime';i:1487903545;s:7:'content';s:3:'添加好友成功';s:10:'message_id';s:2:'65';}'</span><br>        }">{<br>            "list_id":46,<br>            "from_uid":1,<br>            "type":1,<br>            "title":null,<br>            "logo":0,<br>            "member_num":2,<br>            "min_max":"1_2",<br>            "mtime":1487849266,<br>            "last_message":"a:6:{s:8:"from_uid";i:28;s:4:"type";s:4:"text";s:7:"list_id";i:62;s:5:"mtime";i:1487903545;s:7:"content";s:3:"添加好友成功";s:10:"message_id";s:2:"65";}"<br>        }</span><br>    ]</span>,<br>    "status":1,<br>    "message":""<br>}</pre>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">清空聊天记录</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Follow&amp;act=no_message</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="105" valign="top"><p>roomid</p></td>
+              <td width="222" valign="top">房间ID</td>
+              <td width="131" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">1清理成功</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">设置免打扰</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Follow&amp;act=not_disturb</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="105" valign="top"><p>roomid</p></td>
+              <td width="222" valign="top">房间ID</td>
+              <td width="131" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="105" valign="top"><p>type</p></td>
+              <td width="222" valign="top">状态：1设置0，取消</td>
+              <td width="131" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">黑名单</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Follow&amp;act=blacklist</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="105" valign="top"><p>fid</p></td>
+              <td width="222" valign="top">对方UID</td>
+              <td width="131" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>blacklist</p></td>
+              <td width="496" valign="top">1为黑名单 0不是</td>
+            </tr>
+          </table>
+          <p></p>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">搜索好友</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Follow&amp;act=SearchFriends</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="105" valign="top"><p>num</p></td>
+              <td width="222" valign="top">邮箱或手机</td>
+              <td width="131" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <pre>{<br>    &quot;avatar&quot;: &quot;http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg&quot;, 头像<br>    &quot;uname&quot;: &quot;测试2&quot;,	用户昵称<br>    &quot;uid&quot;: 28,		对方UID<br>    &quot;status&quot;: 1,<br>    &quot;message&quot;: &quot;&quot;<br>}</pre>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">添加好友</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Follow&amp;act=AddFriends</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="105" valign="top"><p>fid</p></td>
+              <td width="222" valign="top">对方UID</td>
+              <td width="131" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="105" valign="top"><p>des</p></td>
+              <td width="222" valign="top">验证请求内容</td>
+              <td width="131" valign="top">否</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">收到添加请求列表</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Follow&amp;act=AgreeFriendsList</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>is_add</p></td>
+              <td width="496" valign="top">是否添加 1为已添加 0为未添加</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <pre>{<br>    &quot;{<br>        &quot;avatar&quot;: &quot;http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312&quot;,<br>        &quot;uname&quot;: &quot;李盛滔&quot;,<br>        &quot;des&quot;: null,<br>        &quot;ctime&quot;: 1487833116,<br>        &quot;is_add&quot;: 1<br>    },<br>    &quot; {<br>        &quot;avatar&quot;: &quot;http://localhost/thinksns.com/data/upload/avatar/c8/1e/72/original_100_100.jpg?v1487230228&quot;,<br>        &quot;uname&quot;: &quot;链我团队&quot;,<br>        &quot;des&quot;: null,<br>        &quot;ctime&quot;: 1487830303,<br>        &quot;is_add&quot;: 0<br>    },<br>    &quot;status&quot;: 1,<br>    &quot;message&quot;: &quot;&quot;<br>}</pre>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">接受请求</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Follow&amp;act=accept</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="105" valign="top"><p>fid</p></td>
+              <td width="222" valign="top">对方UID</td>
+              <td width="131" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">收到添加请求显示数量</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Follow&amp;act=num</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>num</p></td>
+              <td width="496" valign="top">数量</td>
+            </tr>
+          </table>
+          <a name="Authentication"></a>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">认证分类、附件限制</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Authenticate&amp;act=ApplicationCertification</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>usergroup_id</p></td>
+              <td width="496" valign="top">认证类型id</td>
+              <td width="131" valign="top"><p>是</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>authentication_status</p></td>
+              <td width="496" valign="top">0-未认证 1-认证成功 2-待认证</td>
+            </tr>
+          </table>
+          <pre>{<br>    "UserVerifiedCategory":<span data-type="array" data-size="3">[<br>        <span data-type="object">{<br>            "user_verified_category_id":5,<br>            "title":"优秀Ts二开公司"<br>        }</span>,<br>        <span data-type="object">{<br>            "user_verified_category_id":6,<br>            "title":"合作机构"<br>        }</span>,<br>        <span data-type="object">{<br>            "user_verified_category_id":7,<br>            "title":"优秀二次开发者"<br>        }</span><br>    ]</span>,<br>    "attach_allow_extension":"gif, jpg, jpeg, png",<br>    "attach_max_size":"5" //最大限制图片大小<br>}</pre>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">提交申请认证</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Authenticate&amp;act=doAuthenticate</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="607">
+            <tr>
+              <td width="151" valign="top"><br />
+                参数名称 </td>
+              <td width="210" valign="top"><p>参数说明</p></td>
+              <td width="62" valign="top"><p>是否必填</p></td>
+              <td width="174" valign="top"><p>类型</p></td>
+            </tr>
+             <tr>
+              <td width="151" valign="top"><p>usergroup_id</p></td>
+              <td width="210" valign="top">认证类型ID</td>
+              <td width="62" valign="top"><p>是</p></td>
+              <td width="174" valign="top"><p>个人认证id为5 商家6</p></td>
+            </tr>
+            <tr>
+              <td width="151" valign="top"><p>verifiedCategory</p></td>
+              <td width="210" valign="top">认证分类ID</td>
+              <td width="62" valign="top"><p>是</p></td>
+              <td width="174" valign="top"><p>个人认证id为5 商家6</p></td>
+            </tr>
+            <tr>
+              <td width="151" valign="top"><p>company</p></td>
+              <td width="210" valign="top">公司名称</td>
+              <td width="62" valign="top"><p>是</p></td>
+              <td width="174" valign="top"><p>商家认证6</p></td>
+            </tr>
+             <tr>
+              <td width="151" valign="top"><p>realname</p></td>
+              <td width="210" valign="top">真实姓名</td>
+              <td width="62" valign="top"><p>是</p></td>
+              <td width="174" valign="top"><p>个人认证id为5 商家6</p></td>
+            </tr>
+            <tr>
+              <td width="151" valign="top"><p>idcard</p></td>
+              <td width="210" valign="top">身份证号</td>
+              <td width="62" valign="top"><p>是</p></td>
+              <td width="174" valign="top"><p>个人认证id为5 商家6</p></td>
+            </tr>
+             <tr>
+              <td width="151" valign="top"><p>phone</p></td>
+              <td width="210" valign="top">电话</td>
+              <td width="62" valign="top"><p>是</p></td>
+              <td width="174" valign="top"><p>个人认证id为5 商家6</p></td>
+            </tr>
+            <tr>
+              <td width="151" valign="top"><p>business_address</p></td>
+              <td width="210" valign="top">经营地址</td>
+              <td width="62" valign="top"><p>是</p></td>
+              <td width="174" valign="top"><p>商家认证6</p></td>
+            </tr>
+            <tr>
+              <td width="151" valign="top"><p>credit_code_number</p></td>
+              <td width="210" valign="top">信用代码号</td>
+              <td width="62" valign="top"><p>是</p></td>
+              <td width="174" valign="top"><p>商家认证6</p></td>
+            </tr>
+            <tr>
+              <td width="151" valign="top"><p>reason</p></td>
+              <td width="210" valign="top">认证理由</td>
+              <td width="62" valign="top"><p>否</p></td>
+              <td width="174" valign="top"><p>商家认证6</p></td>
+            </tr>
+            <tr>
+              <td width="151" valign="top"><p>info</p></td>
+              <td width="210" valign="top">认证信息</td>
+              <td width="62" valign="top"><p>否</p></td>
+              <td width="174" valign="top"><p>商家认证6</p></td>
+            </tr>
+            <tr>
+              <td width="151" valign="top"><p>attach_id_front</p></td>
+              <td width="210" valign="top">认证资料，存储用户上传正面的ID</td>
+              <td width="62" valign="top"><p>是</p></td>
+              <td width="174" valign="top"><p>个人认证id为5 商家6</p></td>
+            </tr>
+            <tr>
+              <td width="151" valign="top"><p>attach_id_back</p></td>
+              <td width="210" valign="top">认证资料，存储用户上传背面的ID</td>
+              <td width="62" valign="top"><p>是</p></td>
+              <td width="174" valign="top"><p>个人认证id为5 商家6</p></td>
+            </tr>
+            <tr>
+              <td width="151" valign="top"><p>attach_id_hands</p></td>
+              <td width="210" valign="top">认证资料，存储用户上传手持的ID</td>
+              <td width="62" valign="top"><p>是</p></td>
+              <td width="174" valign="top"><p>个人认证id为5 商家6</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">注销认证</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Authenticate&amp;act=delverify</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">上传附件</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Authenticate&amp;act=upload</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <a name="qianbao"></a>
+          <h2 class="sub-header">钱包</h2>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">我的账单余额</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=index</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+              <td width="496" valign="top"><p>是否必填</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <pre>{<br>    "status":1,<br>    "message":"操作成功",<br>    "avatar":"<a href="http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312" target="_blank">http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312</a>",<br>    "caiyuanbi":10,<br>    "ubank":15796,<br>    "total_amount":0,<br>    "alreadyUseCyb":3400,<br>    "alreadyUseUbank":1420630<br>}</pre>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">我的账单</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=bill</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>type</p></td>
+              <td width="496" valign="top">1为转账账单 2为红包账单</td>
+              <td width="496" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>page</p></td>
+              <td width="496" valign="top">默认第一页，传第几页</td>
+              <td width="496" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>payment_type</p></td>
+              <td width="496" valign="top">1-转出 0-转入</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>transaction_status</p></td>
+              <td width="496" valign="top">0-待处理 1-成功 2-失败</td>
+            </tr>
+          </table>
+          <p>转账账单：</p>
+          <pre>{<br>    "msg":"操作成功",<br>    "status":1,<br>    "message":"操作成功",<br>    "bills":<span data-type="array" data-size="10">[<br>        <span data-type="object">{<br>            "ctime":"2017-04-26 10:03",<br>            "transactionType":"充值财源币",<br>            "money":"-200",<br>            "serial_number":"CZ2017042610034813",<br>            "avatar":"<a href="http://112.74.46.91/data/upload/avatar/65/12/bd/original_100_100.jpg?v1489216993" target="_blank">http://112.74.46.91/data/upload/avatar/65/12/bd/original_100_100.jpg?v1489216993</a>",<br>            "payment_type":1<br>        }</span>,<br>        <span data-type="object">{<br>            "ctime":"2017-04-26 10:03",<br>            "transactionType":"零用钱充值",<br>            "money":"-10",<br>            "serial_number":"CZ2017042610025754",<br>            "avatar":"<a href="http://112.74.46.91/data/upload/avatar/65/12/bd/original_100_100.jpg?v1489216993" target="_blank">http://112.74.46.91/data/upload/avatar/65/12/bd/original_100_100.jpg?v1489216993</a>",<br>            "payment_type":1<br>        }</span>,<br>        <span data-type="object">{<br>            "ctime":"2017-04-25 18:53",<br>            "transactionType":"零用钱充值",<br>            "money":"-200",<br>            "serial_number":"CZ2017042518530441",<br>            "avatar":"<a href="http://112.74.46.91/data/upload/avatar/65/12/bd/original_100_100.jpg?v1489216993" target="_blank">http://112.74.46.91/data/upload/avatar/65/12/bd/original_100_100.jpg?v1489216993</a>",<br>            "payment_type":1<br>        }</span>,<br>    ]</span>,<br>    "totalPages":7,<br>    "totalRows":64,<br>    "nowPage":1<br>}</pre>
+          <p>红包账单</p>
+          <pre>{<br>    "msg":"操作成功",<br>    "status":1,<br>    "message":"操作成功",<br>    "bills":<span data-type="array" data-size="10">[<br>        <span data-type="object">{<br>            "bonus_type":"收到-普通红包",<br>            "bonus_msg":"新年发大财，人人都有！",<br>            "to_uid":15,<br>            "uname":null,<br>
+                      "bonus_fromuid":1,<br>            "avatar":"<a href="http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg" target="_blank">http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>",<br>            "bonus_money":"+8.00",<br>            "bonus_code":"be133d507c3c77fb44433d4bebafb6e5",<br>            "type":1,<br>            "ctime":"2017-03-15 15:20",<br>            "is_pay":1,<br>            "pay_time":"2017-01-17 16:05",<br>            "payment_method":"零用钱",<br>            "transaction_type":1  //0为收到 1为发出<br>
+                  }</span>,<br>        <span data-type="object" data-inner="<i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>            <span class='json_key'>'bonus_type'</span>:<span class='json_string'>'收到-普通红包'</span>,<br>            <span class='json_key'>'bonus_msg'</span>:<span class='json_string'>'11'</span>,<br>            <span class='json_key'>'to_uid'</span>:<span class='json_number'>12</span>,<br>            <span class='json_key'>'Uname'</span>:<span class='json_null'>null</span>,<br>            <span class='json_key'>'bonus_fromuid'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'avatar'</span>:<span class='json_string'>'<a href='http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg' target='_blank' class='json_link'>http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>'</span>,<br>            <span class='json_key'>'bonus_money'</span>:<span class='json_string'>'+10.00'</span>,<br>            <span class='json_key'>'bonus_code'</span>:<span class='json_string'>'8bf1e8d217a934121b75215965be4bcd'</span>,<br>            <span class='json_key'>'type'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'ctime'</span>:<span class='json_string'>'2017-03-15 15:20'</span>,<br>            <span class='json_key'>'is_pay'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'pay_time'</span>:<span class='json_string'>'2017-01-19 15:21'</span>,<br>            <span class='json_key'>'payment_method'</span>:<span class='json_string'>'零用钱'</span>,<br>            <span class='json_key'>'transaction_type'</span>:<span class='json_number'>1</span><br>        }">Object{...}</span>,<br>        <span data-type="object" data-inner="<i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>            <span class='json_key'>'bonus_type'</span>:<span class='json_string'>'收到-普通红包'</span>,<br>            <span class='json_key'>'bonus_msg'</span>:<span class='json_string'>'aas'</span>,<br>            <span class='json_key'>'to_uid'</span>:<span class='json_number'>12</span>,<br>            <span class='json_key'>'Uname'</span>:<span class='json_null'>null</span>,<br>            <span class='json_key'>'bonus_fromuid'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'avatar'</span>:<span class='json_string'>'<a href='http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg' target='_blank' class='json_link'>http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>'</span>,<br>            <span class='json_key'>'bonus_money'</span>:<span class='json_string'>'+11.00'</span>,<br>            <span class='json_key'>'bonus_code'</span>:<span class='json_string'>'22c93258a30753e177c62f7665e1e1b1'</span>,<br>            <span class='json_key'>'type'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'ctime'</span>:<span class='json_string'>'2017-03-15 15:20'</span>,<br>            <span class='json_key'>'is_pay'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'pay_time'</span>:<span class='json_string'>'2017-01-19 20:09'</span>,<br>            <span class='json_key'>'payment_method'</span>:<span class='json_string'>'零用钱'</span>,<br>            <span class='json_key'>'transaction_type'</span>:<span class='json_number'>1</span><br>        }">Object{...}</span>,<br>        <span data-type="object" data-inner="<i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>            <span class='json_key'>'bonus_type'</span>:<span class='json_string'>'收到-普通红包'</span>,<br>            <span class='json_key'>'bonus_msg'</span>:<span class='json_string'>'恭喜发财，大吉大利'</span>,<br>            <span class='json_key'>'to_uid'</span>:<span class='json_number'>3</span>,<br>            <span class='json_key'>'Uname'</span>:<span class='json_string'>'최강 왕'</span>,<br>            <span class='json_key'>'bonus_fromuid'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'avatar'</span>:<span class='json_string'>'<a href='http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg' target='_blank' class='json_link'>http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>'</span>,<br>            <span class='json_key'>'bonus_money'</span>:<span class='json_string'>'+1.00'</span>,<br>            <span class='json_key'>'bonus_code'</span>:<span class='json_string'>'7579e7e0536452679714ef72f9ebf8a9'</span>,<br>            <span class='json_key'>'type'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'ctime'</span>:<span class='json_string'>'2017-03-15 15:20'</span>,<br>            <span class='json_key'>'is_pay'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'pay_time'</span>:<span class='json_string'>'2017-01-19 20:14'</span>,<br>            <span class='json_key'>'payment_method'</span>:<span class='json_string'>'零用钱'</span>,<br>            <span class='json_key'>'transaction_type'</span>:<span class='json_number'>1</span><br>        }">Object{...}</span>,<br>        <span data-type="object" data-inner="<i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>            <span class='json_key'>'bonus_type'</span>:<span class='json_string'>'收到-普通红包'</span>,<br>            <span class='json_key'>'bonus_msg'</span>:<span class='json_string'>'125'</span>,<br>            <span class='json_key'>'to_uid'</span>:<span class='json_number'>12</span>,<br>            <span class='json_key'>'Uname'</span>:<span class='json_null'>null</span>,<br>            <span class='json_key'>'bonus_fromuid'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'avatar'</span>:<span class='json_string'>'<a href='http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg' target='_blank' class='json_link'>http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>'</span>,<br>            <span class='json_key'>'bonus_money'</span>:<span class='json_string'>'+1111.00'</span>,<br>            <span class='json_key'>'bonus_code'</span>:<span class='json_string'>'6f5c04bc3ec621ace941edcb8b0b1888'</span>,<br>            <span class='json_key'>'type'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'ctime'</span>:<span class='json_string'>'2017-03-15 15:20'</span>,<br>            <span class='json_key'>'is_pay'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'pay_time'</span>:<span class='json_string'>'2017-01-21 10:52'</span>,<br>            <span class='json_key'>'payment_method'</span>:<span class='json_string'>'零用钱'</span>,<br>            <span class='json_key'>'transaction_type'</span>:<span class='json_number'>1</span><br>        }">Object{...}</span>,<br>        <span data-type="object" data-inner="<i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>            <span class='json_key'>'bonus_type'</span>:<span class='json_string'>'收到-普通红包'</span>,<br>            <span class='json_key'>'bonus_msg'</span>:<span class='json_string'>'恭喜发财，大吉大利'</span>,<br>            <span class='json_key'>'to_uid'</span>:<span class='json_number'>3</span>,<br>            <span class='json_key'>'Uname'</span>:<span class='json_string'>'최강 왕'</span>,<br>            <span class='json_key'>'bonus_fromuid'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'avatar'</span>:<span class='json_string'>'<a href='http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg' target='_blank' class='json_link'>http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>'</span>,<br>            <span class='json_key'>'bonus_money'</span>:<span class='json_string'>'+12.00'</span>,<br>            <span class='json_key'>'bonus_code'</span>:<span class='json_string'>'dea438d0161240ea9e643510a065b87b'</span>,<br>            <span class='json_key'>'type'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'ctime'</span>:<span class='json_string'>'2017-03-15 15:20'</span>,<br>            <span class='json_key'>'is_pay'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'pay_time'</span>:<span class='json_string'>'2017-01-22 13:58'</span>,<br>            <span class='json_key'>'payment_method'</span>:<span class='json_string'>'零用钱'</span>,<br>            <span class='json_key'>'transaction_type'</span>:<span class='json_number'>1</span><br>        }">Object{...}</span>,<br>        <span data-type="object" data-inner="<i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>            <span class='json_key'>'bonus_type'</span>:<span class='json_string'>'收到-普通红包'</span>,<br>            <span class='json_key'>'bonus_msg'</span>:<span class='json_string'>'柔柔弱弱'</span>,<br>            <span class='json_key'>'to_uid'</span>:<span class='json_number'>12</span>,<br>            <span class='json_key'>'Uname'</span>:<span class='json_null'>null</span>,<br>            <span class='json_key'>'bonus_fromuid'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'avatar'</span>:<span class='json_string'>'<a href='http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg' target='_blank' class='json_link'>http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>'</span>,<br>            <span class='json_key'>'bonus_money'</span>:<span class='json_string'>'+14.00'</span>,<br>            <span class='json_key'>'bonus_code'</span>:<span class='json_string'>'2f04e5d5afd7a2423c3c3e3220cde8e8'</span>,<br>            <span class='json_key'>'type'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'ctime'</span>:<span class='json_string'>'2017-03-15 15:20'</span>,<br>            <span class='json_key'>'is_pay'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'pay_time'</span>:<span class='json_string'>'2017-01-22 14:06'</span>,<br>            <span class='json_key'>'payment_method'</span>:<span class='json_string'>'零用钱'</span>,<br>            <span class='json_key'>'transaction_type'</span>:<span class='json_number'>1</span><br>        }">Object{...}</span>,<br>        <span data-type="object" data-inner="<i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>            <span class='json_key'>'bonus_type'</span>:<span class='json_string'>'收到-普通红包'</span>,<br>            <span class='json_key'>'bonus_msg'</span>:<span class='json_string'>'恭喜发财，大吉大利'</span>,<br>            <span class='json_key'>'to_uid'</span>:<span class='json_number'>3</span>,<br>            <span class='json_key'>'Uname'</span>:<span class='json_string'>'최강 왕'</span>,<br>            <span class='json_key'>'bonus_fromuid'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'avatar'</span>:<span class='json_string'>'<a href='http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg' target='_blank' class='json_link'>http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>'</span>,<br>            <span class='json_key'>'bonus_money'</span>:<span class='json_string'>'+41.00'</span>,<br>            <span class='json_key'>'bonus_code'</span>:<span class='json_string'>'5c63d43acf541fe51f2570ec8dc3d1b1'</span>,<br>            <span class='json_key'>'type'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'ctime'</span>:<span class='json_string'>'2017-01-23 16:54'</span>,<br>            <span class='json_key'>'is_pay'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'pay_time'</span>:<span class='json_string'>'2017-01-22 14:07'</span>,<br>            <span class='json_key'>'payment_method'</span>:<span class='json_string'>'零用钱'</span>,<br>            <span class='json_key'>'transaction_type'</span>:<span class='json_number'>1</span><br>        }">Object{...}</span>,<br>        <span data-type="object" data-inner="<i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>            <span class='json_key'>'bonus_type'</span>:<span class='json_string'>'发出-普通红包'</span>,<br>            <span class='json_key'>'bonus_msg'</span>:<span class='json_string'>'新年快乐！'</span>,<br>            <span class='json_key'>'bonus_fromuid'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'Uname'</span>:<span class='json_null'>null</span>,<br>            <span class='json_key'>'to_uid'</span>:<span class='json_number'>12</span>,<br>            <span class='json_key'>'avatar'</span>:<span class='json_string'>'<a href='http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312' target='_blank' class='json_link'>http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312</a>'</span>,<br>            <span class='json_key'>'bonus_money'</span>:<span class='json_string'>'-250000'</span>,<br>            <span class='json_key'>'bonus_code'</span>:<span class='json_string'>'ccf5018e25ad57e65dc275b9d22f68ab'</span>,<br>            <span class='json_key'>'type'</span>:<span class='json_number'>0</span>,<br>            <span class='json_key'>'ctime'</span>:<span class='json_string'>'2017-01-23 17:19'</span>,<br>            <span class='json_key'>'is_pay'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'pay_time'</span>:<span class='json_string'>'2017-01-23 17:19'</span>,<br>            <span class='json_key'>'payment_method'</span>:<span class='json_string'>'零用钱'</span>,<br>            <span class='json_key'>'transaction_type'</span>:<span class='json_number'>0</span><br>        }">Object{...}</span>,<br>        <span data-type="object" data-inner="<i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>            <span class='json_key'>'bonus_type'</span>:<span class='json_string'>'发出-普通红包'</span>,<br>            <span class='json_key'>'bonus_msg'</span>:<span class='json_string'>'新年快乐！'</span>,<br>            <span class='json_key'>'bonus_fromuid'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'Uname'</span>:<span class='json_string'>'최강 왕'</span>,<br>            <span class='json_key'>'to_uid'</span>:<span class='json_number'>3</span>,<br>            <span class='json_key'>'avatar'</span>:<span class='json_string'>'<a href='http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312' target='_blank' class='json_link'>http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312</a>'</span>,<br>            <span class='json_key'>'bonus_money'</span>:<span class='json_string'>'-250000'</span>,<br>            <span class='json_key'>'bonus_code'</span>:<span class='json_string'>'ccf5018e25ad57e65dc275b9d22f68ab'</span>,<br>            <span class='json_key'>'type'</span>:<span class='json_number'>0</span>,<br>            <span class='json_key'>'ctime'</span>:<span class='json_string'>'2017-01-23 17:19'</span>,<br>            <span class='json_key'>'is_pay'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'pay_time'</span>:<span class='json_string'>'2017-01-23 17:19'</span>,<br>            <span class='json_key'>'payment_method'</span>:<span class='json_string'>'零用钱'</span>,<br>            <span class='json_key'>'transaction_type'</span>:<span class='json_number'>0</span><br>        }">Object{...}</span><br>    ]</span>,<br>    "totalPages":11,<br>    "totalRows":104,<br>    "nowPage":1<br>}</pre>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">转账详情</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=transferDetails</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+            
+            <tr>
+              <td width="147" valign="top"><p>serial_number</p></td>
+              <td width="496" valign="top">订单号</td>
+              <td width="496" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>transaction_status</p></td>
+              <td width="496" valign="top">0-待处理 1-成功 2-失败</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          
+          <pre>{<br>    "msg":"操作成功",<br>    "status":1,<br>    "message":"操作成功",<br>    "data":<span data-type="object">{<br>        "avatar":"<a href="http://112.74.46.91/data/upload/avatar/65/12/bd/original_100_100.jpg?v1489216993" target="_blank">http://112.74.46.91/data/upload/avatar/65/12/bd/original_100_100.jpg?v1489216993</a>",<br>        "name":"vvvvv",<br>        "money":"-200",<br>        "transaction_type":"充值财源币",<br>        "transaction_status":1,<br>        "payment_method":"零用钱",<br>        "trading_time":"2017-04-26 10:03:51",<br>        "serial_number":"CZ2017042610034813"<br>    }</span><br>}</pre>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">转账模糊搜索</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+          <tr>
+            <td width="496" valign="top"><table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+              <tr>
+                <td width="147" valign="top"><p></p></td>
+                <td width="496" valign="top"><p>mod=Wallet&amp;act=query</p></td>
+              </tr>
+            </table>              <p>&nbsp;</p></td>
+          </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+           
+            <tr>
+              <td width="147" valign="top"><p>text</p></td>
+              <td width="496" valign="top">用户名关键字</td>
+              <td width="496" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <pre>"data":[<br>    <span data-type="object">{<br>        "name":"测试",<br>        "uid":23<br>    }</span>,<br>    <span data-type="object">{<br>        "name":"测试2",<br>        "uid":28<br>    }</span><br>]</pre>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">转账记录查询</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=transferQueryLog</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>time</p></td>
+              <td width="496" valign="top">传月时间戳</td>
+              <td width="496" valign="top">否</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>toUname</p></td>
+              <td width="496" valign="top">姓名查询</td>
+              <td width="496" valign="top">否</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>toUid</p></td>
+              <td width="496" valign="top">Uid查询</td>
+              <td width="496" valign="top">否</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>page</p></td>
+              <td width="496" valign="top">默认第一页，传第几页</td>
+              <td width="496" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <pre>{<br>    "msg":"操作成功",<br>    "status":1,<br>    "message":"操作成功",<br>    "data":<span data-type="array" data-size="3">[<br>        <span data-type="object">{<br>            "toUname":"测试2",<br>            "avatar":"<a href="http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg" target="_blank">http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>",<br>            "toUid":28,<br>            "ctime":"2017.03 14:35",<br>            "money":"-20"<br>        }</span>,<br>        <span data-type="object">{<br>            "toUname":"测试2",<br>            "avatar":"<a href="http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg" target="_blank">http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>",<br>            "toUid":28,<br>            "ctime":"2017.03 14:34",<br>            "money":"-20"<br>        }</span>,<br>        <span data-type="object">{<br>            "toUname":"测试2",<br>            "avatar":"<a href="http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg" target="_blank">http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>",<br>            "toUid":28,<br>            "ctime":"2017.03 14:29",<br>            "money":"-11"<br>        }</span><br>    ]</span>,<br>    "totalPages":1,<br>    "totalRows":3,<br>    "nowPage":1<br>}</pre>
+          <p>&nbsp;</p>
+          <p><a name="a"></a>
+          </p>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">今日收益</h2>
+          
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=earningsToday</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+              <td width="496" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top">page</td>
+              <td width="496" valign="top">默认第一页，传第几页</td>
+              <td width="496" valign="top"><p>是</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <pre>{<br>    "msg":"操作成功",<br>    "status":1,<br>    "message":"操作成功",<br>    "data":<span data-type="array" data-size="8">[<br>        <span data-type="object">{<br>            "expire_time":"2017-03-09 23:59:59",<br>            "fromUname":"红包-최강 왕",<br>            "avatar":"<a href="http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg" target="_blank">http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>",<br>            "bonus_money":"3.97",<br>            "bonus_id":3030,<br>            "get_time":"15:20" 
+				&quot;status&quot;:1  0-未使用 1-已使用 2-已过期<br>        }</span>,<br>        <span data-type="object">{<br>            "get_time":"15:20",<br>            "bonus_msg":"125",<br>            "fromUname":"红包-",<br>            "avatar":"<a href="http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg" target="_blank">http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>",<br>            "bonus_money":"1111.00",<br>            "bonus_id":1018<br>        }</span>,<br>    ]</span>,<br>    "cybTotal_money":3.97,<br>    "ubankTotal_money":1167,<br>    "totalPages":1,<br>    "totalRows":8,<br>    "nowPage":1<br>}</pre>
+          <p>&nbsp;</p>
+          <h2 class="sub-header"></h2>
+          
+          
+          <a name="b"></a>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">发出财源列表</h2>
+          
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=envelopesCybList</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+              <td width="496" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="67" valign="top"><p>time</p></td>
+              <td width="182" valign="top">传日期格式(2017-01)</td>
+              <td width="250" valign="top">有传则查时间范围反之默认查所有</td>
+            </tr>
+            <tr>
+              <td width="67" valign="top"><p>page</p></td>
+              <td width="182" valign="top">默认第一页，传第几页</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <pre><span data-type="array" data-size="2" data-inner="<i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>[<br>        <span data-type='object'><i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>            <span class='json_key'>'bonus_fromuid'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'total_amount'</span>:<span class='json_number'>400</span>,<br>            <span class='json_key'>'bonus_msg'</span>:<span class='json_string'>'恭喜发财，万事如意'</span>,<br>            <span class='json_key'>'uname'</span>:<span class='json_string'>'李盛滔'</span>,<br>            <span class='json_key'>'avatar'</span>:<span class='json_string'>'<a href='http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312' target='_blank' class='json_link'>http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312</a>'</span><br>        }</span>,<br>        <span data-type='object'><i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>            <span class='json_key'>'bonus_fromuid'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'total_amount'</span>:<span class='json_number'>50</span>,<br>            <span class='json_key'>'bonus_msg'</span>:<span class='json_string'>'恭喜发财，万事如意'</span>,<br>            <span class='json_key'>'uname'</span>:<span class='json_string'>'李盛滔'</span>,<br>            <span class='json_key'>'avatar'</span>:<span class='json_string'>'<a href='http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312' target='_blank' class='json_link'>http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312</a>'</span><br>        }</span><br>    ]"><span data-type="object"></span></span>{<br>    "msg":"操作成功",<br>    "status":1,<br>    "message":"操作成功",<br>    "data":<span data-type="array" data-size="6">[<br>        <span data-type="object">{<br>            "bonus_fromuid":1,<br>            "bonus_code":"43de711dd0ab2845adbba16fb4ec7e24",<br>            "send_time":"03-09",<br>            "id":331,<br>            "bonus_many":5,<br>            "total_amount":100,<br>            "bonus_msg":"恭喜发财、万事如意",<br>            "has_get":"3/5",<br>            "uname":"李盛滔",<br>            "avatar":"<a href="http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312" target="_blank">http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312</a>"<br>        }</span>,<br>        <span data-type="object">{<br>            "bonus_fromuid":1,<br>            "bonus_code":"15df123a099fb28cb007113dd1c24034",<br>            "send_time":"03-09",<br>            "id":329,<br>            "bonus_many":1,<br>            "total_amount":1000,<br>            "bonus_msg":"测试",<br>            "has_get":"1/1",<br>            "uname":"李盛滔",<br>            "avatar":"<a href="http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312" target="_blank">http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312</a>"<br>        }</span>,<span data-type="object"></span><br>    ]</span>,<br>    "totalPages":1,<br>    "totalRows":6,<br>    "nowPage":1,<br>    "sum":2600,<br>    "uname":"李盛滔",<br>    "avatar":"<a href="http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312" target="_blank">http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312</a>"<br>}</pre>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">财源使用详情</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=details_cyb</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="507">
+            <tr>
+              <td width="67" valign="top"><br />
+                参数名称 </td>
+              <td width="182" valign="top"><p>参数说明</p></td>
+              <td width="250" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="67" valign="top"><p>type</p></td>
+              <td width="182" valign="top">1为已使用 2为已过期0为未使用</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="67" valign="top"><p>time</p></td>
+              <td width="182" valign="top">传日期格式(2017-01)</td>
+              <td width="250" valign="top">有传则查时间范围反之默认查所有</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <pre><span data-type="array" data-size="2" data-inner="<i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>[<br>        <span data-type='object'><i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>            <span class='json_key'>'bonus_fromuid'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'total_amount'</span>:<span class='json_number'>400</span>,<br>            <span class='json_key'>'bonus_msg'</span>:<span class='json_string'>'恭喜发财，万事如意'</span>,<br>            <span class='json_key'>'uname'</span>:<span class='json_string'>'李盛滔'</span>,<br>            <span class='json_key'>'avatar'</span>:<span class='json_string'>'<a href='http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312' target='_blank' class='json_link'>http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312</a>'</span><br>        }</span>,<br>        <span data-type='object'><i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>            <span class='json_key'>'bonus_fromuid'</span>:<span class='json_number'>1</span>,<br>            <span class='json_key'>'total_amount'</span>:<span class='json_number'>50</span>,<br>            <span class='json_key'>'bonus_msg'</span>:<span class='json_string'>'恭喜发财，万事如意'</span>,<br>            <span class='json_key'>'uname'</span>:<span class='json_string'>'李盛滔'</span>,<br>            <span class='json_key'>'avatar'</span>:<span class='json_string'>'<a href='http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312' target='_blank' class='json_link'>http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312</a>'</span><br>        }</span><br>    ]"><span data-type="object"></span></span>{<br>    "msg":"操作成功",<br>    "status":1,<br>    "message":"",<br>    "sum":1000,<br>    "data":<span data-type="array" data-size="6">[<br>        <span data-type="object">{<br>            "total_amount":400,<br>            "bonus_msg":"恭喜发财，万事如意",<br>            "bonus_fromuid":1,<br>            "bonus_money":"20.00",<br>            "to_uid":11,<br>            "get_time":1489026889,
+	"use_time":3月1日 12:30	<br>
+			            "expire_time":null,<br>            "uname":null,<br>            "avatar":"<a href="http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg" target="_blank">http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>"<br>        }</span><span data-type="object"></span><br>    ]</span><br>}</pre>
+          <p></p>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">红包详情</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=getBonusDetail</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="507">
+            <tr>
+              <td width="67" valign="top"><br />
+                参数名称 </td>
+              <td width="182" valign="top"><p>参数说明</p></td>
+              <td width="250" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="67" valign="top"><p>bonus_id</p></td>
+              <td width="182" valign="top">红包id</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <pre>{<br>    "msg":"操作成功",<br>    "status":1,<br>    "message":"",<br>    "data_list":<span data-type="array" data-size="3">[<br>        <span data-type="object">{<br>            "to_uid":3,<br>            "get_time":"14:16:02",<br>            "bonus_money":"52.82",<br>            "username":"최강 왕",<br>            "bonus_avatar":"<a href="http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg" target="_blank">http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>"<br>        }</span>,<br>        <span data-type="object">{<br>            "to_uid":2,<br>            "get_time":"14:16:02",<br>            "bonus_money":"8.24",<br>            "username":"链我团队",<br>            "bonus_avatar":"<a href="http://localhost/thinksns.com/data/upload/avatar/c8/1e/72/original_100_100.jpg?v1487230228" target="_blank">http://localhost/thinksns.com/data/upload/avatar/c8/1e/72/original_100_100.jpg?v1487230228</a>"<br>        }</span>,<br>        <span data-type="object">{<br>            "to_uid":1,<br>            "get_time":"14:16:02",<br>            "bonus_money":"3.97",<br>            "username":"李盛滔",<br>            "bonus_avatar":"<a href="http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312" target="_blank">http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312</a>"<br>        }</span><br>    ]</span>,<br>    "has_get":3, //领取数<br>    "not_get":2, //剩余<br>    "bonus_code":"43de711dd0ab2845adbba16fb4ec7e24",<br>    "total_amount":100, //总金额<br>    "bonus_many":5, //红包总数<br>    "is_follow":0, //是否关注 1为关注<br>    "uname":null,<br>    "avatar":"<a href="http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg" target="_blank">http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>",<br>    "surplus_many":34.97, //剩余未抢金额<br>    "totalPages":1,<br>    "totalRows":3,<br>    "nowPage":1<br>}</pre>
+          <p>&nbsp;</p>
+          <a name="c"></a>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">我的财源</h2>
+
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=myCyb</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="507">
+            <tr>
+              <td width="80" valign="top"><br />
+                参数名称 </td>
+              <td width="336" valign="top"><p>参数说明</p></td>
+              <td width="83" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>user_group</p></td>
+              <td width="336" valign="top">认证类型id 默认传0代表所有</td>
+              <td width="83" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>page</p></td>
+              <td width="336" valign="top">默认第一页，传第几页</td>
+              <td width="83" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <pre><br>    "msg":"操作成功",<br>    "status":1,<br>    "message":"",<br>    "data":<span data-type="array" data-size="3">[<br>        <span data-type="object">{<br>            "total_amount":1000,<br>            "bonus_msg":"恭喜发财、万事如意",<br>            "bonus_fromuid":11,<br>            "bonus_money":"1000.00",<br>            "to_uid":11,<br>            "expire_time":"2017-03-09 23:59:59",<br>            "bonus_code":"952c340f77b1ec8b81f3f42ea655c910",<br>            "id":3022,<br>            "toUname":null,<br>            "avatar":"<a href="http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg" target="_blank">http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>"<br>        }</span>,<br>        <span data-type="object">{<br>            "total_amount":400,<br>            "bonus_msg":"恭喜发财，万事如意",<br>            "bonus_fromuid":1,<br>            "bonus_money":"20.00",<br>            "to_uid":11,<br>            "expire_time":null,<br>            "bonus_code":"5f63120e4ca51ccab1eb3cac482ed0f5",<br>            "id":2989,<br>            "toUname":"李盛滔",<br>            "avatar":"<a href="http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312" target="_blank">http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312</a>"<br>        }</span>,<br>        <span data-type="object">{<br>            "total_amount":40,<br>            "bonus_msg":"恭喜发财、万事如意",<br>            "bonus_fromuid":27,<br>            "bonus_money":"20.00",<br>            "to_uid":11,<br>            "expire_time":null,<br>            "bonus_code":"c73aef60d34d5c3effc962c391a514c3",<br>            "id":3019,<br>            "toUname":null,<br>            "avatar":"<a href="http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg" target="_blank">http://localhost/thinksns.com/resources/theme/stv1/_static/image/noavatar/middle.jpg</a>"<br>        }</span><br>    ]</span><br>}</pre>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">我的财源使用详情</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=myCybDetails</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="507">
+            <tr>
+              <td width="80" valign="top"><br />
+                参数名称 </td>
+              <td width="336" valign="top"><p>参数说明</p></td>
+              <td width="83" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="67" valign="top"><p>type</p></td>
+              <td width="182" valign="top">1为已使用 2为已过期0为未使用</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="67" valign="top"><p>time</p></td>
+              <td width="182" valign="top">传日期格式(2017-01)</td>
+              <td width="250" valign="top">有传则查时间范围反之默认查所有</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <pre><span data-type="array" data-size="3"><span data-type="object"></span></span>{<br>    "msg":"操作成功",<br>    "status":1,<br>    "message":"操作成功",<br>    "data":<span data-type="array" data-size="5">[<br>        <span data-type="object">{<br>            "eid":null,<br>            "bonus_fromuid":1,<br>            "bonus_money":"40.99",<br>            "get_time":"03月15日 15:20",<br>            "status":1, //1为已使用 2为已过期<br>
+                      "avatar":"<a href="http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312" target="_blank">http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312</a>",<br>            "bonusType":"个人红包"<br>        }</span><span data-type="object"></span><br>    ]</span>,<br>    "totalPages":1,<br>    "totalRows":5,<br>    "nowPage":1,<br>    "uname":"李盛滔",<br>    "avatar":"<a href="http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312" target="_blank">http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312</a>",<br>    "sum":161.04<br>}</pre>
+          <p></p>
+          <h2 class="sub-header">我的财源使用页</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=cybUsePage</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="507">
+            <tr>
+              <td width="80" valign="top"><br />
+                参数名称 </td>
+              <td width="336" valign="top"><p>参数说明</p></td>
+              <td width="250" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>bonus_id</p></td>
+              <td width="336" valign="top">红包id</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+             <tr>
+              <td width="147" valign="top"><p>details_type</p></td>
+              <td width="496" valign="top">1-显示更多详情 0-隐藏</td>
+            </tr>
+          </table>
+          <pre><span data-type="array" data-size="3"><span data-type="object"></span></span>{<br>    "msg":"操作成功",<br>    "status":1,<br>    "message":"操作成功",<br>    "data":<span data-type="object">{<br>        "bonus_fromuid":1,<br>        "bonus_code":"143cfc91784e0227cacb4b8faf3132fe",<br>        "id":3033,<br>        "expire_time":null,<br>        "bonus_money":4.76,<br>        "carouselFigure":<span data-type="array" data-size="2" data-inner="<i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>[<br>            <span data-type='object'><i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>                <span class='json_key'>'advertImg'</span>:<span class='json_string'>'<a href='http://localhost/thinksns.com/data/upload/2017/0407/14/58e72f50801192c596ad.jpg' target='_blank' class='json_link'>http://localhost/thinksns.com/data/upload/2017/0407/14/58e72f50801192c596ad.jpg</a>'</span>,<br>                <span class='json_key'>'advertUrl'</span>:<span class='json_string'>''</span><br>            }</span>,<br>            <span data-type='object'><i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>                <span class='json_key'>'advertImg'</span>:<span class='json_string'>'<a href='http://localhost/thinksns.com/data/upload/2017/0407/14/58e731c33da00c039db4.png' target='_blank' class='json_link'>http://localhost/thinksns.com/data/upload/2017/0407/14/58e731c33da00c039db4.png</a>'</span>,<br>                <span class='json_key'>'advertUrl'</span>:<span class='json_string'>''</span><br>            }</span><br>        ]">[<br>            <span data-type="object">{<br>                "advertImg":"<a href="http://localhost/thinksns.com/data/upload/2017/0407/14/58e72f50801192c596ad.jpg" target="_blank">http://localhost/thinksns.com/data/upload/2017/0407/14/58e72f50801192c596ad.jpg</a>",<br>                "advertUrl":""<br>            }</span>,<br>            <span data-type="object">{<br>                "advertImg":"<a href="http://localhost/thinksns.com/data/upload/2017/0407/14/58e731c33da00c039db4.png" target="_blank">http://localhost/thinksns.com/data/upload/2017/0407/14/58e731c33da00c039db4.png</a>",<br>                "advertUrl":""<br>            }</span><br>        ]</span>,<br>        "adUrl":<span data-type="array" data-size="3" data-inner="<i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>[<br>            <span data-type='object'><i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>                <span class='json_key'>'adTitle'</span>:<span class='json_string'>'下载'</span>,<br>                <span class='json_key'>'explain'</span>:<span class='json_string'>'199'</span>,<br>                <span class='json_key'>'url'</span>:<span class='json_string'>'www'</span><br>            }</span>,<br>            <span data-type='object'><i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>                <span class='json_key'>'adTitle'</span>:<span class='json_string'>'收到'</span>,<br>                <span class='json_key'>'explain'</span>:<span class='json_string'>'333'</span>,<br>                <span class='json_key'>'url'</span>:<span class='json_string'>'www'</span><br>            }</span>,<br>            <span data-type='object'><i style='cursor:pointer;' class='fa fa-minus-square-o' onclick='hide(this)'></i>{<br>                <span class='json_key'>'adTitle'</span>:<span class='json_string'>'dddd'</span>,<br>                <span class='json_key'>'explain'</span>:<span class='json_string'>'eeee'</span>,<br>                <span class='json_key'>'url'</span>:<span class='json_string'>'wwww'</span><br>            }</span><br>        ]">[<br>            <span data-type="object">{<br>                "adTitle":"下载",<br>                "explain":"199",<br>                "url":"www"<br>            }</span>,<br>            <span data-type="object">{<br>                "adTitle":"收到",<br>                "explain":"333",<br>                "url":"www"<br>            }</span>,<br>            <span data-type="object">{<br>                "adTitle":"dddd",<br>                "explain":"eeee",<br>                "url":"wwww"<br>            }</span><br>        ]</span>,<br>        "title":"李盛滔",<br>        "toUname":"李盛滔",<br>        "avatar":"<a href="http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312" target="_blank">http://localhost/thinksns.com/data/upload/avatar/c4/ca/42/original_100_100.jpg?v1484041312</a>",<br>        "condition":"恭喜发财、万事如意"<br>    }</span><br>}</pre>
+          <p></p>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">商家详情信息</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=cybUseDetails</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="507">
+            <tr>
+              <td width="80" valign="top"><br />
+                参数名称 </td>
+              <td width="336" valign="top"><p>参数说明</p></td>
+              <td width="250" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>business_uid</p></td>
+              <td width="336" valign="top">商家uid</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <pre>{<br>    "msg":"操作成功",<br>    "status":1,<br>    "message":"操作成功",<br>    "data":<span data-type="object">{<br>        "address":"广州天河农信大厦18楼",<br>        "phone":"13143591741",<br>        "explain":"你很帅",<br>        "about":"你很帅",<br>        "operation_time":"11",<br>        "latitude":null,<br>        "longitude":null,<br>        "wifi_name":"是的",<br>        "wifi_paw":"123456",<br>        "photo":<span data-type="array" data-size="2">[<br>            <span data-type="object">{<br>                "img":"<a href="http://112.74.46.91/data/upload/2017/0630/16/59560da7f307c0a5864f.jpg" target="_blank">http://112.74.46.91/data/upload/2017/0630/16/59560da7f307c0a5864f.jpg</a>",<br>                "img_middle":"<a href="http://112.74.46.91/data/upload/2017/0630/16/59560da7f307c0a5864f.jpg" target="_blank">http://112.74.46.91/data/upload/2017/0630/16/59560da7f307c0a5864f.jpg</a>",<br>                "img_small":"<a href="http://112.74.46.91/data/upload/2017/0630/16/59560da7f307c0a5864f_220_auto.jpg" target="_blank">http://112.74.46.91/data/upload/2017/0630/16/59560da7f307c0a5864f_220_auto.jpg</a>"<br>            }</span>,<br>            <span data-type="object">{<br>                "img":"<a href="http://112.74.46.91/data/upload/2017/0705/21/595cec6bce8accf64be7.jpg" target="_blank">http://112.74.46.91/data/upload/2017/0705/21/595cec6bce8accf64be7.jpg</a>",<br>                "img_middle":"<a href="http://112.74.46.91/data/upload/2017/0705/21/595cec6bce8accf64be7.jpg" target="_blank">http://112.74.46.91/data/upload/2017/0705/21/595cec6bce8accf64be7.jpg</a>",<br>                "img_small":"<a href="http://112.74.46.91/data/upload/2017/0705/21/595cec6bce8accf64be7.jpg" target="_blank">http://112.74.46.91/data/upload/2017/0705/21/595cec6bce8accf64be7.jpg</a>"<br>            }</span><br>        ]</span><br>    }</span><br>}</pre>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">删除财源</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=delCybUse</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="507">
+            <tr>
+              <td width="80" valign="top"><br />
+                参数名称 </td>
+              <td width="336" valign="top"><p>参数说明</p></td>
+              <td width="250" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>bonus_id</p></td>
+              <td width="336" valign="top">红包id</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">财源使用举报</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=cybUseReport</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="507">
+            <tr>
+              <td width="80" valign="top"><br />
+                参数名称 </td>
+              <td width="336" valign="top"><p>参数说明</p></td>
+              <td width="250" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>bonus_fromuid</p></td>
+              <td width="336" valign="top">被举报uid</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+             <tr>
+              <td width="80" valign="top"><p>content</p></td>
+              <td width="336" valign="top">举报内容</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p></p>
+          <p></p>
+          <p></p>
+          <p></p>
+          <h2 class="sub-header">我的财源零用钱支付使用</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=payCyb</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="507">
+            <tr>
+              <td width="80" valign="top"><br />
+                参数名称 </td>
+              <td width="336" valign="top"><p>参数说明</p></td>
+              <td width="250" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>bonus_id</p></td>
+              <td width="336" valign="top">红包id</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>paw</p></td>
+              <td width="336" valign="top">支付密码</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>money</p></td>
+              <td width="336" valign="top">支付金额</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>desc</p></td>
+              <td width="336" valign="top">备注</td>
+              <td width="250" valign="top">否</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p></p>
+          <p></p>
+          <h2 class="sub-header">我的财源支付成功信息</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=paySuccessInfo</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="507">
+            <tr>
+              <td width="80" valign="top"><br />
+                参数名称 </td>
+              <td width="336" valign="top"><p>参数说明</p></td>
+              <td width="250" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>bonus_code</p></td>
+              <td width="336" valign="top">红包订单号  </td>
+              <td width="250" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>data</p></td>
+              <td width="496" valign="top">信息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">我的财源第三方支付使用(安卓)</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=cybUseThirdPartyPayment</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="507">
+            <tr>
+              <td width="80" valign="top"><br />
+                参数名称 </td>
+              <td width="336" valign="top"><p>参数说明</p></td>
+              <td width="250" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>bonus_id</p></td>
+              <td width="336" valign="top">红包id</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>pay_type</p></td>
+              <td width="336" valign="top">0-支付宝 1=微信</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>money</p></td>
+              <td width="336" valign="top">支付金额</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>data</p></td>
+              <td width="496" valign="top">安卓sdk付款链接（微信） 付款参数集合（支付宝）</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>info</p></td>
+              <td width="496" valign="top">支付完成信息</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>pay_type</p></td>
+              <td width="496" valign="top">支付类型</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">我的财源商家扫码</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=MerchantCode</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="507">
+            <tr>
+              <td width="80" valign="top"><br />
+                参数名称 </td>
+              <td width="336" valign="top"><p>参数说明</p></td>
+              <td width="250" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>bonus_id</p></td>
+              <td width="336" valign="top">红包id</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>money</p></td>
+              <td width="336" valign="top">总金额</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>remark</p></td>
+              <td width="336" valign="top">备注</td>
+              <td width="250" valign="top">否</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>uid</p></td>
+              <td width="336" valign="top">付款用户id</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <pre>{<br>    "msg":"操作成功",<br>    "status":1,<br>    "message":"操作成功",<br>    "data":<span data-type="object">{<br>        "id":3033,<br>        "bonus_money":"4.76",<br>        "pay_money":95.24,<br>        "toUname":"李盛滔"<br>    }</span><br>}</pre>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">我的财源用户扫码支付</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Wallet&amp;act=qrCodePay</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="507">
+            <tr>
+              <td width="80" valign="top"><br />
+                参数名称 </td>
+              <td width="336" valign="top"><p>参数说明</p></td>
+              <td width="250" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>serial_number</p></td>
+              <td width="336" valign="top">红包订单</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>paw</p></td>
+              <td width="336" valign="top">支付密码</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <a name="ar"></a>
+          <h2 class="sub-header">获取AR资源包</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Ar&amp;act=index</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <pre>{<br>    "msg":"操作成功",<br>    "status":1,<br>    "message":"操作成功",<br>    "data":<span data-type="array" data-size="1">[<br>        {<br>            "categoryName":"Art",<br>            "categoryThumb":"<a href="http://119.23.13.83/20170208/data/AR/Art/categoryThumb.png" target="_blank">http://119.23.13.83/20170208/data/AR/Art/categoryThumb.png</a>",
+			"categoryThumbSel":"<a href="http://119.23.13.83/20170208/data/AR/Art/categoryThumbSel.png" target="_blank">http://119.23.13.83/20170208/data/AR/Art/categoryThumbSel.png</a>",<br>            "resources":<span data-type="array" data-size="4">[<br>                <span data-type="object">{<br>                    "emoticon":"<a href="http://119.23.13.83/20170208/data/AR/Art/yinghua.zip" target="_blank">http://119.23.13.83/20170208/data/AR/Art/yinghua.zip</a>",<br>                    "resources_id":100001,<br>                    "fileName":"yinghua",<br>                    "thumb":"<a href="http://119.23.13.83/20170208/data/AR/Art/yinghua.png" target="_blank">http://119.23.13.83/20170208/data/AR/Art/yinghua.png</a>"<br>                }</span>,<br>                <span data-type="object">{<br>                    "emoticon":"<a href="http://119.23.13.83/20170208/data/AR/Art/xue.zip" target="_blank">http://119.23.13.83/20170208/data/AR/Art/xue.zip</a>",<br>                    "resources_id":100002,<br>                    "fileName":"xue",<br>                    "thumb":"<a href="http://119.23.13.83/20170208/data/AR/Art/xue.png" target="_blank">http://119.23.13.83/20170208/data/AR/Art/xue.png</a>"<br>                }</span></span><br>    ]</span><br>}</pre>
+          <p>&nbsp;</p>
+          <a name="tx"></a>
+          <h2 class="sub-header">绑定提现账户</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=ApplicationUbank&amp;act=setUserAccount</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="105">
+                status</td>
+              <td width="222"><p>1-绑定2-解绑</p></td>
+              <td width="131" ><p>默认为1</p></td>
+            </tr>
+            <tr>
+              <td width="105">
+                account</td>
+              <td width="222"><p>绑定账号</p></td>
+              <td width="131" ><p>是</p></td>
+            </tr>
+            <tr>
+              <td width="105">
+                type</td>
+              <td width="222"><p>1-支付宝 2-微信 3-银行卡</p></td>
+              <td width="131" ><p>默认为1</p></td>
+            </tr>
+            <tr>
+              <td width="105">
+                name</td>
+              <td width="222"><p>开户名</p></td>
+              <td width="131" ><p>绑定银行卡时传</p></td>
+            </tr>
+            <tr>
+              <td width="105">
+                bank</td>
+              <td width="222"><p>开户分行</p></td>
+              <td width="131" ><p>绑定银行卡时传</p></td>
+            </tr>
+            <tr>
+              <td width="105">
+                phone</td>
+              <td width="222"><p>预留手机号</p></td>
+              <td width="131" ><p>绑定银行卡时传</p></td>
+            </tr>
+            <tr>
+              <td width="105">
+                address</td>
+              <td width="222"><p>地址</p></td>
+              <td width="131" ><p>绑定银行卡时传</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">提现申请</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=ApplicationUbank&amp;act=createOrder</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="105"> gold</td>
+              <td width="222"><p>提现金额</p></td>
+              <td width="131" ><p>默认为1</p></td>
+            </tr>
+            <tr>
+              <td width="105"> account</td>
+              <td width="222"><p>绑定账号</p></td>
+              <td width="131" ><p>是</p></td>
+            </tr>
+            <tr>
+              <td width="105"> paw</td>
+              <td width="222"><p>支付密码</p></td>
+              <td width="131" ><p>是</p></td>
+            </tr>
+            <tr>
+              <td width="105"> type</td>
+              <td width="222"><p>1-支付宝 2-微信 3-银行卡</p></td>
+              <td width="131" ><p>默认为1</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">查看提现账户</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=ApplicationUbank&amp;act=getUserAccount</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <pre>{<br>    "data":<span data-type="object">{<br>        "weChat":<span data-type="object">{<br>            "account":"12356312545949",<br>            "type":2<br>        }</span>,<br>        "alipay":<span data-type="object">{<br>            "account":"838198355",<br>            "type":1<br>        }</span><br>    }</span>,<br>    "msg":"操作成功",<br>    "status":1<br>}</pre>
+          <p>&nbsp;</p>
+          <a name="xinremen"></a>
+          <h2 class="sub-header"> 新热门语言设置</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="105"> lang</td>
+              <td width="222"><p>zh-ch:为中文，en:为英文</p></td>
+              <td width="131" ><p>默认为中文</p></td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <a name="jgts"></a>
+          <h2 class="sub-header">极光推送返回参数</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+          </table>
+          <p>返回参数</p>
+          <p>支付通知：</p>
+          <pre>{<br>	&quot;push_type&quot;: &quot;lianwoPay&quot;,<br>	&quot;uid&quot;: 22,<br>	&quot;serial_number&quot;: &quot;CZ2017060910151293&quot;,<br>	&quot;type&quot;: 1,			//1.链我凭证,2.收款成功,3.链我提醒<br>	&quot;time&quot;: 1496974515,<br>	&quot;money_type&quot;: 1,	//1,付款,2.转账,3.收款,4.提现,5.财源币,6.会员,7.退款通知<br>    &quot;money&quot;: 10,<br>	&quot;data_list&quot;:[<br>		{<br>			&quot;title&quot;:&quot;财源优惠&quot;,<br>			&quot;content&quot;:&quot;财源币￥5元&quot;,<br>		}<br>		{<br>			&quot;title&quot;:&quot;支付方式&quot;,<br>			&quot;content&quot;:&quot;微信支付&quot;,<br>		}<br>		{<br>			&quot;title&quot;:&quot;收款人&quot;,<br>			&quot;content&quot;:&quot;广东联通官网旗舰店&quot;,<br>		}<br>		{<br>			&quot;title&quot;:&quot;商品说明&quot;,<br>			&quot;content&quot;:&quot;50元可用&quot;,<br>		}<br>		{<br>			&quot;title&quot;:&quot;商品详情&quot;,<br>			&quot;content&quot;:&quot;13066315631&lt;广东联通官方旗舰店&gt;话费&quot;<br>		}<br>	]<br>}</pre>
+          <p>认证通知：</p>
+          <pre>{<br>	&quot;push_type&quot;: &quot;lianwoAuthentication&quot;,<br>	&quot;uid&quot;: 22,<br>	&quot;type&quot;: 1,			//1.个人认证,2.商家认证<br>	&quot;time&quot;: 1496974515,<br>	&quot;data_list&quot;:[<br>		{<br>			&quot;title&quot;:&quot;财源优惠&quot;,<br>			&quot;content&quot;:&quot;财源币￥5元&quot;,<br>		}<br>		{<br>			&quot;title&quot;:&quot;支付方式&quot;,<br>			&quot;content&quot;:&quot;微信支付&quot;,<br>		}<br>		{<br>			&quot;title&quot;:&quot;收款人&quot;,<br>			&quot;content&quot;:&quot;广东联通官网旗舰店&quot;,<br>		}<br>		{<br>			&quot;title&quot;:&quot;商品说明&quot;,<br>			&quot;content&quot;:&quot;50元可用&quot;,<br>		}<br>		{<br>			&quot;title&quot;:&quot;商品详情&quot;,<br>			&quot;content&quot;:&quot;13066315631&lt;广东联通官方旗舰店&gt;话费&quot;<br>		}<br>	]<br>}</pre>
+          <a name="cybinset"></a>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">财源设置</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=doCybUseInfo</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="507">
+            <tr>
+              <td width="80" valign="top"><br />
+                参数名称 </td>
+              <td width="336" valign="top"><p>参数说明</p></td>
+              <td width="250" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>address</p></td>
+              <td width="336" valign="top">商家营业位置</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>is_display_wifi</p></td>
+              <td width="336" valign="top">是否公开WiFi 1-是 0-否</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>phone</p></td>
+              <td width="336" valign="top">商家联系电话</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>explain</p></td>
+              <td width="336" valign="top">备注说明</td>
+              <td width="250" valign="top">否</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>about</p></td>
+              <td width="336" valign="top">关于我们</td>
+              <td width="250" valign="top">否</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>attach_id</p></td>
+              <td width="336" valign="top">商家上传照片id 传数组</td>
+              <td width="250" valign="top">否</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>address_img</p></td>
+              <td width="336" valign="top">位置截圖</td>
+              <td width="250" valign="top">否</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>wifi_name</p></td>
+              <td width="336" valign="top">WiFi账号</td>
+              <td width="250" valign="top">否</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>wifi_paw</p></td>
+              <td width="336" valign="top">WiFi密码</td>
+              <td width="250" valign="top">否</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>operation_time</p></td>
+              <td width="336" valign="top">运营时间传(9:00-18:00)</td>
+              <td width="250" valign="top">是</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>latitude</p></td>
+              <td width="336" valign="top">纬度</td>
+              <td width="250" valign="top">否</td>
+            </tr>
+            <tr>
+              <td width="80" valign="top"><p>longitude</p></td>
+              <td width="336" valign="top">经度</td>
+              <td width="250" valign="top">否</td>
+            </tr>
+
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">财源设置信息</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=cybUseInfo</p></td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>feedback_info</p></td>
+              <td width="496" valign="top">反馈内容</td>
+            </tr>
+
+          </table>
+          <pre>{<br>    "status":1,<br>    "message":"操作成功",<br>    "data":<span data-type="object">{<br>        "uid":55,<br>        "address":"广州市天河区",<br>        "phone":"020-8888888",<br>        "explain":"",<br>        "is_display_wifi":0,<br>        "operation_time":"12:00-24:00",<br>        "wifi_name":"天猫",<br>        "wifi_paw":"88888888",<br>        "about":"",<br>        "latitude":"0.0000000000",<br>        "longitude":"0.0000000000",<br>        "photo":<span data-type="array" data-size="8">[<br>            <span data-type="object">{<br>                "img":"<a href="http://112.74.46.91/data/upload/2017/0710/11/5962f8e5416b598d25e3.png" target="_blank">http://112.74.46.91/data/upload/2017/0710/11/5962f8e5416b598d25e3.png</a>",<br>                "attach_middle":"<a href="http://112.74.46.91/data/upload/2017/0710/11/5962f8e5416b598d25e3.png" target="_blank">http://112.74.46.91/data/upload/2017/0710/11/5962f8e5416b598d25e3.png</a>",<br>                "attach_small":"<a href="http://112.74.46.91/data/upload/2017/0710/11/5962f8e5416b598d25e3_220_auto.png" target="_blank">http://112.74.46.91/data/upload/2017/0710/11/5962f8e5416b598d25e3_220_auto.png</a>",<br>                "attach_id":"720"<br>            }</span>,<br>            <span data-type="object">{<br>                "img":"<a href="http://112.74.46.91/data/upload/2017/0710/11/5962f8f1947978e470c6.png" target="_blank">http://112.74.46.91/data/upload/2017/0710/11/5962f8f1947978e470c6.png</a>",<br>                "attach_middle":"<a href="http://112.74.46.91/data/upload/2017/0710/11/5962f8f1947978e470c6.png" target="_blank">http://112.74.46.91/data/upload/2017/0710/11/5962f8f1947978e470c6.png</a>",<br>                "attach_small":"<a href="http://112.74.46.91/data/upload/2017/0710/11/5962f8f1947978e470c6_220_auto.png" target="_blank">http://112.74.46.91/data/upload/2017/0710/11/5962f8f1947978e470c6_220_auto.png</a>",<br>                "attach_id":"721"<br>            }</span>,
+                  ]</span>,<br>        "feedback_info":<span data-type="object">{<br>            "totalPages":0,<br>            "totalRows":0,<br>            "nowPage":1<br>        }</span><br>    }</span><br>}</pre>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">财源设置-商家介绍图片上传</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=cybUseInfoUploadImg</p></td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>attach_id</p></td>
+              <td width="496" valign="top">圖片id</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">删除图片</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Bonus&amp;act=delAttach</p></td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+          
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>attach_id</p></td>
+              <td width="496" valign="top">图片id</td>
+            </tr>
+          </table> 
+          <p>&nbsp;</p>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+          
+            <tr>
+              <td width="147" valign="top"><br />
+                参数名称 </td>
+              <td width="496" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>status</p></td>
+              <td width="496" valign="top">状态</td>
+            </tr>
+            <tr>
+              <td width="147" valign="top"><p>message</p></td>
+              <td width="496" valign="top">消息</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p><a name="added"></a>
+          </p>
+          <h2 class="sub-header">接口新增内容</h2>
+          <h2 class="sub-header">个人信息显示</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=User&amp;act=show</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="82" valign="top"><br />
+                参数名称 </td>
+              <td width="555" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr>
+              
+            </tr>
+          </table>
+          <p>返回新加了 phone,email,des(描述)</p>
+          <p>&nbsp;</p>
+          <h2 class="sub-header">分享资讯内容</h2>
+          <table border="1" cellspacing="0" cellpadding="0" width="643" class="">
+            <tr>
+              <td width="147" valign="top"><p></p></td>
+              <td width="496" valign="top"><p>mod=Information&amp;act=share</p></td>
+            </tr>
+          </table>
+          <p>传递参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="466">
+            <tr>
+              <td width="105" valign="top"><br />
+                参数名称 </td>
+              <td width="222" valign="top"><p>参数说明</p></td>
+              <td width="131" valign="top"><p>是否必填</p></td>
+            </tr>
+            <tr>
+              <td width="105">
+                id</td>
+              <td width="222"><p>资讯ID</p></td>
+              <td width="131" ><p>是</p></td>
+            </tr>
+          </table>
+          <p>返回参数</p>
+          <table border="1" cellspacing="0" cellpadding="0" width="643">
+            <tr>
+              <td width="82" valign="top"><br />
+                参数名称 </td>
+              <td width="555" valign="top"><p>参数说明</p></td>
+            </tr>
+            <tr><p>返回新加了 phone,email,des(描述)</p></tr>
+          </table>
+          
+          <p>&nbsp;</p>
+        </div>
+      </div>
+  </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="dist/jquery.min.js"></script>
+    <script src="dist/bootstrap.min.js"></script>
+    <script src="dist/docs.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="dist/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

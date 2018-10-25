@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>链 我</title>
+<link type="text/css" rel="stylesheet" href="css/jq_m.css"/>
+<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script>
+
+$(window).load(function(){	
+	//首页红包
+	$(".all").show()
+
+	//首页焦点图
+	timer = setInterval(roll,3000)
+	function roll(){
+		var num = $(".btn li").index($(".on"))
+		var leftA = -1080*(num+1);
+		if(num == 2){		  
+		  $(".bigpic").animate({"left":0},500)
+		  $(".btn li").eq(0).addClass("on").siblings().removeClass("on");
+		}else{
+		  $(".bigpic").animate({"left": leftA},500)	
+		  $(".btn li").eq(num+1).addClass("on").siblings().removeClass("on") 
+		  }
+		}		
+		
+		$(".focus").mouseover(function(){
+			clearInterval(timer)
+			$(".leftBtn,.rightBtn").show()
+			})
+		$(".focus").mouseout(function(){
+			timer = setInterval(roll,3000)
+			$(".leftBtn,.rightBtn").hide()
+			})
+	  $(".btn li").hover(function(){
+		  $(this).addClass("on").siblings().removeClass("on");
+		  var i=$(this).index();
+		  var leftB=-1080*i;
+		  $(".bigpic").stop().animate({"left":leftB},500) 
+	   })	
+	  
+
+	$(".dhk").hide()
+	$(".top_right").click(function(){
+		$(".dhk").fadeIn(200)
+	})
+	$(".dhk_close").click(function(){
+		$(".dhk").fadeOut(200)
+	})
+	$(".leftmenu").click(function(){
+		$(".dhk").fadeIn(200)
+	})
+	
+	
+	$(".top_r").click(function(){
+		$(".dhk").fadeIn(200)
+	})
+	$(".dhk_close").click(function(){
+		$(".dhk").fadeOut(200)
+	})
+
+})
+</script>
+<style>
+body,dl,dt,dd,ul,li,p{margin:0;padding:0;list-style:none;}	
+body{font-family: "Microsoft YaHei";font-size: 44px;}
+.all{display: none;}
+.dhk{width:720px;height:560px;margin: auto;left:0;right:0;top:0px;bottom:0;position:fixed;z-index: 60;display: none;}
+.dhk_01,.dhk_close{ position: absolute;}
+.dhk_close{top:40px;right:40px;}
+
+.focus{ width:100%; height:450px; position:relative; margin:0 auto; overflow:hidden;margin-top: 120px;}
+.bigpic{ width:5760px; height:300px; position:absolute;}
+.bigpic li{ float:left;}
+.btn{ position:absolute; bottom:0; width:1080px;bottom:30px;left:425px;}
+.btn li{width:30px; float:left; height:30px;  cursor:default;border-radius: 30px;margin-right:15px;} 
+.btn .on{}
+.leftBtn,.rightBtn{ width:50px; height:100px; position:absolute; right:0; top:100px; background:rgba(0,0,0,0.2); display:none; text-align:center; line-height:100px; color:#CDCDCD; cursor:default; font-size:18px;}
+.leftBtn{ right:750px;}
+.top{height:120px;width:100%;background: #e3c59a;position:fixed;top:0;z-index: 101;}
+.top_l,.top_c,.top_r{position: absolute;top:28px;}
+.top_l{left:40px;}
+.top_c{margin: auto;left:0;right:0;border: rgba(231,190,138)}
+.top_r{right:40px;}
+	
+</style>
+</head>
+<body>
+<div class="all">
+	<div class="menu">
+		<a href="#link1">产品介绍</a>
+		<a href="#link2">APP下载</a>
+		<a href="#link3">开放平台</a>
+		<a href="#link4">财源币</a>
+	</div>
+
+	<style>
+		.menu{position: fixed;top:120px;background: #fff;width:100%;z-index: 100;}
+		.menu a{display: block;border-bottom: 2px solid #d9d9d9;text-decoration: none;color: #353535;text-align: center;padding: 40px;}
+	</style>
+	<div class="dhk">
+		<img src="images/dhk.png" class="dhk_01">
+		<img src="images/close_dhk.png" class="dhk_close">
+	</div>
+	<div class="top">
+		<img src="images/01.png" class="top_l">
+		<img src="images/02.png" class="top_c">
+		<img src="images/03.png" class="top_r">
+	</div>
+	<script>
+	  $(".menu").hide(); 	
+	$(".menu a").click(function(){
+		$(".menu").hide()
+	})
+	$(".top_l").click(function(){
+		if($(".menu").is(":hidden")){
+       $(".menu").show(); 
+		}else{
+			  $(".menu").hide();    
+		}
+	})
+	$(document).click(function(){
+    	$(".menu").hide()
+	});
+	$(".top_l").click(function(event){
+    event.stopPropagation();
+	});
+
+	</script>
+	<div class="focus">
+		<ul class="bigpic">
+			<li><a href="#"><img src="images/01.jpg"></a></li>
+			<li><a href="#"><img src="images/02.jpg"></a></li>
+			<li><a href="#"><img src="images/03.jpg"></a></li>
+		</ul>
+		<ul class="btn">
+			<li class="on"></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div class="a1" id="link1">
+		<dl class="title t1">
+			<dt>共享生活财源社交</dt>
+			<dd></dd>
+		</dl>
+		<div class="ct ct_01">welink（链我）是一款全球生活财源社交移动应用。welink在美国加利福尼亚州洛杉矶创建， 以一种快速、美妙的方式链接各国吃、喝、玩、乐的福利（红包）， 即可有趣的分享图片和视频，还可以即刻与朋友语音聊天并接收亲友和同事的信息、图片、音频文件和视频信息。</div>
+		<div class="four">
+			<dl>
+				<dt><img src="images/04.png"></dt>
+				<dd>财源共享生态平台</dd>
+				<dd>时间就是金钱!<br>每天红包精彩不停</dd>
+			</dl>
+			<dl>
+				<dt><img src="images/05.png"></dt>
+				<dd>财源共享生态平台</dd>
+				<dd>即时聊天!畅通无阻!<br>语音聊天,发图片/搞笑GIF</dd>
+			</dl>
+			<dl>
+				<dt><img src="images/06.png"></dt>
+				<dd>分享我的精彩世界</dd>
+				<dd>快速分享新鲜事<br>拍相片/发相片/图文分享好友</dd>
+			</dl>
+			<dl>
+				<dt><img src="images/07.png"></dt>
+				<dd>财源共享生态平台</dd>
+				<dd>时间就是金钱!<br>每天红包精彩不停</dd>
+			</dl>
+		</div>
+	</div>
+	<style>		
+		.a1{position: relative;height: 2060px;}
+		.title{position: absolute;width:100%;top:250px;opacity: 0;}
+		.title dt{font-size: 60px; color: #232323;text-align: center;}
+		.title dd{width:140px;height: 2px;background: #e3c59a;margin: auto;margin-top:40px;}
+		.ct{width:840px;color: #444; font-size: 44px;left:70px;line-height: 70px;position: absolute;top:450px;opacity: 0;}
+		.four{font-size: 44px;position: absolute;top:1050px;left: 70px;opacity: 0;}
+		.four dl{float: left;width:420px;text-align: center;margin-bottom: 100px;}
+	</style>
+	<script>
+	$(".t1").animate({"top":"150px","opacity":"1"},800)
+	$(".ct_01").delay(200).animate({"top":"350px","opacity":"1"},800)
+	$(window).scroll(function(){
+		var i=$(document).scrollTop() 
+		if(i>50){
+			$(".four").animate({"top":"950px","opacity":"1"},800)
+
+		}
+	})
+	</script>	
+	<div class="a2" id="link2">
+		<dl class="title t2">
+			<dt>APP下载</dt>
+			<dd></dd>
+		</dl>
+		<div class="ct ct_02">链我APP下载、无需等待、秒连接！全面兼容，android/iphone下载零风险 无病毒 安全可靠 放心下载！</div>
+		<div class="two">
+			<dl>
+				<dt><img src="images/08.png"></dt>
+				<dd>IPhone版下载</dd>
+				<dd>切换ID安装即可快速使用</dd>
+			</dl>
+			<dl>
+				<dt><img src="images/09.png"></dt>
+				<dd>Android版下载</dd>
+				<dd>一键下载即可安装使用</dd>
+			</dl>
+		</div>
+	</div>
+	<style>
+		.a2{height: 1400px;position: relative;width:100%;background: #f7f7f7;}
+		.two{top:800px;position: absolute; font-size: 40px;text-align: center;left:70px;opacity: 0;}
+		.two dl{float: left;margin-right:75px;}
+		.two dl dd:nth-child(2),.four dl dd:nth-child(2){font-size: 44px;margin-top:60px;}
+		.two dl dd:nth-child(3),.four dl dd:nth-child(3){font-size: 36px;margin-top:30px;color: #888;line-height:50px;}	
+	</style>	
+	<script>
+	$(window).scroll(function(){
+		var i=$(document).scrollTop() 
+		if(i>1530){
+				$(".t2").animate({"top":"150px","opacity":"1"},800)
+				$(".ct_02").delay(400).animate({"top":"350px","opacity":"1"},800)
+				$(".two").delay(800).animate({"top":"700px","opacity":"1"},800)
+		}
+	})
+	</script>	
+	<div class="a3" id="link3">
+		<dl class="title t3">
+			<dt>第三方平台开发接入</dt>
+			<dd></dd>
+		</dl>
+		<div class="ct ct_03">共享链我、流量百倍。我们用心、为您省心。轻松推广，只需一步，免费获取流量，就是这么简单！</div>
+		<dl class="ct ct2 ct_03_01">
+			<dt>链我做了什么?</dt>
+			<dd>最专业的提高企业、商家、个人的人气平台 为了满足各类线上以及商铺卖家需要的流量需要，集合线上、线下卖家，专业研发卖家必备流量平台、买家必备的财源平台，将客户与朋友链接成为自己的真实流量，让客户与朋友随时随地了解你的生活。</dd>
+			<dd class="ct_03_02"><img src="images/10.jpg"></dd>
+		</dl>
+	</div>
+	<style>
+		.a3{height: 2300px;position: relative;width:100%;}
+		.ct2{top:520px;}
+			.ct_03_01{opacity: 0;}
+		.ct2 dt{height: 130px;font-size: 50px;position: absolute;top:220px;}
+		.ct2 dd:nth-child(2){top: 350px;position:absolute;}
+		.ct2 dd:nth-child(3){position:absolute;top:980px;opacity: 0;}
+		</style>
+	<script>
+	$(window).scroll(function(){
+		var i=$(document).scrollTop() 
+		if(i>2530){
+				$(".t3").animate({"top":"150px","opacity":"1"},800)
+				$(".ct_03").delay(400).animate({"top":"350px","opacity":"1"},800)
+				$(".ct_03_01").delay(800).animate({"top":"420px","opacity":"1"},800)
+		}
+		if(i>3700){
+				$(".ct_03_02").animate({"top":"880px","opacity":"1"},800)
+		}
+	})
+	</script>	
+	<div class="a4" id="link4">
+		<dl class="title t4">
+			<dt>财源币介绍及使用</dt>
+			<dd></dd>
+		</dl>
+		<ul class="ul1">
+			<li>什么是财源红包</li>
+			<li>个人用户和商户均可以通过使用链我app内置的零用钱、财源币或者微信支付、支付宝等多种渠道向别人派送财源红包。 财源红包有一定的时间限制，比如说接收财源红包的用户在一段时间内如果没有使用里面的财源币，则财源红包失效，财源币原路返回派发财源红包用户的零用钱账户。</li>
+		</ul>
+		<ul class="ul2">
+			<li>什么是财源币</li>
+			<li>财源币是链我app专有的一种网络虚拟货币，在各国的价值等同于各国当地货币的价值，也就是在美国，消费1元财源币等于消费1美元，而在中国，则消费1元财源币等于消费1元人民币。 财源币只在链我平台上使用，可以进行消费，但不能提现。 用户或商家、企业购买财源币后均不退还或提现。</li>
+		</ul>
+		<ul class="ul3">
+			<li>为什么购买财源币</li>
+			<li>用户或商家、企业购买财源币发送红包是一种链我app独有的推广方式，也是一种引流消费的新模式。链我将社交和红包结合，打通了社交和财源的通道，让红包的派送和使用成为人们生活的日常，让商家、个人获得现象级的收益。</li>
+		</ul>
+	</div>
+	<style>
+		.a4{height: 2900px;position: relative;width:100%;background:#f7f7f7}
+		.a4 ul{width:760px;padding: 40px;border:2px solid #00994b;position: absolute;left:70px;padding-top:60px;opacity: 0;}
+		.a4 ul li:nth-child(1){text-align: center;height: 100px;font-size: 46px;}
+		.a4 ul li:nth-child(2){line-height: 80px;color: #424242;}
+		.ul1{top:450px;}
+		.ul2{top:1340px;}
+		.ul3{top:2240px;}
+	</style>
+	<script>
+	$(window).scroll(function(){
+		var i=$(document).scrollTop() 
+		if(i>5000){
+				$(".t4").animate({"top":"150px","opacity":"1"},800)
+				$(".ul1").delay(400).animate({"top":"350px","opacity":"1"},800)
+		}
+		if(i>6000){
+				$(".ul2").animate({"top":"1240px","opacity":"1"},800)
+		}
+		if(i>7000){
+				$(".ul3").animate({"top":"2140px","opacity":"1"},800)
+		}
+	})
+	</script>
+	<div class="footer">© 2017 USA：GRADECHAT INC 中国：链沃中国<br>邮箱：612342839@qq.com</div>	  
+	<style>
+		.footer{font-size: 36px;text-align: center;padding:80px 0;line-height: 60px;}
+	</style>
+		<script>
+	$(window).scroll(function(){
+		if(i>7000){
+				$(".footer").animate({"top":"2140px","opacity":"1"},800)
+		}
+	})  
+	</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<include file="__THEME__/public_header" />
+<div class="contentbox">
+    <div id="jf-top">
+        <div class="app-title clearfix">
+            <div class="app-tab-menu clearfix">
+                <ul>
+                    <li>
+                        <a href="{:U('Gift/Index/index')}">积分商城</a>
+                    </li>
+                    <li>
+                        <a class="current" href="{:U('Gift/Index/my')}">我的礼物</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="leftbox" id="gift-box">
+        <h2 class="height70">我的礼物</h2>
+        <ul class="gift-nav">
+            <li>
+                <a href="{:U('Gift/Index/my')}" <?php if (!$type) { ?>style="color:#0096e6;"<?php } ?>>我收到的礼物</a>
+            </li>
+            <li>
+                <a href="{:U('Gift/Index/my', array('type' => 1))}" <?php if ($type) { ?>style="color:#0096e6;"<?php } ?>>我送出的礼物</a>
+            </li>
+        </ul>
+        <?php if (count($gifts['data'])) { ?>
+        <?php foreach($gifts['data'] as $gift) { ?>
+        <div class="list01">
+            <a id="gift-show" href="{:U('Gift/Index/read', array('id' => $gift['id']))}" data-gift="{$gift['name']}" data-time="{$gift['date']}" data-image="{:getImageUrlByAttachId($gift['image'], 123, 123)}" data-tousername="{$gift['inUserName']}" data-outusername="{$gift['outUserName']}" data-say="{:htmlspecialchars($gift['say'], ENT_QUOTES)}" data-cate="{$gift['cate']}" data-id="{$gift['logId']}" data-num="{$gift['num']}">
+                <div class="img">
+                    <img class="imgdispaly" src="{:getImageUrlByAttachId($gift['image'], 123, 123)}">
+                </div>
+                <h4>{$gift['name']}</h4>
+            </a>
+            <span><?php if($type) { ?>送给<a href="{:U('public/Profile/index', array('uid' => $gift['inUid']))}">{:getUserName($gift['inUid'])}</a><?php } else { ?>赠送人<a href="{:U('public/Profile/index', array('uid' => $gift['outUid']))}">{:getUserName($gift['outUid'])}</a><?php } ?>，数量{$gift['num']}份</span>
+        </div>
+        <?php } ?>
+        <?php if($gifts['html']) { ?>
+        <span class="pagebox">
+            <?php echo $gifts['html']; ?>
+        </span>
+        <?php } ?>
+        <?php } else { ?>
+        <h1>暂时没有礼物</h1>
+        <?php } ?>
+    </div>
+    <!-- 右侧 -->
+    <div id="col3" class="st-index-right">
+        <!-- 用户信息 -->
+        <include file="common_user" />
+        <!-- 排行榜 -->
+        <include file="common_tops" />
+    </div>
+</div>
+<!-- 提示框 -->
+<div class="gift-tips">
+    <div class="tips-header"><h2></h2><span>x</span></div>
+    <div class="tips-con cc"></div>
+    <?php if (!$type) { ?>
+    <div class="tips-body cc" id="J-gift-transfer" style="display:none;">
+        <ul>
+            <li class="cc">{:W('SearchUser', array('name' => 'uid','follow'=>0,'max'=>1, 'defaultValue' => '选择用户'))}</li>
+            <li class="cc">
+                <input type="text" class="s-txt" name="say" placeholder="祝福语" id="J-getInput-say">
+            </li>
+            <li class="cc">
+                <div class="s-txt">
+                    <span style="
+                        height: 38px;
+                        line-height: 38px;
+                        width: 60px;
+                        display: inline-block;
+                        float: left;
+                        padding-right: 0;
+                    ">数量：</span>
+                  
+                    <input 
+                        type="number" 
+                        style="
+                            height: 30px;
+                            line-height: 30px;
+                            width: 80px;
+                            border: 0 none;
+                            text-align: center;
+                        " 
+                        value="1" 
+                        step="1" 
+                        min="1" 
+                        max="2" 
+                        id="gift-num">
+                  
+                    <i style="
+                        color: #C3C3C3;
+                    ">|</i>
+
+                    <span style="
+                        width: 125px;
+                        display: inline-block;
+                        height: 38px;
+                        line-height: 38px;
+                        text-align: center;
+                    " id="gift-num2"></span>
+                </div>
+            </li>
+            <li class="cc" id="gift-box">
+                <input type="hidden" name="type" id="gift-type" value="2">
+                <label id="gift-type-select" data-type="1"><i></i>匿名赠送</label>
+                <label id="gift-type-select" data-type="2"><i class="cur"></i>公开赠送</label>
+                <label id="gift-type-select" data-type="3"><i></i>私下赠送</label>
+            </li>
+        </ul>
+    </div>
+    <?php } ?>
+    <div class="tips-footer"></div>
+</div>
+<script type="text/javascript">
+$(function() {
+    /* # 提示框封装 */
+    var tips = {
+        confirm: function(title, content, buttomText, callFunc, width) {
+            if (!title || !content) {
+                tips.show('提示', '提示框参数出错', false);
+                return false;
+            };
+
+            if (width) {
+                $('.gift-tips').css({
+                    'width': width + 'px',
+                    'margin-left': -width / 2 + 'px'
+                });
+            };
+
+            buttonHtml = $('<a class="tips-button" href="#">' + buttomText + '</a>');
+            $('.gift-tips').find('.tips-footer').html(buttonHtml).show();
+
+            $('.gift-tips').find('.tips-header').find('h2').text(title);
+            $('.gift-tips').find('.tips-con').html(content).show();
+            $('.gift-tips').show();
+
+            /* # 添加关闭事件 */
+            $('.gift-tips').find('.tips-header').find('span').on('click', function(event) {
+                event.preventDefault();
+                tips.cloes();
+            });
+
+            /* # 计算悬浮的高度 */
+            var iw = $('.gift-tips').height() / 2;
+            $('.gift-tips').css('margin-top', '-' + iw + 'px');
+
+            /* # 绑定触发的事件 */
+            buttonHtml.on('click', function(event) {
+                event.preventDefault();
+                tips.cloes();
+                typeof callFunc === 'function' && callFunc($('.gift-tips').find('.tips-con'));
+            });
+        },
+        show: function(title, content, button, width) {
+            if (!title || !content) {
+                tips.show('提示', '提示框参数出错', false);
+                return false;
+            };
+
+            if (width) {
+                $('.gift-tips').css({
+                    'width': width + 'px',
+                    'margin-left': -width / 2 + 'px'
+                });
+            };
+
+            $('.gift-tips').find('.tips-header').find('h2').text(title);
+            $('.gift-tips').find('.tips-con').html(content).show();
+            $('.gift-tips').show();
+
+            buttonHtml = '\
+                <a class="tips-button" href="{:U('public/Task/index')}">做任务</a>\
+                <a class="tips-button" href="#">充值</a>';
+
+            button && $('.gift-tips').find('.tips-footer').html(buttonHtml).show();
+
+            /* # 添加关闭事件 */
+            $('.gift-tips').find('.tips-header').find('span').on('click', function(event) {
+                event.preventDefault();
+                tips.cloes();
+            });
+
+            /* # 计算悬浮的高度 */
+            var iw = $('.gift-tips').height() / 2;
+            $('.gift-tips').css('margin-top', '-' + iw + 'px');
+        },
+        cloes: function() {
+            $('.gift-tips').hide().attr('style', '').find('.tips-footer').hide();
+            $('.gift-tips').find('.tips-body').hide();
+        }
+    };
+
+    var template = '<div><img src="(image)" alt="(gift)"><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(gift)送给<strong>(toUserName)</strong>，(say)</p><span>来自：<strong>(outUserName)</strong></span><br><span>(time)</span></div>';
+
+    $('#gift-box').on('click', '#gift-show', function(event) {
+        event.preventDefault();
+        var $this = $(this);
+        var _temp = template.replace(/\(gift\)/g       , $this.data('gift'))
+                            .replace(/\(toUserName\)/g , $this.data('tousername'))
+                            .replace(/\(outUserName\)/g, $this.data('outusername'))
+                            .replace(/\(time\)/g       , $this.data('time'))
+                            .replace(/\(say\)/g        , $this.data('say'))
+                            .replace(/\(image\)/g      , $this.data('image'));
+        <?php if ($type) { ?>
+        tips.show('礼物卡', _temp, false, 500);
+        <?php } else { ?>
+        if ($this.data('cate') == '1') {
+            var transfer = $('#J-gift-transfer');
+            tips.confirm('礼物卡', _temp, '转赠', function() {
+                transfer.show();
+
+                /* # type选择 */
+                var typeInput = transfer.find('#gift-type');
+                var typeBox   = transfer.find('#gift-box');
+                typeBox.on('click', '#gift-type-select', function (event) {
+                    event.preventDefault();
+                    var $this2 = $(this);
+                    typeBox.find('#gift-type-select>i').removeClass('cur');
+                    $this2.find('i').addClass('cur');
+                    typeInput.val($this2.data('type'));
+                });
+
+                /* # 设置数量 */
+                transfer.find('#gift-num2').text($this.data('num'));
+                transfer.find('#gift-num').attr('max', $this.data('num'));
+
+                tips.confirm('转赠礼物', '转赠礼物', '转赠', function() {
+                    var url  = '{:U('Gift/index/transfer')}';
+                    var args = {
+                        'id': $this.data('id'),
+                        'uid': transfer.find('#search_uids').val(),
+                        'say': transfer.find('#J-getInput-say').val(),
+                        'num': transfer.find('#gift-num').val(),
+                        'type': typeInput.val()
+                    };
+                    $.post(url, args, function(data) {
+                        if (data.status == 1) {
+                            ui.success(data.content);
+                            setTimeout(function () {
+                                window.location.href = '{:U('Gift/Index/my', array('type' => 1))}';
+                            }, 2500);
+                            return true;
+                        } else if (data.button) {
+                            tips.show(data.title, data.content, data.button);
+                            return true;
+                        };
+                        ui.error(data.content);
+                    }, 'json');
+                });
+                $('.gift-tips').find('.tips-con').hide();
+            }, 500);
+            $('.gift-tips').find('.tips-con').find('div').css('padding-bottom', 0);
+        } else {
+            tips.show('礼物卡', _temp, false, 500);
+        };
+        <?php } ?>
+    });
+});
+</script>
+<include file="__THEME__/public_footer" />

@@ -1,0 +1,111 @@
+<include file="__THEME__/admin_header" />
+<div class="so_main">
+    <php>if(!empty($pageTab)):</php>
+    <div class="tit_tab">
+        <ul>
+        <php> !$_REQUEST['tabHash'] && $_REQUEST['tabHash'] =  $pageTab[0]['tabHash'];</php>
+        <volist name='pageTab' id='t'>
+            <li><a href="{$t.url}&tabHash={$t.tabHash}" <php> if($t['tabHash'] == $_REQUEST['tabHash']){ echo 'class="on"';}</php>>{$t.title}</a></li>
+        </volist>
+        </ul>
+    </div>
+    <php>endif;</php>
+    
+  <php>if(!empty($pageButton) || !empty($listData['html'])):</php>
+   <!-- START TOOLBAR -->
+  <div class="Toolbar_inbox">
+    <div class="page right">
+   
+    </div>  
+    <volist name='pageButton' id='b'>
+      <?php
+        $dataArgs = '';
+        if (is_array($b['data'])) {
+          foreach ($b['data'] as $dk => $dv) {
+            $dataArgs .= 'data-' . $dk . '="' . $dv . '"';
+          }
+        }
+      ?>
+      <a onclick="{$b.onclick}" class="btn_a {$b.class}" id="{$b.id}" {$dataArgs}><span>{$b.title}</span></a>
+      <?php unset($dataArgs); ?>
+    </volist>
+  </div>
+  <!-- END TOOLBAR -->
+  <php>endif;</php>
+  
+<div class="form2">
+<form method="post" action="{:U('zhibo/Admin/doConfig')}">
+  	<input type="hidden" name='systemdata_list' value="{$systemdata_list}"  class="s-txt"/>
+  	<input type="hidden" name='systemdata_key' value="{$systemdata_key}"  class="s-txt"/>  
+  	<input type="hidden" name='pageTitle' value="{$pageTitle}" class="s-txt" />
+<dl class="lineD">
+	<dt>主播收益比例设置：</dt>
+	<dd>平&nbsp;台:&nbsp;&nbsp;<input type="text" class="s-txt" style="width:60px;" name="income_system" value="{$setting['income_system']}">%</dd
+>
+<dd>主&nbsp;播:&nbsp;&nbsp;<input type="text" class="s-txt" style="width:60px;" name="income_anchor" value="{$setting['income_anchor']}">%</dd
+>
+</dl>
+
+<dl class="lineD">
+	<dt>申请主播级别设置：</dt>
+	<dd>			<select name="anchor_level">
+                        <option value="0" selected>请选择</option>
+                        <volist id="vo" name="anchor_level_list">
+                             <option value="{$vo.user_group_id}" <eq name="vo.user_group_id" value="$setting['anchor_level']">selected</eq>>{$vo.user_group_name}</option>
+                        </volist>
+                    </select>
+ </dd>
+</dl>
+<dl class="lineD">
+	<dt>每日提现设置 ：</dt>
+	<dd><input type="text" class="s-txt" style="width:60px;" name="withdraw_cash" value="{$setting['withdraw_cash']}"> US</dd>
+</dl>
+<dl class="lineD">
+	<dt>主播管理员 ：</dt>
+	<dd><input type="text" class="s-txt" style="width:60px;" name="anchor_admin" value="{$setting['anchor_admin']}"> 个</dd>
+</dl>
+
+    <dl class="lineD">
+      <dt>直播门票：</dt>
+      <dd>
+      <select name="ticket">
+   <volist id="vo" name="ticket_status">
+         <option value="{$vo.value}" <eq name="vo.value" value="$setting['ticket']">selected</eq>>{$vo.key}</option>
+   </volist>
+       </select>
+
+			<p></p>
+      </dd>
+    </dl>
+<dl class="lineD">
+	<dt>直播门票金额：</dt>
+	<dd><input type="text" class="s-txt" style="width:60px;" name="ticket_money" value="{$setting['ticket_money']}">元</dd
+>
+
+</dl>
+<dl class="lineD">
+	<dt>直播启动时间：</dt>
+	<dd><input type="text" class="s-txt" style="width:60px;" name="system_starup_time" value="{$setting['system_starup_time']}">秒</dd
+>
+
+</dl>
+<dl class="lineD">
+	<dt>直播消息提醒：</dt>
+	<dd>每隔 <input type="text" class="s-txt" style="width:60px;" name="system_tips_time" value="{$setting['system_tips_time']}">分钟提示一次</dd
+>
+
+</dl>
+<dl class="lineD">
+	<dt>消息标题：</dt>
+	<dd><textarea cols="80" rows="10" id="" name="stytem_tips">{$setting['stytem_tips']}</textarea></dd>
+
+</dl>
+<div class="page_btm"><input type="hidden" name="editSubmit"
+	value="1"> <input type="submit" class="btn_b" value="确定" /></div>
+</form>
+</div>
+</div>
+<script>
+
+</script>
+<include file="_footer" />

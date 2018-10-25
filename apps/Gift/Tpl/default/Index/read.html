@@ -1,0 +1,42 @@
+<include file="__THEME__/public_header" />
+<div class="contentbox">
+    <div id="jf-top">
+        <div class="app-title clearfix">
+            <div class="app-tab-menu clearfix">
+                <ul>
+                    <li>
+                        <a href="{:U('Gift/Index/index')}">积分商城</a>
+                    </li>
+                    <li>
+                        <a class="current" href="{:U('Gift/Index/read', array('id' => $gift['id']))}">{$gift['name']}</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="leftbox">
+        <h2 class="height70">{$gift['name']}</h2>
+        <div class="jf-detailinfo">
+            <img class="jf-detailinfo-img" src="{:getImageUrlByAttachId($gift['image'], 300, 310)}" alt="{$gift['name']}">
+            <div class="jf-info">
+                <h2>{$gift['name']}</h2>
+                <div>所需积分：<span class="clored">{$gift['score']}</span>&nbsp;&nbsp;库存：{$gift['stock']}&nbsp;&nbsp;已有{$getCount}人兑换</div>
+                <p><span>简介：</span><br>{$gift['brief']}</p>
+                <div class="input">
+                    <a href="{:U('Gift/Index/buy', array('id' => $gift['id']))}">兑换</a>
+                </div>
+            </div>
+        </div>
+        <div class="jf-details">
+            <div class="title">详情</div>
+            <div>{$gift['info']}</div>
+        </div>
+    </div>
+    <!-- 右侧 -->
+    <div id="col3" class="st-index-right">
+        <!-- 排行榜 -->
+        <include file="common_tops" />
+    </div>
+</div>
+<include file="__THEME__/public_footer" />

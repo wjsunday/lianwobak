@@ -1,0 +1,26 @@
+<?php if ($giftTops && is_array($giftTops)) { ?>
+<div class="person-jfph">
+    <div class="title">兑换排行</div>
+    <div class="linst">
+        <?php $i = 1; ?>
+        <?php foreach ($giftTops as $topGift) { ?>
+        <dl>
+            <dt>
+                <a href="{:U('Gift/Index/read', array('id' => $topGift['id']))}">
+                    <img align="middle" src="{:getImageUrlByAttachId($topGift['image'], 123, 123)}" alt="{$topGift['name']}">
+                </a>
+            </dt>
+            <dd>
+                <a href="#">
+                    <i>{$i}</i>
+                    <span>{$topGift['name']}</span>
+                    <br>
+                    <p>{$topGift['score']}积分&nbsp; 库存{$topGift['stock']}份</p>
+                </a>
+            </dd>
+        </dl>
+        <?php $i += 1; ?>
+        <?php } ?>
+    </div>
+</div>
+<?php } ?>

@@ -1,0 +1,52 @@
+<a href="{:U('Bonusevent/Release/index')}" class="relesebox"><i id="release"></i><em id="relesasefont">发起活动</em></a>
+<!-- 日历 -->
+<div id="calendar-100000000" class="dp-popup dp-popup-inline">
+    <h2 id="J-date-title" data-time="{$time}" data-uri="{:U('Bonusevent/' . MODULE_NAME . '/ajaxGetMonthBonuseventDay', array('cid' => $cid, 'area' => $area, 'wd' => $wd))}"></h2>
+    <div class="dp-nav-prev">
+    	<a class="dp-nav-prev-month" id="J-date-prev" href="#" title="上一月" ></a>
+    </div>
+    <div class="dp-nav-next">
+    	<a class="dp-nav-next-month" id="J-date-next" href="#" title="下一月"></a>
+    </div>
+    <div class="dp-calendar">
+		<table cellspacing="0" cellpadding="0" class="jCalendar">
+			<thead>
+				<tr>
+				<th scope="col" abbr="日" title="日" class="weekend">日</th>
+				<th scope="col" abbr="一" title="一" class="weekday">一</th>
+				<th scope="col" abbr="二" title="二" class="weekday">二</th>
+				<th scope="col" abbr="三" title="三" class="weekday">三</th>
+				<th scope="col" abbr="四" title="四" class="weekday">四</th>
+				<th scope="col" abbr="五" title="五" class="weekday">五</th>
+				<th scope="col" abbr="六" title="六" class="weekend">六</th>
+			</tr>
+			</thead>
+			<tbody id="J-date-body" data-url="{:U('Bonusevent/Index/index', array('cid' => $cid, 'area' => $area, 'wd' => $wd, 'time' => '%s'))}"></tbody>
+		</table>
+    </div>
+</div>
+<!-- 感兴趣的人 -->
+<div class="interesting clearfix">{:W('RelatedUser', array('title' => '可能感兴趣的人', 'limit' => 5))}</div>
+<?php if (is_array($rightTopBonusevent) and $rightTopBonusevent) { ?>
+<!-- 推荐的活动 -->
+<div class="interesting">
+	<fieldset class="inter-line mb20">
+		<a class="right" id="J-Bonusevent-top" href="#" data-url="{:U('Bonusevent/' . MODULE_NAME . '/ajaxGetRightTopBonusevent')}" ><i class="ico-refresh"></i></a>
+		<legend class="inter-txt">推荐的活动</legend>
+	</fieldset>
+	<ul class="hd-rlist" id="J-Bonusevent-top-body">
+		<?php foreach ($rightTopBonusevent as $rightBonusevent) { ?>
+			<li>
+				<a href="{:U('Bonusevent/Info/index', array('id' => $rightBonusevent['eid']))}">
+					<?php $url = '__APP__/image/default/hdlist.jpg'; ?>
+					<?php if ($rightBonusevent['image']) {
+						$url = getImageUrlByAttachId($rightBonusevent['image'], 46, 65);
+					} ?>
+					<img src="{$url}" alt="{$rightBonusevent['name']}">
+					<span>{$rightBonusevent['name']}</span>
+				</a>
+			</li>
+		<?php } ?>
+	</ul>
+</div>
+<?php } ?>

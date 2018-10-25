@@ -1,0 +1,67 @@
+<include file="__THEME__/admin_header" />
+<div id="container" class="so_main">
+  <div class="page_tit">会员设12置</div>
+   <!-- START TAB框 -->
+  <!-- <php>if(!empty($pageTab)):</php>
+  <div class="tit_tab">
+    <ul>
+    <php> !$_REQUEST['tabHash'] && $_REQUEST['tabHash'] =  $pageTab[0]['tabHash'];</php>
+    <volist name='pageTab' id='t'>
+    <li><a href="{$t.url}&tabHash={$t.tabHash}" <php> if($t['tabHash'] == $_REQUEST['tabHash']){ echo 'class="on"';}</php>>{$t.title}</a></li>
+    </volist>
+    </ul>
+  </div>
+  <php>endif;</php> -->
+
+  
+  <!-- END TAB框 -->
+<div class="tit_tab">
+    <ul>
+    <volist name="list" id="v">
+    <li><a href="{$v.url}" <eq name="key" value="0">class="on"</eq>>{$v.vip}</a>
+    </li>
+    </volist>
+    </ul>
+</div>
+<div class="form2">
+  <form method="post" action="{:U('admin/Vip/set_price')}">
+    
+      <dl class="lineD">
+        <dt>Vip权限：</dt>
+          <dd>
+          <volist name="pri" id="vo">
+          <input type="radio" name="pri" <eq name="key" value="0">checked=""</eq> value="{$vo.user_group_id}" />{$vo.user_group_name}/{$vo.vip_price}
+          </volist>
+          </dd>
+      </dl>
+      
+      <dl class="lineD">
+        <dt>修改金额：</dt>
+        <dd>
+          <input style="width:30px;text-align: center;" name="num" type="text" value="" />
+        </dd>
+      </dl>
+      <div class="page_btm">
+          <input type="submit" class="btn_b" value="确定" />
+      </div>
+  </form>
+</div>
+
+</div>
+</div>
+<include file="__THEME__/admin_footer" />
+<script type="text/javascript">
+
+$(function(){
+
+    $("#search").click(function(){
+        if($("#block").css("display")=="none"){
+          $("#block").show();
+        }else{
+          $("#block").hide();
+        }
+    });
+
+});  
+
+</script>

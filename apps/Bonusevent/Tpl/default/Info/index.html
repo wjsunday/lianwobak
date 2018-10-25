@@ -1,0 +1,122 @@
+<?php use Apps\Bonusevent\Common; ?>
+<include file="__THEME__/public_header" />
+<include file="../common/nav" />
+<div class="hd-worap">
+	<!-- 左边内容区 -->
+	<div class="hd-leftbox">
+		<!-- 活动详情 -->
+		<div class="hd-detailinfo">
+			<a class="hd-detailinfo-img" href="">
+				<?php $url = '__APP__/image/default/hdd.jpg'; ?>
+				<?php if ($data['image']) {
+					$url = getImageUrlByAttachId($data['image'], 180, 255);
+				} ?>
+				<img src="{$url}" alt="{$data['name']}">
+			</a>
+			<div class="hd-info">
+				<h2>{$data['name']}</h2>
+				<?php if($data['uid'] == $mid) { ?>
+					<div class="hd-admin">
+						<h3 id="J-admin" style="cursor: pointer;" data-item="#J-admin-item" data-show="on">管理</h3>
+						<ul id="J-admin-item" style="display: none;">
+							<li><a href="{:U('Bonusevent/Manage/aduit', array('eid' => $data['eid']))}">报名审核</a></li>
+							<li><a href="{:U('Bonusevent/Release/edit', array('id' => $data['eid']))}">编辑活动</a></li>
+							<li><a href="{:U('Bonusevent/Manage/over', array('eid' => $data['eid']))}">提前结束</a></li>
+							<li><a href="{:U('Bonusevent/Manage/delEvent', array('eid' => $data['eid']))}">删除活动</a></li>
+						</ul>
+					</div>
+				<?php } ?>
+				<!-- 时间 -->
+				<div>时间：{:date('Y年m月d日 H:i', $data['stime'])}&nbsp;～&nbsp;{:date('Y年m月d日 H:i', $data['etime'])}
+					<?php if ($data['stime'] <= time() and $data['etime'] >= time()) { ?>
+						<span class="clo-c">&nbsp;正在进行中…</span>
+					<?php } ?>
+				</div>
+				<!-- 地点，地图 -->
+				<div>地点：({$data['area']}-{$data['city']}){$data['location']}
+					<a class="clo-l hd-mapbox" id="J-map" href="" data-address="{$data['area']}{$data['city']} {$data['location']}" data-name="{$site.site_name}">
+						<i class="hd-map"></i>
+					</a>
+				</div>
+				<!-- 费用 -->
+				<div>费用：{$data['price']}RMB
+					<i class="hd-jgtipbox" id="J-price-tips" data-item="#J-price-tips-box" data-empty="{$data['tips'] ? 0 : 1}">
+						<div class="hd-jgtip" id="J-price-tips-box">
+							<em></em><i></i>
+							<span>{$data['tips']}</span>
+						</div>
+					</i>
+				</div>
+				<!-- 分类 -->
+				<div>类型：{$data['cate']}</div>
+				<!-- 发起人 -->
+				<div>发起人：<a href="{$data['user']['space_url']}" target="_blank" uid="{$data['user']['uid']}" event-node="face_card" show="no">{$data['user']['uname']}</a></div>
+				<!-- 场所 -->
+				<div>场所：{$data['place']}</div>
+				<!-- 操作按钮 -->
+				<div class="input">
+					<?php 
+						$show = 'on';
+						if ($data['stime'] <= time() and $data['etime'] >= time()) {
+							$show = 'off';
+						}
+						if ($enrollment) {
+							$enrollment = 1;
+						} else {
+							$enrollment = 0;
+						}
+					?>
+					<?php if($ended) { ?>
+						<a class="event_ended">报名结束</a>
+					<?php } else { ?>
+						<a class="{:Common::hasEcho($enrollment, 'jian', 'jia')}" id="J-enrollment" href="" data-show="{$show}" data-status="{$enrollment}" data-enrollment="{:U('Bonusevent/Info/enrollment')}" data-unenrollment="{:U('Bonusevent/Info/unEnrollment')}" data-eid="{$data['eid']}"><i></i>{:Common::hasEcho($enrollment, '取消')}报名</a>
+					<?php } ?>
+					<nosession name="mid">
+						<a class="jia" href="javascript:ui.quicklogin();"><i></i>关注</a>
+					</nosession>
+					<session name="mid">
+						<a class="{:Common::hasEcho($star, 'jian', 'jia')}" id="J-star" href="" data-star="{:Common::hasEcho($star, '1', '0')}" data-eid="{$data['eid']}" data-star-url="{:U('Bonusevent/Manage/star')}" data-star-un="{:U('Bonusevent/Manage/unStar')}"><i></i>{:Common::hasEcho($star, '取消')}关注</a>
+					</session>
+					&nbsp;<?php if ($data['manNumber']) { ?>
+					剩余<span class="clo-c">{$data['remainder']}</span>个名额
+					<?php } else { ?>
+					不限制名额
+					<?php } ?>
+				</div>
+			</div>
+		</div>
+		<!-- content -->
+		<div class="hd-details fl">
+			<div class="title">
+				<span></span>详情
+			</div>
+			<div class="hd-detacont">{$data['content']}</div>
+			<?php if($eventUsers and is_array($eventUsers)) { ?>
+				<!-- 活动报名用户 -->
+				<div class="title">
+					<span></span>活动成员
+				</div>
+				<ul class="hd-facelist">
+					<?php foreach ($eventUsers as $eventUser) { ?>
+						<li>
+							<a href="{$eventUuser['space_url']}" target="_blank" title="{$eventUser['uname']}">
+								<img src="{$eventUser['avatar_middle']}" alt="{$eventUser['uname']}">
+								<span>{$eventUser['uname']}</span>
+							</a>
+						</li>
+					<?php } ?>
+				</ul>
+			<?php } ?>
+			<!-- 评论 -->
+			<div class="title">
+				<span></span>评论
+			</div>
+			{:W('Comment', array('tpl' => 'detail', 'row_id' => $data['eid'], 'order' => 'DESC', 'app_uid' => $data['uid'], 'cancomment' => 1, 'cancomment_old' => 0, 'showlist' => 1, 'canrepost' => 0, 'table' => 'bonusevent_list', 'app_name' => 'Event'))}
+		</div>
+	</div>
+	<!-- 右边 -->
+	<div class="rightbox">
+		<include file="../common/right" />
+	</div>
+</div>
+<include file="__THEME__/public_footer" />

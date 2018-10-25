@@ -1,0 +1,29 @@
+<include file="__THEME__/admin_header" />
+
+<div id="container" class="so_main">
+
+
+    <php>if(!empty($pageTab)):</php>
+    <div class="tit_tab">
+        <ul>
+        <php> !$_REQUEST['tabHash'] && $_REQUEST['tabHash'] =  $pageTab[0]['tabHash'];</php>
+        <volist name='pageTab' id='t'>
+            <li><a href="{$t.url}&tabHash={$t.tabHash}" <php> if($t['tabHash'] == $_REQUEST['tabHash']){ echo 'class="on"';}</php>>{$t.title}</a></li>
+        </volist>
+        </ul>
+    </div>
+    <php>endif;</php>
+    
+    
+<div class="form2">
+        <dl class="lineD">
+            <dt>主播数：</dt>
+            <dd>200 人</dd>
+        </dl>
+</div>
+
+</div>
+
+
+
+<include file="__THEME__/admin_footer" />

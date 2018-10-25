@@ -1,0 +1,92 @@
+<?php use Apps\Bonusevent\Common; ?>
+<include file="__THEME__/public_header" />
+<style type="text/css">
+.hd-topbox ul li.on a{
+	color: #41b3ec;
+}
+</style>
+<include file="../common/nav" />
+<div class="hd-worap">
+	<!-- 搜索-分类 -->
+	<div class="hd-top">
+		<!-- 搜索 -->
+		<div class="hd-search">
+			<input class="hd-text" id="J-search-wd" type="text" placeholder="输入关键字搜索活动" value="{$wd}">
+			<input class="hd-submit" id="J-search" style="cursor: pointer;" type="submit" value="搜索" data-wd="#J-search-wd" data-url="{:U('Bonusevent/Index/index', array('cid' => $cid, 'area' => $area, 'time' => $time, 'wd' => '%s'))}">
+		</div>
+		<div class="hd-topbox">
+			<div class="hd-topl"><span>活动选择</span></div>
+			<div class="hd-topr">
+				<!-- 分类 -->
+				<ul class="hd-tebtitle">
+					<li class="{:Common::hasEcho(!$cid, 'on')}"><a href="{:U('Bonusevent/Index/index', array('area' => $area, 'time' => $time, 'wd' => $wd))}">全部分类</a></li>
+					<?php foreach ($cates as $cate) { ?>
+						<li class="{:Common::hasEcho($cid == $cate['cid'], 'on')}">
+							<a href="{:U('Bonusevent/Index/index', array('area' => $area, 'time' => $time, 'wd' => $wd, 'cid' => $cate['cid']))}">{$cate['name']}</a>
+						</li>
+					<?php } ?>
+				</ul>
+				<!-- 地区 -->
+				<ul class="hd-tebbox">
+					<li class="{:Common::hasEcho(!$area, 'on')}"><a href="{:U('Bonusevent/Index/index', array('cid' => $cid, 'time' => $time, 'wd' => $wd))}">全部地区</a></li>
+					<?php foreach ($areas as $areaData) { ?>
+						<li class="{:Common::hasEcho($areaData['area_id'] == $area, 'on')}">
+							<a href="{:U('Bonusevent/Index/index', array('cid' => $cid, 'time' => $time, 'wd' => $wd, 'area' => $areaData['area_id']))}">{$areaData['title']}</a>
+						</li>
+					<?php } ?>
+				</ul>
+			</div>
+		</div>
+		<div class="hd-topbox-bb"></div>
+	</div>
+	<!-- 左侧列表 -->
+	<div class="listbox">
+		<?php foreach ($list['data'] as $event) { ?>
+			<div class="list01">
+				<a id="borderadius" href="{:U('Bonusevent/Info/index', array('id' => $event['eid']))}">
+					<?php $url = '__APP__/image/default/hdlist.jpg'; ?>
+					<?php if ($event['image']) {
+						$url = getImageUrlByAttachId($event['image'], 120, 170);
+					} ?>
+					<img src="{$url}" alt="{$event['name']}">
+				</a>
+				<div class="information">
+					<a href="{:U('Bonusevent/Info/index', array('id' => $event['eid']))}">
+						<h3>{$event['name']}</h3>
+					</a>
+					<ul>
+						<li>时间：{:date('Y年m月d日 H:i', $event['stime'])}&nbsp;～&nbsp;{:date('Y年m月d日 H:i', $event['etime'])}</li>
+						<?php 
+							$event['area'] = model('Area')->getAreaById($event['area']);
+							$event['area'] = $event['area']['title'];
+							$event['city'] = model('Area')->getAreaById($event['city']);
+							$event['city'] = $event['city']['title'];
+						?>
+						<li>地点：{$event['area']}&nbsp;{$event['city']}&nbsp;{$event['location']}</li>
+						<li>场所：{$event['place']}</li>
+						<li>费用：{$event['price']}RMB</li>
+						<?php 
+							$event['user'] = model('User')->getUserInfo($event['uid']);
+						?>
+						<li>发起人：<a id="blue" href="{$event['user']['space_url']}" target="_blank" uid="{$event['user']['uid']}" event-node="face_card" show="no">{$event['user']['uname']}</a></li>
+					</ul>
+					<?php
+						$button = '立即查看';
+						if ($event['etime'] <= time()) {
+							$button = '已经结束';
+						} elseif ($event['stime'] <= time()) {
+							$button = '立即报名';
+						}
+					?>
+					<a id="{:Common::hasEcho($button == '立即报名', 'baoming', 'baomingjieshu')}" href="{:U('Bonusevent/Info/index', array('id' => $event['eid']))}">{$button}</a>
+				</div>
+			</div>
+		<?php } ?>
+		<div class="page" id="page">{$list['html']}</div>
+	</div>
+	<!-- 右侧 -->
+	<div class="rightbox mt24">
+		<include file="../common/right" />
+	</div>
+</div>
+<include file="__THEME__/public_footer" />

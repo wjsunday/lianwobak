@@ -1,0 +1,35 @@
+<?php use Apps\Event\Common; ?>
+<include file="__THEME__/public_header" />
+<include file="../common/nav" />
+<div class="hd-shworap">
+	<h2 class="hd-fbtitle">报名审核 - 《{$name}》</h2>
+	<table class="hd-shtable">
+		<thead>
+			<tr>
+				<th style="width:175px;">申请人</th>
+				<th style="width:135px;">联系方式</th>
+				<th>备注</th>
+				<th style="width:220px;">操作</th>
+			</tr>
+		</thead>
+		<tbody id="J-aduit" data-uri="{:U('Event/Manage/doAduit')}">
+			<?php foreach ($list['data'] as $data) { ?>
+				<tr>
+					<td><b>{$data['name']}【{:Common::hasEcho($data['sex'] == 1, '男', '女')}】</b><p class="hd-ctime">{:date('Y-m-d H:i', $data['time'])}</p></td>
+					<td>{$data['phone']}</td>
+					<td>【{$data['num']}人】{$data['note']}</td>
+					<?php if($data['aduit'] == 1) { ?>
+						<td>已经通过审核</td>
+					<?php } else { ?>
+						<td class="hd-ctime" id="J-aduit-td-{$data['id']}">
+							<a href="{:U('Event/Manage/aduitYes', array('eid' => $data['eid'], 'uid' => $data['uid']))}" >通过审核</a>&nbsp;|&nbsp;
+							<a class="J-aduit-no" id="bohui" href="" data-eid="{$data['eid']}" data-uid="{$data['uid']}" data-box="#J-aduit-td-{$data['id']}">驳回申请</a>
+						</td>
+					<?php } ?>
+				</tr>
+			<?php } ?>
+		</tbody>
+	</table>
+	<div class="page" id="page">{$list['html']}</div>
+</div>
+<include file="__THEME__/public_footer" />

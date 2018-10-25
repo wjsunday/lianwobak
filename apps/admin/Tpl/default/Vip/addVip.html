@@ -1,0 +1,39 @@
+<include file="__THEME__/admin_header" />
+<div id="container" class="so_main">
+  <div class="page_tit">添加</div>
+
+
+<div class="form2">
+<form method="post" action="{:U('admin/Vip/add_Vip')}">
+  <dl class="lineD">
+    <dt>添加用户的邮箱：</dt>
+    <dd><input name="email" type="text" value="" class="s-txt"></dd>
+  </dl>
+  <dl class="lineD">
+    <dt>Vip权限：</dt>
+      <dd>
+      <volist name="pri" id="vo">
+      <input type="radio" name="pri" <eq name="key" value="0">checked=""</eq> value="{$vo.user_group_id}" />{$vo.user_group_name}
+      </volist>
+      </dd>
+  </dl>
+  <dl class="lineD">
+    <dt>时间：</dt>
+    <dd>
+      <input style="width:20px;text-align: center;" name="num" type="text" value="1" />
+      月
+    </dd>
+  </dl>
+  <dl class="lineD">
+    <dt>备注：</dt>
+    <dd><input name="remarks" type="text" value="" class="s-txt"><p>*添加理由</p></dd>
+  </dl>
+  <div class="page_btm">
+      <input type="submit" class="btn_b" value="确定" />
+  </div>
+</form>  
+</div>
+    </div>
+    </div>
+</div>
+<include file="__THEME__/admin_footer" />

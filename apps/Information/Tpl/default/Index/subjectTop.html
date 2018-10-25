@@ -1,0 +1,8 @@
+<?php if ($subjectTops && is_array($subjectTops)) { ?>
+<div class="title"><span>热门资讯</span></div>
+<ul class="newtlinst">
+  <?php foreach ($subjectTops as $i => $subjectTop) { ?>
+  <li><a href="{:U('Information/Index/read', array('id' => $subjectTop['id']))}"><i><?php echo $i + 1; ?></i>{$subjectTop.subject}</a></li>
+  <?php } ?>
+</ul>
+<?php unset($subjectTops, $subjectTop); } ?>

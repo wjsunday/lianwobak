@@ -1,0 +1,216 @@
+<include file="__THEME__/admin_header" />
+<style>
+.ping{background:url(__ROOT__/apps/bonus/_static/images/ping.png) left no-repeat; }
+.s-txt {width:200px;}
+.code-textarea {width:500px;height:200px;}
+.pic-main {margin:0 0 0 0;width: 750px;}
+.pic-main ul {width:750px;list-style:none;}
+.pic-main li {float:left;width:250px;height:33px;text-align:center;line-height:33px}
+
+.pic-size {height:150px;width:200px;} 
+
+.ico-top, .ico-btm {background: url("__THEME__/admin/image/ico_top_btm.gif") no-repeat scroll 0 0 transparent;height:14px;width:12px;}
+.ico-top, .ico-btm {display: inline-block;vertical-align: middle;}
+.ico-top {background-position: -12px 0;}
+.ico-btm {background-position: -24px 0;}
+.ico-top:hover {background-position: 0 0;}
+.ico-btm:hover {background-position: -35px 0;}
+
+.ico-close-small {
+  background: url("__THEME__/image/del.png") no-repeat 0 0;width:18px;height:18px;
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: 0;
+  background-position: 0 -26px;
+  width: 9px;
+  height: 8px;
+  cursor: pointer;
+  *vertical-align:3px;
+  _vertical-align:4px;
+}
+a.ico-close-small:hover {
+  background-position: 0 -82px;
+  width: 9px;
+  height: 8px;
+  cursor: pointer;
+  *vertical-align:3px;
+  _vertical-align:4px;
+}
+.ml8 {
+  margin-left: 8px;
+}
+.demo-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.demo-table caption {
+    border-bottom: 1px dashed #ccc;
+    height: 40px;
+    margin-bottom: 20px;
+    font: 18px/1.2 normal 'microsoft yahei';
+}
+
+.demo-table tr td {
+    padding: 8px 10px;
+    font: 16px/1.8 normal 'microsoft yahei';
+    vertical-align: top;
+}
+
+
+</style>
+<div class="so_main">
+    <php>if(!empty($pageTab)):</php>
+    <div class="tit_tab">
+        <ul>
+        <php> !$_REQUEST['tabHash'] && $_REQUEST['tabHash'] =  $pageTab[0]['tabHash'];</php>
+        <volist name='pageTab' id='t'>
+            <li><a href="{$t.url}&tabHash={$t.tabHash}" <php> if($t['tabHash'] == $_REQUEST['tabHash']){ echo 'class="on"';}</php>>{$t.title}</a></li>
+        </volist>
+        </ul>
+    </div>
+    <php>endif;</php>
+
+  <php>if(!empty($pageButton) || !empty($listData['html'])):</php>
+   <!-- START TOOLBAR -->
+  <div class="Toolbar_inbox">
+    <div class="page right">
+   
+    </div>  
+    <volist name='pageButton' id='b'>
+      <?php
+        $dataArgs = '';
+        if (is_array($b['data'])) {
+          foreach ($b['data'] as $dk => $dv) {
+            $dataArgs .= 'data-' . $dk . '="' . $dv . '"';
+          }
+        }
+      ?>
+      <a onclick="{$b.onclick}" class="btn_a {$b.class}" id="{$b.id}" {$dataArgs}><span>{$b.title}</span></a>
+      <?php unset($dataArgs); ?>
+    </volist>
+  </div>
+  <!-- END TOOLBAR -->
+  <php>endif;</php>
+
+
+<div class="form2">
+<form method="post" action="{:U('bonus/Admin/doSendRedpacket')}" id="doSendRedpacketForm" onsubmit="return doPost()">
+  	<input type="hidden" name='systemdata_list' value="{$systemdata_list}"  class="s-txt"/>
+  	<input type="hidden" name='systemdata_key' value="{$systemdata_key}"  class="s-txt"/>  
+  	<input type="hidden" name='pageTitle' value="{$pageTitle}" class="s-txt" />
+<dl class="lineD">
+	红包类型：发红包，可以任意会员抢
+</dl>
+
+<dl class="lineD">
+	<dt>红包个数 ：</dt>
+	<dd><input type="text" class="s-txt" style="width:200px; padding-left:25px" name="redpacket_many" id="redpacket_many" value="" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')"> 个</dd>
+</dl>
+<dl class="lineD">
+	<dt id='show_money_type'>单个金额 ：</dt>
+	<dd><input type="text" class="s-txt" style="width:200px; padding-left:25px;" name="redpacket_pre_money"  id="redpacket_pre_money" value="" onkeyup="value=value.replace(/[^\d.]/g,'')"> 元
+	<p id="show_money_type_msg">每人可领1个，金额相同且不能超过{$setting['redpacket_max_money']}元，<span id="changeRedpacketType" style="color:#09F; cursor:pointer">改为拼手气红包</span></p></dd>
+</dl>
+
+<dl class="lineD">
+	<dt>留言：</dt>
+	<dd><input type="text" class="s-txt" style="width:200px; padding-left:25px" name="redpacket_msg" id="redpacket_msg" value="恭喜发财，大吉大利！"></dd>
+</dl>
+<dl class="lineD">
+	<dt></dt>
+	<dd style="font-size:35px; font-weight:bold">￥<span id="total_amount">0.00</span><span id="total_amount_msg" style="font-size:13px; color:#f00; margin-left:30px;">0.00</span></dd>
+</dl>
+
+
+
+<div class="page_btm">
+<input type="hidden" name="editredpacketType" id="editredpacketType" value="1">
+<input type="hidden" name="editSubmit" value="1"> <input type="submit" class="btn_b" value="确定" id="doPost" /></div>
+</form>
+</div>
+</div>
+
+<script>
+  //鼠标移动表格效果
+    $(document).ready(function(){
+							   
+		showtotal_amount();
+    });
+	
+	function showtotal_amount()
+	{
+		var redpacket_max_money = {$setting['redpacket_max_money']};
+		var editredpacketType = $.trim($('#editredpacketType').val());
+		var redpacket_many = $.trim($('#redpacket_many').val());
+		var redpacket_pre_money = $.trim($('#redpacket_pre_money').val());
+		
+		if (redpacket_many == '') redpacket_many =0;
+		if (redpacket_pre_money == '') redpacket_pre_money =0;
+		if (editredpacketType == '1')
+		{
+				total = (parseFloat(parseInt(redpacket_many) * parseFloat(redpacket_pre_money)).toFixed(2));
+		}else{
+				total = (parseFloat(redpacket_pre_money).toFixed(2));
+		}
+		
+		if (total > redpacket_max_money)
+		{ 
+			//ui.error('总金额不能超过'+redpacket_max_money);
+			$('#total_amount').html(total);
+			$('#total_amount_msg').html('总金额不能超过'+redpacket_max_money);
+			
+		}else{
+			$('#total_amount').html(total);
+			$('#total_amount_msg').html('');
+
+		}
+		setTimeout('showtotal_amount()',1000);
+			
+	}
+		
+	function changeRedpacketType()
+	{
+			if ($('#editredpacketType').val() == 1)
+			{
+				$('#editredpacketType').val('2');
+				$("#show_money_type").html('总金额：');
+				$('#show_money_type_msg').html("每人可领1个，金额随机且不能超过{$setting['redpacket_max_money']}元<span id='changeRedpacketType' style='color:#09F;cursor:pointer; margin-left:20px;'>改为普通红包</span>");
+				$('#redpacket_pre_money').addClass('ping');
+			}else{
+				$('#editredpacketType').val('1');
+				$("#show_money_type").html('单个金额：');
+				$('#show_money_type_msg').html("每人可领1个，金额相同且不能超过{$setting['redpacket_max_money']}元,<span id='changeRedpacketType' style='color:#09F; cursor:pointer; margin-left:20px;'>改为拼手气红包</span>");
+				$('#redpacket_pre_money').removeClass('ping');
+
+			}
+		
+	}
+	$("#changeRedpacketType").live('click',changeRedpacketType);
+
+		function doPost(){
+			
+		var editredpacketType = $.trim($('#editredpacketType').val());
+		var redpacket_many = $.trim($('#redpacket_many').val());
+		var redpacket_pre_money = $.trim($('#redpacket_pre_money').val());
+		//alert(editredpacketType +' '+redpacket_many+' '+redpacket_pre_money);
+		if (redpacket_many === '') {
+			ui.error('请填写红包个数');
+			return false;
+		}
+		if (editredpacketType == '1') {
+			if (redpacket_many == ''){ui.error('请填写单个金额');return false;}
+			
+		}
+		if (editredpacketType == '2' && redpacket_pre_money == '') {
+			ui.error('请填写总金额');
+			return false;
+		}
+		return true;
+	}
+
+	
+
+</script>
+
+<include file="_footer" />

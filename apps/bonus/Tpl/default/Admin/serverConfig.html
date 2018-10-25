@@ -1,0 +1,36 @@
+<include file="__THEME__/admin_header" />
+<div class="so_main">
+    <php>if(!empty($pageTab)):</php>
+    <div class="tit_tab">
+        <ul>
+        <php> !$_REQUEST['tabHash'] && $_REQUEST['tabHash'] =  $pageTab[0]['tabHash'];</php>
+        <volist name='pageTab' id='t'>
+            <li><a href="{$t.url}&tabHash={$t.tabHash}" <php> if($t['tabHash'] == $_REQUEST['tabHash']){ echo 'class="on"';}</php>>{$t.title}</a></li>
+        </volist>
+        </ul>
+    </div>
+    <php>endif;</php>
+
+<div class="form2">
+<form method="post" action="{:U('zhibo/Admin/doServerConfig')}">
+  	<input type="hidden" name='systemdata_list' value="{$systemdata_list}"  class="s-txt"/>
+  	<input type="hidden" name='systemdata_key' value="{$systemdata_key}"  class="s-txt"/>  
+  	<input type="hidden" name='pageTitle' value="{$pageTitle}" class="s-txt" />
+
+<dl class="lineD">
+	<dt>直播服务器IP ：</dt>
+	<dd><input type="text" class="s-txt" style="width:160px;" name="serverIp" value=""> </dd>
+</dl>
+<dl class="lineD">
+	<dt>直播服务器端口 ：</dt>
+	<dd><input type="text" class="s-txt" style="width:160px;" name="serverPort" value=""> </dd>
+</dl>
+<div class="page_btm"><input type="hidden" name="editSubmit"
+	value="1"> <input type="submit" class="btn_b" value="确定添加" /></div>
+</form>
+</div>
+</div>
+<script>
+
+</script>
+<include file="_footer" />

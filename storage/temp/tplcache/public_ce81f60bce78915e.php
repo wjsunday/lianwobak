@@ -1,0 +1,2 @@
+<span event-node="show_admin" event-args="<?php echo ($eventArgs); ?>" class="<?php echo ($manageClass); ?> f12">管理</span>
+<textarea id="list_html_<?php echo ($feed_id); ?>" style="display:none;"><?php echo ($listHtml); ?></textarea>

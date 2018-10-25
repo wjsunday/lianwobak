@@ -1,0 +1,10 @@
+<include file="__THEME__/public_header" />
+<include file="../common/nav" />
+<div class="hd-worap">
+	<h2 class="hd-fbtitle">编辑活动 - 《{$event['name']}》</h2>
+	<!-- <div class="hd-fbbianji"> -->
+		{:W('UM', array('contentName' => 'content', 'width' => 955, 'type' => 'event', 'content' => $event['content']))}
+	<!-- </div> -->
+	<button class="hd-fbbtn" id="J-button" style="cursor: pointer;" type="submit" data-eid="{$event['eid']}" data-uri="{:U('Bonusevent/Release/doEdit')}" data-jump="{:U('Bonusevent/Info/index', array('id' => $event['eid']))}">保存编辑</button>
+</div>
+<include file="__THEME__/public_footer" />

@@ -1,0 +1,40 @@
+<include file="__THEME__/public_header" />
+<div class="contentbox">
+    <div class="leftbox">
+        <h2 class="height70">礼物商城</h2>
+        <ul class="gift-nav">
+            <li><a href="{:U('Gift/Index/index')}" <?php if(!$cate) { ?>style="color:#0096e6;"<?php } ?>>全部礼物</a></li>
+            <li><a href="{:U('Gift/Index/index', array('cate' => 1))}" <?php if(1 == $cate) { ?>style="color:#0096e6;"<?php } ?>>虚拟礼物</a></li>
+            <li><a href="{:U('Gift/Index/index', array('cate' => 2))}" <?php if(2 == $cate) { ?>style="color:#0096e6;"<?php } ?>>实体礼物</a></li>
+            <li id="mygift"><a href="{:U('Gift/Index/my')}"><span></span>我的礼物</a></li>
+        </ul>
+        <?php if (count($gifts['data'])) { ?>
+        <?php foreach($gifts['data'] as $gift) { ?>
+        <div class="list01">
+            <a class="img" href="{:U('Gift/Index/read', array('id' => $gift['id']))}">
+                <img src="{:getImageUrlByAttachId($gift['image'], 123, 123)}" alt="{$gift['name']}">
+            </a>
+            <a href="{:U('Gift/Index/read', array('id' => $gift['id']))}">
+                <h4>{$gift['name']}</h4>
+            </a>
+            <span>{$gift['score']}积分，库存{$gift['stock']}份</span>
+        </div>
+        <?php } ?>
+        <?php if($gifts['html']) { ?>
+        <span class="pagebox">
+            <?php echo $gifts['html']; ?>
+        </span>
+        <?php } ?>
+        <?php } else { ?>
+        <h1>暂时没有礼物</h1>
+        <?php } ?>
+    </div>
+    <!-- 右侧 -->
+    <div id="col3" class="st-index-right">
+        <!-- 用户信息 -->
+        <include file="common_user" />
+        <!-- 排行榜 -->
+        <include file="common_tops" />
+    </div>
+</div>
+<include file="__THEME__/public_footer" />
